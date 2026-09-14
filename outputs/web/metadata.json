@@ -1,0 +1,29 @@
+{
+  "fuente": "Contrataciones Abiertas OCDS - OECE/OSCE Peru",
+  "url_fuente": "https://contratacionesabiertas.osce.gob.pe/",
+  "anio": 2025,
+  "n_archivos_json": 12,
+  "mb_json": 1400.9,
+  "mb_parquet": 18.0,
+  "n_releases_crudos": 79332,
+  "n_procesos_unicos": 79332,
+  "n_variables": 47,
+  "spark_version": "3.5.0",
+  "benchmark_agregacion_A": [
+    {
+      "enfoque": "RDD (MapReduce)",
+      "tiempo_s": 0.807,
+      "veces_vs_mejor": 6.78
+    },
+    {
+      "enfoque": "DataFrame",
+      "tiempo_s": 0.126,
+      "veces_vs_mejor": 1.06
+    },
+    {
+      "enfoque": "Spark SQL",
+      "tiempo_s": 0.119,
+      "veces_vs_mejor": 1.0
+    }
+  ]
+}

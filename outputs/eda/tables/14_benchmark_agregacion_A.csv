@@ -1,0 +1,4 @@
+﻿enfoque,tiempo_s,veces_vs_mejor
+RDD (MapReduce),0.807,6.78
+DataFrame,0.126,1.06
+Spark SQL,0.119,1.0
