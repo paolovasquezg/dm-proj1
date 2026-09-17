@@ -1,6 +1,6 @@
 # Proyecto 01: Data Mining
 
-Mineria y análisis en las contrataciones abiertas de la compra pública en Perú en 2025
+Mineria y análisis en las contrataciones abiertas de la compra pública en Perú durante los años 2023 a 2025
 
 ## Dependencias
 
@@ -17,5 +17,5 @@ pip install -r requirements.txt
 Para descargar la data:
 
 ```bash
-python3 download/download.py
+python3 download.py
 ```

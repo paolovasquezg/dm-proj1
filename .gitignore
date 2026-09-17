@@ -1,5 +1,8 @@
 .env
+.DS_Store
 data/
 venv/
 parquet/
+/outputs
+__pycache__/
 .ipynb_checkpoints/
