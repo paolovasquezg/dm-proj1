@@ -1,16 +1,15 @@
-# Cluster Spark standalone (1 master + 1 worker) + Jupyter como driver.
-# Usa la imagen oficial tal cual: no hay build, solo se descarga la primera vez.
-#   docker compose up -d
 #   Jupyter  -> http://localhost:8888
-#   Master   -> http://localhost:8080   | App (job en curso) -> http://localhost:4040
+#   Master   -> http://localhost:8080 
+#   App      -> http://localhost:4040
+
 x-spark: &spark
   image: quay.io/jupyter/pyspark-notebook:spark-3.5.0
-  user: root                      # start.sh ajusta el UID y luego baja a 'jovyan'
+  user: root                     
   environment: &env
-    NB_UID: ${HOST_UID:-1000}     # en Linux: HOST_UID=$(id -u) si tu usuario no es 1000
+    NB_UID: ${HOST_UID:-1000}
     NB_GID: ${HOST_GID:-100}
   volumes:
-    - .:/home/jovyan/work         # misma ruta en todos los contenedores (data/ y parquet/ compartidos)
+    - .:/home/jovyan/work
   working_dir: /home/jovyan/work
 
 services:
@@ -35,13 +34,26 @@ services:
     ports:
       - "8081:8081"
 
+  spark-worker-2:
+    <<: *spark
+    hostname: spark-worker-2
+    depends_on: [spark-master]
+    environment:
+      <<: *env
+      SPARK_WORKER_CORES: ${SPARK_WORKER_CORES:-2}
+      SPARK_WORKER_MEMORY: ${SPARK_WORKER_MEMORY:-6g}
+    command: /usr/local/spark/bin/spark-class org.apache.spark.deploy.worker.Worker
+             spark://spark-master:7077 --work-dir /tmp/spark-work --webui-port 8081
+    ports:
+      - "8082:8081"
+
   jupyter:
     <<: *spark
-    hostname: jupyter             # los executors se conectan al driver por este nombre
+    hostname: jupyter
     depends_on: [spark-master, spark-worker]
     environment:
       <<: *env
-      SPARK_MASTER: spark://spark-master:7077
+      spark_master: spark://spark-master:7077
       SPARK_DRIVER_MEMORY: ${SPARK_DRIVER_MEMORY:-3g}
       SPARK_EXECUTOR_MEMORY: ${SPARK_EXECUTOR_MEMORY:-5g}
     command: start-notebook.sh --IdentityProvider.token= --ServerApp.root_dir=/home/jovyan/work

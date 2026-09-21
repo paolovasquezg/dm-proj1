@@ -1,11 +1,8 @@
-beautifulsoup4==4.15.0
+requests==2.34.2
 certifi==2026.7.22
 charset-normalizer==3.5.1
-filelock==3.32.6
 idna==3.19
-PySocks==1.7.1
-requests==2.34.2
-soupsieve==2.9.2
-tqdm==4.70.1
-typing_extensions==4.16.0
 urllib3==2.7.0
+pandas
+matplotlib
+pyspark==3.5.0
