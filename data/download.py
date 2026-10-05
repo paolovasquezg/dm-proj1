@@ -7,12 +7,13 @@ script_dir = os.path.dirname(os.path.abspath(__file__))
 data_dir = os.path.join(script_dir, "raw")
 
 base_url = "https://contratacionesabiertas.oece.gob.pe/api/v1/file/seace_v3/json/{year}/{month}"
+headers = {"User-Agent": "Mozilla/5.0"}
 
 years = ["2023", "2024", "2025"]
 months = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"]
 
 def download_file(url, output_path):
-    response = requests.get(url, timeout=60)
+    response = requests.get(url, headers=headers, timeout=60)
     response.raise_for_status()
 
     with zipfile.ZipFile(io.BytesIO(response.content)) as zf:
