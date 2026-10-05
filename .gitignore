@@ -1,6 +1,8 @@
 .env
 .DS_Store
-data/
+data/final
+data/staging
+data/raw
 venv/
 parquet/
 /outputs

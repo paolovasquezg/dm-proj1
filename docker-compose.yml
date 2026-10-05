@@ -27,8 +27,8 @@ services:
     depends_on: [spark-master]
     environment:
       <<: *env
-      SPARK_WORKER_CORES: ${SPARK_WORKER_CORES:-2}
-      SPARK_WORKER_MEMORY: ${SPARK_WORKER_MEMORY:-6g}
+      SPARK_WORKER_CORES: ${SPARK_WORKER_CORES:-1}
+      SPARK_WORKER_MEMORY: ${SPARK_WORKER_MEMORY:-2g}
     command: /usr/local/spark/bin/spark-class org.apache.spark.deploy.worker.Worker
              spark://spark-master:7077 --work-dir /tmp/spark-work --webui-port 8081
     ports:
@@ -40,8 +40,8 @@ services:
     depends_on: [spark-master]
     environment:
       <<: *env
-      SPARK_WORKER_CORES: ${SPARK_WORKER_CORES:-2}
-      SPARK_WORKER_MEMORY: ${SPARK_WORKER_MEMORY:-6g}
+      SPARK_WORKER_CORES: ${SPARK_WORKER_CORES:-1}
+      SPARK_WORKER_MEMORY: ${SPARK_WORKER_MEMORY:-2g}
     command: /usr/local/spark/bin/spark-class org.apache.spark.deploy.worker.Worker
              spark://spark-master:7077 --work-dir /tmp/spark-work --webui-port 8081
     ports:
@@ -54,8 +54,8 @@ services:
     environment:
       <<: *env
       spark_master: spark://spark-master:7077
-      SPARK_DRIVER_MEMORY: ${SPARK_DRIVER_MEMORY:-3g}
-      SPARK_EXECUTOR_MEMORY: ${SPARK_EXECUTOR_MEMORY:-5g}
+      SPARK_DRIVER_MEMORY: ${SPARK_DRIVER_MEMORY:-2g}
+      SPARK_EXECUTOR_MEMORY: ${SPARK_EXECUTOR_MEMORY:-2g}
     command: start-notebook.sh --IdentityProvider.token= --ServerApp.root_dir=/home/jovyan/work
     ports:
       - "8888:8888"

@@ -5,4 +5,5 @@ idna==3.19
 urllib3==2.7.0
 pandas
 matplotlib
+pyarrow
 pyspark==3.5.0

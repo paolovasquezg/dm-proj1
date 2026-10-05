@@ -23,7 +23,7 @@ pip install -r requirements.txt
 Para descargar la data:
 
 ```bash
-python3 download.py
+python3 data/download.py
 ```
 
 ## Pipeline
@@ -35,7 +35,17 @@ python3 download.py
 
 ### 2. EDA y KDD
 
+#### 2.1 EDA
+
 Ejecutar en orden:
 
-- 01_EDA_KDD/a_eda.ipynb
-- 01_EDA_KDD/b_kdd.ipynb
+- 01_EDA_KDD/EDA/a_entendimiento.ipynb
+- 01_EDA_KDD/EDA/b_exploracion.ipynb
+- 01_EDA_KDD/EDA/c_justificacion.ipynb
+
+#### 2.2 KDD
+
+Ejecutar en orden:
+
+- 01_EDA_KDD/KDD/a_transformaciones.ipynb
+- 01_EDA_KDD/KDD/b_recuento.ipynb

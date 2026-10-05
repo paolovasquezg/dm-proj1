@@ -4,7 +4,7 @@ import zipfile
 import requests
 
 script_dir = os.path.dirname(os.path.abspath(__file__))
-data_dir = os.path.join(script_dir, "data")
+data_dir = os.path.join(script_dir, "raw")
 
 base_url = "https://contratacionesabiertas.oece.gob.pe/api/v1/file/seace_v3/json/{year}/{month}"
 
