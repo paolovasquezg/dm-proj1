@@ -28,6 +28,8 @@ python3 data/download.py
 
 ## Pipeline
 
+Ejecutar todo el flujo en orden
+
 ### 1. Levantar el entorno
 
 - docker.ipynb
@@ -37,15 +39,11 @@ python3 data/download.py
 
 #### 2.1 EDA
 
-Ejecutar en orden:
-
 - 01_EDA_KDD/EDA/a_entendimiento.ipynb
 - 01_EDA_KDD/EDA/b_exploracion.ipynb
 - 01_EDA_KDD/EDA/c_justificacion.ipynb
 
 #### 2.2 KDD
-
-Ejecutar en orden:
 
 - 01_EDA_KDD/KDD/a_transformaciones.ipynb
 - 01_EDA_KDD/KDD/b_recuento.ipynb
