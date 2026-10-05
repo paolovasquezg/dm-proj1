@@ -6,6 +6,7 @@ data/raw
 venv/
 parquet/
 /outputs
+04_Asociacion/temp/
 __pycache__/
 .ipynb_checkpoints/
 data/p2
