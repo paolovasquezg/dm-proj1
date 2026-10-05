@@ -47,3 +47,10 @@ Ejecutar todo el flujo en orden
 
 - 01_EDA_KDD/KDD/a_transformaciones.ipynb
 - 01_EDA_KDD/KDD/b_recuento.ipynb
+
+### 3. Reglas de asociación
+
+- 04_Asociacion/a_canastas.ipynb
+- 04_Asociacion/b_itemsets.ipynb
+- 04_Asociacion/c_reglas.ipynb
+- 04_Asociacion/d_analisis.ipynb

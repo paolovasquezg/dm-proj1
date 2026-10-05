@@ -6,4 +6,6 @@ urllib3==2.7.0
 pandas
 matplotlib
 pyarrow
+numpy<2
+mlxtend
 pyspark==3.5.0
