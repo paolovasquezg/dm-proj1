@@ -8,3 +8,5 @@ parquet/
 /outputs
 __pycache__/
 .ipynb_checkpoints/
+data/p2
+data/p3
