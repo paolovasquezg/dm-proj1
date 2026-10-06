@@ -30,27 +30,27 @@ python3 data/download.py
 
 Ejecutar todo el flujo en orden
 
-### 1. Levantar el entorno
+### 0. Levantar el entorno
 
 - docker.ipynb
 - Kernel picker → "Existing Jupyter Server..." → `http://localhost:8888`
 
-### 2. EDA y KDD
+### 1. EDA y KDD
 
-#### 2.1 EDA
+#### 1.1 EDA
 
 - 01_EDA_KDD/EDA/a_entendimiento.ipynb
 - 01_EDA_KDD/EDA/b_exploracion.ipynb
 - 01_EDA_KDD/EDA/c_justificacion.ipynb
 
-#### 2.2 KDD
+#### 1.2 KDD
 
 - 01_EDA_KDD/KDD/a_transformaciones.ipynb
 - 01_EDA_KDD/KDD/b_recuento.ipynb
 
-### 3. Reglas de asociación
+### 5. Reglas de asociación
 
-- 04_Asociacion/a_canastas.ipynb
-- 04_Asociacion/b_itemsets.ipynb
-- 04_Asociacion/c_reglas.ipynb
-- 04_Asociacion/d_analisis.ipynb
+- 05_Asociacion/a_canastas.ipynb
+- 05_Asociacion/b_itemsets.ipynb
+- 05_Asociacion/c_reglas.ipynb
+- 05_Asociacion/d_analisis.ipynb
