@@ -9,5 +9,5 @@ parquet/
 05_Asociacion/temp/
 __pycache__/
 .ipynb_checkpoints/
-data/p2
-data/p3
+02_Similitud/temp/
+03_ANN/temp/

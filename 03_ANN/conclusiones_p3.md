@@ -8,10 +8,10 @@
 
 | Notebook | Qué hace | Salida |
 |---|---|---|
-| `p3_funciones` | Parámetros (4,096 dimensiones, 300 listas, `NPROBE=2`, `K=10`) y funciones de TF-IDF, coseno, IVF y top-K | — |
-| `a_vectores_tfidf` | Convierte los `tokens` en vectores TF-IDF normalizados | `data/p3/vectores/` |
-| `b_indice_ivf` | Agrupa los vectores en 300 "barrios" con KMeans y anota en cuál vive cada proceso | `data/p3/centroides/`, `data/p3/listas/` |
-| `c_busqueda_ann` | Busca los 10 vecinos de cada consulta revisando solo 2 barrios, por lotes, y lo compara contra la fuerza bruta | `data/p3/consultas/`, `data/p3/vecinos/` |
+| `funciones` | Parámetros (4,096 dimensiones, 300 listas, `NPROBE=2`, `K=10`) y funciones de TF-IDF, coseno, IVF y top-K | — |
+| `a_vectores_tfidf` | Convierte los `tokens` en vectores TF-IDF normalizados | `temp/a_vectores_tfidf/vectores/` |
+| `b_indice_ivf` | Agrupa los vectores en 300 "barrios" con KMeans y anota en cuál vive cada proceso | `temp/b_indice_ivf/centroides/`, `temp/b_indice_ivf/listas/` |
+| `c_busqueda_ann` | Busca los 10 vecinos de cada consulta revisando solo 2 barrios, por lotes, y lo compara contra la fuerza bruta | `temp/c_busqueda_ann/consultas/`, `temp/c_busqueda_ann/vecinos/` |
 | `d_analisis_entidades_regiones` | Similitud por entidad y región, y variación del monto entre procesos casi iguales | — (gráficos) |
 
 ## Resultados de las técnicas

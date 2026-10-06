@@ -8,11 +8,11 @@
 
 | Notebook | Qué hace | Salida |
 |---|---|---|
-| `p2_funciones` | Parámetros (`t=100`, `b=10`, `r=10`, 15 días, umbral 0.90) y funciones de MinHash, Jaccard y LSH | — |
-| `a_firmas_minhash` | Calcula una firma MinHash de 100 valores por proceso y verifica que aproxima a Jaccard | `data/p2/firmas/` |
+| `funciones` | Parámetros (`t=100`, `b=10`, `r=10`, 15 días, umbral 0.90) y funciones de MinHash, Jaccard y LSH | — |
+| `a_firmas_minhash` | Calcula una firma MinHash de 100 valores por proceso y verifica que aproxima a Jaccard | `temp/a_firmas_minhash/firmas/` |
 | `b_evaluacion_lsh` | En un mes (2024-06) compara LSH contra fuerza bruta para 4 configuraciones `(b, r)` | — (checkpoint) |
-| `c_lsh_pares` | Corre LSH mes a mes y guarda los pares verificados ≥ 0.90 | `data/p2/pares/` |
-| `d_entidades_rate` | Agrupa los pares, arma grupos de procesos y calcula el rate por entidad | `data/p2/entidades/` |
+| `c_lsh_pares` | Corre LSH mes a mes y guarda los pares verificados ≥ 0.90 | `temp/c_lsh_pares/pares/` |
+| `d_entidades_rate` | Agrupa los pares, arma grupos de procesos y calcula el rate por entidad | `temp/d_entidades_rate/entidades/` |
 
 ## Resultados de las técnicas
 

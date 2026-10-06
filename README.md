@@ -48,6 +48,24 @@ Ejecutar todo el flujo en orden
 - 01_EDA_KDD/KDD/a_transformaciones.ipynb
 - 01_EDA_KDD/KDD/b_recuento.ipynb
 
+### 2. Similitud (MinHash + LSH)
+
+`02_Similitud/funciones.ipynb` se carga solo desde cada notebook
+
+- 02_Similitud/a_firmas_minhash.ipynb
+- 02_Similitud/b_evaluacion_lsh.ipynb
+- 02_Similitud/c_lsh_pares.ipynb
+- 02_Similitud/d_entidades_rate.ipynb
+
+### 3. ANN (TF-IDF + IVF)
+
+`03_ANN/funciones.ipynb` se carga solo desde cada notebook
+
+- 03_ANN/a_vectores_tfidf.ipynb
+- 03_ANN/b_indice_ivf.ipynb
+- 03_ANN/c_busqueda_ann.ipynb
+- 03_ANN/d_analisis_entidades_regiones.ipynb
+
 ### 5. Reglas de asociación
 
 - 05_Asociacion/a_canastas.ipynb
