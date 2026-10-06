@@ -9,4 +9,5 @@ parquet/
 05_Asociacion/temp/
 __pycache__/
 .ipynb_checkpoints/
-instrucciones.md
+data/p2
+data/p3
