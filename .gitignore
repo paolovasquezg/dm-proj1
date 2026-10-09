@@ -6,6 +6,8 @@ data/raw
 venv/
 parquet/
 /outputs
+01_EDA_KDD/temp/
+04_Flujos/temp/
 05_Asociacion/temp/
 __pycache__/
 .ipynb_checkpoints/

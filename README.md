@@ -28,7 +28,11 @@ python3 data/download.py
 
 ## Pipeline
 
-Ejecutar todo el flujo en orden
+Ejecutar todo el flujo en orden, o alternativamente correr:
+
+```bash
+sh pipeline.sh
+```
 
 ### 0. Levantar el entorno
 
@@ -47,6 +51,13 @@ Ejecutar todo el flujo en orden
 
 - 01_EDA_KDD/KDD/a_transformaciones.ipynb
 - 01_EDA_KDD/KDD/b_recuento.ipynb
+
+### 4. Minería de flujos
+
+- 04_Flujos/a_dgim.ipynb
+- 04_Flujos/b_bloom.ipynb
+- 04_Flujos/c_sketch.ipynb
+- 04_Flujos/d_analisis.ipynb
 
 ### 5. Reglas de asociación
 
