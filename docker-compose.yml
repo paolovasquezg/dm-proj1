@@ -1,7 +1,3 @@
-#   Jupyter  -> http://localhost:8888
-#   Master   -> http://localhost:8080 
-#   App      -> http://localhost:4040
-
 x-spark: &spark
   image: quay.io/jupyter/pyspark-notebook:spark-3.5.0
   user: root                     
