@@ -52,6 +52,22 @@ sh pipeline.sh
 - 01_EDA_KDD/KDD/a_transformaciones.ipynb
 - 01_EDA_KDD/KDD/b_recuento.ipynb
 
+### 2. Similitud
+
+- 02_Similitud/a_minhash.ipynb
+- 02_Similitud/b_lsh.ipynb
+- 02_Similitud/c_pares.ipynb
+- 02_Similitud/d_entidades.ipynb
+- 02_Similitud/e_analisis.ipynb
+
+### 3. Vecinos aproximados (ANN)
+
+- 03_ANN/a_tfidf.ipynb
+- 03_ANN/b_ind_ivf.ipynb
+- 03_ANN/c_bus_ivf.ipynb
+- 03_ANN/d_faiss.ipynb
+- 03_ANN/e_analisis.ipynb
+
 ### 4. Minería de flujos
 
 - 04_Flujos/a_dgim.ipynb

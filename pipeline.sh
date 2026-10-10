@@ -23,6 +23,24 @@ docker compose exec -T jupyter jupyter nbconvert --to notebook --execute --inpla
 docker compose exec -T jupyter jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=$TIMEOUT 01_EDA_KDD/KDD/a_transformaciones.ipynb
 docker compose exec -T jupyter jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=$TIMEOUT 01_EDA_KDD/KDD/b_recuento.ipynb
 
+echo "== 2. Similitud =="
+
+# 2. Similitud
+docker compose exec -T jupyter jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=$TIMEOUT 02_Similitud/a_minhash.ipynb
+docker compose exec -T jupyter jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=$TIMEOUT 02_Similitud/b_lsh.ipynb
+docker compose exec -T jupyter jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=$TIMEOUT 02_Similitud/c_pares.ipynb
+docker compose exec -T jupyter jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=$TIMEOUT 02_Similitud/d_entidades.ipynb
+docker compose exec -T jupyter jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=$TIMEOUT 02_Similitud/e_analisis.ipynb
+
+echo "== 3. Vecinos aproximados =="
+
+# 3. Vecinos aproximados (ANN)
+docker compose exec -T jupyter jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=$TIMEOUT 03_ANN/a_tfidf.ipynb
+docker compose exec -T jupyter jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=$TIMEOUT 03_ANN/b_ind_ivf.ipynb
+docker compose exec -T jupyter jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=$TIMEOUT 03_ANN/c_bus_ivf.ipynb
+docker compose exec -T jupyter jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=$TIMEOUT 03_ANN/d_faiss.ipynb
+docker compose exec -T jupyter jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=$TIMEOUT 03_ANN/e_analisis.ipynb
+
 echo "== 4. Minería de flujos =="
 
 # 4. Minería de flujos
