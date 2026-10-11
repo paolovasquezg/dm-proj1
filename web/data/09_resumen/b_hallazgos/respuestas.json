@@ -1,0 +1,17 @@
+[
+ {
+  "pregunta":"P1 — Competencia",
+  "respuesta":"Postor único ~11%, explicado por el método (Contratación Directa 86.5%) y concentrado en montos bajos, Lima\/Tumbes, enero\/diciembre y pares que se repiten",
+  "evidencia":"EDA, DGIM, Bloom, Count-Min, reglas (conf. 93.6%)"
+ },
+ {
+  "pregunta":"P2 — Fraccionamiento",
+  "respuesta":"1 de cada 6 procesos tiene un casi idéntico cercano, pero solo el 0.66% cumple el patrón completo; OEFA aporta el 90%",
+  "evidencia":"MinHash + LSH (recall 99.99%), embudo de filtros"
+ },
+ {
+  "pregunta":"P3 — Precios de referencia",
+  "respuesta":"Mediana 1x y 12% paga ≥ 2x; la diferencia aparece entre entidades distintas (escala de compra), no entre regiones",
+  "evidencia":"TF-IDF + IVF (recall 75%), ratio vs vecinos"
+ }
+]

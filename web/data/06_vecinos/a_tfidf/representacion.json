@@ -1,0 +1,14 @@
+[
+ {
+  "representacion":"palabras (tokens)",
+  "tamano_mediano":16,
+  "vocabulario_muestra":23946,
+  "dims_por_hash":5.8
+ },
+ {
+  "representacion":"shingles k=5",
+  "tamano_mediano":182,
+  "vocabulario_muestra":154559,
+  "dims_por_hash":37.7
+ }
+]

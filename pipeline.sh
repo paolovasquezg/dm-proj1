@@ -65,4 +65,8 @@ docker compose exec -T jupyter jupyter nbconvert --to notebook --execute --inpla
 docker compose exec -T jupyter jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=$TIMEOUT 06_Analisis/b_hallazgos.ipynb
 docker compose exec -T jupyter jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=$TIMEOUT 06_Analisis/c_insights.ipynb
 
+echo "== 7. Datos para la web =="
+
+python data/exportar.py
+
 echo "== Pipeline terminado =="

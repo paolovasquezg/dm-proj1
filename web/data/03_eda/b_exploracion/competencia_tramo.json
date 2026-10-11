@@ -1,0 +1,32 @@
+[
+ {
+  "tramo":"0_sin_monto",
+  "procesos":16203,
+  "%_postor_unico":6.9
+ },
+ {
+  "tramo":"1_<50k",
+  "procesos":12916,
+  "%_postor_unico":57.3
+ },
+ {
+  "tramo":"2_50k-200k",
+  "procesos":99974,
+  "%_postor_unico":9.8
+ },
+ {
+  "tramo":"3_200k-1M",
+  "procesos":72260,
+  "%_postor_unico":7.7
+ },
+ {
+  "tramo":"4_1M-5M",
+  "procesos":24619,
+  "%_postor_unico":8.0
+ },
+ {
+  "tramo":"5_>5M",
+  "procesos":10257,
+  "%_postor_unico":6.8
+ }
+]

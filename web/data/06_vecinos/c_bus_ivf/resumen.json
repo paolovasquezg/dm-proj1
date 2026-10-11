@@ -1,0 +1,14 @@
+[
+ {
+  "consultas":20062,
+  "K":10,
+  "NLIST":300,
+  "NPROBE":2,
+  "candidatos":127314108,
+  "comparaciones_evitadas":0.9731,
+  "consultas_exactas":340,
+  "seg_fuerza_bruta":63.2,
+  "seg_ivf":4.3,
+  "recall_at_k":0.75
+ }
+]

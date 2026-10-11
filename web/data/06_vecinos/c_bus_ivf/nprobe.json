@@ -1,0 +1,23 @@
+[
+ {
+  "NPROBE":1,
+  "recall@K":0.638,
+  "seg":2.9,
+  "candidatos":844549,
+  "frac_indice_revisado":0.0105
+ },
+ {
+  "NPROBE":2,
+  "recall@K":0.75,
+  "seg":4.1,
+  "candidatos":2140990,
+  "frac_indice_revisado":0.0267
+ },
+ {
+  "NPROBE":4,
+  "recall@K":0.81,
+  "seg":7.9,
+  "candidatos":4428015,
+  "frac_indice_revisado":0.0552
+ }
+]

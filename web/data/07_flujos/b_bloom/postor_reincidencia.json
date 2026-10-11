@@ -1,0 +1,12 @@
+[
+ {
+  "par":"primera vez",
+  "llegadas":123860,
+  "pct_postor_unico":11.9
+ },
+ {
+  "par":"reincidente",
+  "llegadas":60369,
+  "pct_postor_unico":16.3
+ }
+]

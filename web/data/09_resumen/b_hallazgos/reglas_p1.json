@@ -1,0 +1,44 @@
+[
+ {
+  "regla":"comp=postor_unico, monto=2_50k-200k  →  met=CONTRATACIÓN DIRECTA",
+  "soporte":0.0229536266,
+  "confianza":0.5309803922,
+  "lift":9.1210648989
+ },
+ {
+  "regla":"reg=LIMA, rubro=80  →  cat=SERVICES, comp=postor_unico",
+  "soporte":0.0286284615,
+  "confianza":0.6938880329,
+  "lift":8.8147764029
+ },
+ {
+  "regla":"monto=1_<50k, reg=LIMA  →  cat=SERVICES, comp=postor_unico",
+  "soporte":0.0237292015,
+  "confianza":0.689192516,
+  "lift":8.7551271089
+ },
+ {
+  "regla":"met=CONTRATACIÓN DIRECTA, monto=2_50k-200k  →  comp=postor_unico",
+  "soporte":0.0229536266,
+  "confianza":0.9358907897,
+  "lift":8.3710074069
+ },
+ {
+  "regla":"met=CONTRATACIÓN DIRECTA, reg=LIMA  →  comp=postor_unico",
+  "soporte":0.0259499733,
+  "confianza":0.8897122929,
+  "lift":7.957967186
+ },
+ {
+  "regla":"cat=SERVICES, met=CONTRATACIÓN DIRECTA  →  comp=postor_unico",
+  "soporte":0.031874857,
+  "confianza":0.8857613944,
+  "lift":7.9226286603
+ },
+ {
+  "regla":"cat=SERVICES, monto=1_<50k  →  comp=postor_unico, reg=LIMA",
+  "soporte":0.0237292015,
+  "confianza":0.6008800172,
+  "lift":7.9202303543
+ }
+]

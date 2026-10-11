@@ -1,0 +1,41 @@
+[
+ {
+  "estructura":"DGIM",
+  "tarea":"postor único en ventana",
+  "parametros":"N=6600, r=2",
+  "metrica_error":"error relativo medio",
+  "error":0.1088621545,
+  "memoria_bytes":40.375,
+  "memoria_exacta_bytes":825.0,
+  "us_por_elemento":1.8919826534,
+  "us_por_elemento_exacto":0.0584895064,
+  "ahorro_memoria":20.4334365325,
+  "costo_tiempo":32.3473862049
+ },
+ {
+  "estructura":"Bloom Filter",
+  "tarea":"reincidencia entidad-proveedor",
+  "parametros":"m=1187311, k=7",
+  "metrica_error":"tasa de falsos positivos (final)",
+  "error":0.01024,
+  "memoria_bytes":148414.0,
+  "memoria_exacta_bytes":20037851.0,
+  "us_por_elemento":2.8748188583,
+  "us_por_elemento_exacto":0.3364351309,
+  "ahorro_memoria":135.0132130392,
+  "costo_tiempo":8.5449425287
+ },
+ {
+  "estructura":"Count-Min Sketch",
+  "tarea":"frecuencia de pares entidad-proveedor",
+  "parametros":"w=33390, d=5",
+  "metrica_error":"sobreestimación media (apariciones)",
+  "error":1.9812062549,
+  "memoria_bytes":667800.0,
+  "memoria_exacta_bytes":23156583.0,
+  "us_por_elemento":2.9590361958,
+  "us_por_elemento_exacto":0.2024045037,
+  "ahorro_memoria":34.6759254268,
+  "costo_tiempo":14.6194187457
+ }
+]

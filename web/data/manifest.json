@@ -1,0 +1,443 @@
+{
+ "02_dataset": [
+  {
+   "archivo": "02_dataset/a_entendimiento/volumen_anio.json",
+   "origen": "01_EDA_KDD/temp/a_entendimiento/web/volumen_anio.json",
+   "filas": 4
+  },
+  {
+   "archivo": "02_dataset/a_transformaciones/seleccion_columnas.json",
+   "origen": "01_EDA_KDD/temp/a_transformaciones/web/seleccion_columnas.json",
+   "filas": 17
+  },
+  {
+   "archivo": "02_dataset/b_exploracion/texto_stats.json",
+   "origen": "01_EDA_KDD/temp/b_exploracion/web/texto_stats.json",
+   "filas": 1
+  },
+  {
+   "archivo": "02_dataset/b_exploracion/monto_adjudicado_anio.json",
+   "origen": "01_EDA_KDD/temp/b_exploracion/web/monto_adjudicado_anio.json",
+   "filas": 4
+  }
+ ],
+ "03_eda": [
+  {
+   "archivo": "03_eda/a_entendimiento/nulos.json",
+   "origen": "01_EDA_KDD/temp/a_entendimiento/web/nulos.json",
+   "filas": 17
+  },
+  {
+   "archivo": "03_eda/a_entendimiento/casi_duplicados_resumen.json",
+   "origen": "01_EDA_KDD/temp/a_entendimiento/web/casi_duplicados_resumen.json",
+   "filas": 1
+  },
+  {
+   "archivo": "03_eda/a_entendimiento/inconsistencias.json",
+   "origen": "01_EDA_KDD/temp/a_entendimiento/web/inconsistencias.json",
+   "filas": 1
+  },
+  {
+   "archivo": "03_eda/b_exploracion/serie_mensual.json",
+   "origen": "01_EDA_KDD/temp/b_exploracion/web/serie_mensual.json",
+   "filas": 36
+  },
+  {
+   "archivo": "03_eda/b_exploracion/por_anio.json",
+   "origen": "01_EDA_KDD/temp/b_exploracion/web/por_anio.json",
+   "filas": 3
+  },
+  {
+   "archivo": "03_eda/b_exploracion/montos_hist_log10.json",
+   "origen": "01_EDA_KDD/temp/b_exploracion/web/montos_hist_log10.json",
+   "filas": 37
+  },
+  {
+   "archivo": "03_eda/b_exploracion/monto_categoria.json",
+   "origen": "01_EDA_KDD/temp/b_exploracion/web/monto_categoria.json",
+   "filas": 3
+  },
+  {
+   "archivo": "03_eda/b_exploracion/competencia_metodo.json",
+   "origen": "01_EDA_KDD/temp/b_exploracion/web/competencia_metodo.json",
+   "filas": 20
+  },
+  {
+   "archivo": "03_eda/b_exploracion/competencia_tramo.json",
+   "origen": "01_EDA_KDD/temp/b_exploracion/web/competencia_tramo.json",
+   "filas": 6
+  },
+  {
+   "archivo": "03_eda/b_exploracion/competencia_region.json",
+   "origen": "01_EDA_KDD/temp/b_exploracion/web/competencia_region.json",
+   "filas": 184
+  },
+  {
+   "archivo": "03_eda/b_exploracion/top_entidades.json",
+   "origen": "01_EDA_KDD/temp/b_exploracion/web/top_entidades.json",
+   "filas": 10
+  },
+  {
+   "archivo": "03_eda/b_exploracion/pares_entidad_proveedor.json",
+   "origen": "01_EDA_KDD/temp/b_exploracion/web/pares_entidad_proveedor.json",
+   "filas": 50
+  },
+  {
+   "archivo": "03_eda/b_exploracion/tiempos_rdd_df_sql.json",
+   "origen": "01_EDA_KDD/temp/b_exploracion/web/tiempos_rdd_df_sql.json",
+   "filas": 3
+  }
+ ],
+ "04_kdd": [
+  {
+   "archivo": "04_kdd/a_transformaciones/pasos_limpieza.json",
+   "origen": "01_EDA_KDD/temp/a_transformaciones/web/pasos_limpieza.json",
+   "filas": 5
+  },
+  {
+   "archivo": "04_kdd/a_transformaciones/seleccion_columnas.json",
+   "origen": "01_EDA_KDD/temp/a_transformaciones/web/seleccion_columnas.json",
+   "filas": 17
+  },
+  {
+   "archivo": "04_kdd/a_transformaciones/postor_unico_tramo.json",
+   "origen": "01_EDA_KDD/temp/a_transformaciones/web/postor_unico_tramo.json",
+   "filas": 6
+  },
+  {
+   "archivo": "04_kdd/a_transformaciones/procesos_anio.json",
+   "origen": "01_EDA_KDD/temp/a_transformaciones/web/procesos_anio.json",
+   "filas": 3
+  }
+ ],
+ "05_similitud": [
+  {
+   "archivo": "05_similitud/a_minhash/representacion.json",
+   "origen": "02_Similitud/temp/a_minhash/web/representacion.json",
+   "filas": 4
+  },
+  {
+   "archivo": "05_similitud/a_minhash/longitud_T.json",
+   "origen": "02_Similitud/temp/a_minhash/web/longitud_T.json",
+   "filas": 3
+  },
+  {
+   "archivo": "05_similitud/a_minhash/minhash_vs_jaccard.json",
+   "origen": "02_Similitud/temp/a_minhash/web/minhash_vs_jaccard.json",
+   "filas": 2000
+  },
+  {
+   "archivo": "05_similitud/a_minhash/resumen.json",
+   "origen": "02_Similitud/temp/a_minhash/web/resumen.json",
+   "filas": 1
+  },
+  {
+   "archivo": "05_similitud/b_lsh/configs_br.json",
+   "origen": "02_Similitud/temp/b_lsh/web/configs_br.json",
+   "filas": 3
+  },
+  {
+   "archivo": "05_similitud/b_lsh/cubetas.json",
+   "origen": "02_Similitud/temp/b_lsh/web/cubetas.json",
+   "filas": 3
+  },
+  {
+   "archivo": "05_similitud/b_lsh/umbral.json",
+   "origen": "02_Similitud/temp/b_lsh/web/umbral.json",
+   "filas": 3
+  },
+  {
+   "archivo": "05_similitud/b_lsh/por_mes.json",
+   "origen": "02_Similitud/temp/b_lsh/web/por_mes.json",
+   "filas": 36
+  },
+  {
+   "archivo": "05_similitud/b_lsh/resumen.json",
+   "origen": "02_Similitud/temp/b_lsh/web/resumen.json",
+   "filas": 1
+  },
+  {
+   "archivo": "05_similitud/c_pares/pares_por_mes.json",
+   "origen": "02_Similitud/temp/c_pares/web/pares_por_mes.json",
+   "filas": 36
+  },
+  {
+   "archivo": "05_similitud/d_entidades/tipos_pares.json",
+   "origen": "02_Similitud/temp/d_entidades/web/tipos_pares.json",
+   "filas": 4
+  },
+  {
+   "archivo": "05_similitud/d_entidades/embudo_exclusivo.json",
+   "origen": "02_Similitud/temp/d_entidades/web/embudo_exclusivo.json",
+   "filas": 5
+  },
+  {
+   "archivo": "05_similitud/d_entidades/tamano_grupos.json",
+   "origen": "02_Similitud/temp/d_entidades/web/tamano_grupos.json",
+   "filas": 40
+  },
+  {
+   "archivo": "05_similitud/d_entidades/ranking.json",
+   "origen": "02_Similitud/temp/d_entidades/web/ranking.json",
+   "filas": 30
+  },
+  {
+   "archivo": "05_similitud/d_entidades/resumen.json",
+   "origen": "02_Similitud/temp/d_entidades/web/resumen.json",
+   "filas": 2
+  },
+  {
+   "archivo": "05_similitud/e_analisis/embudo_exclusivo_oefa.json",
+   "origen": "02_Similitud/temp/e_analisis/web/embudo_exclusivo_oefa.json",
+   "filas": 5
+  }
+ ],
+ "06_vecinos": [
+  {
+   "archivo": "06_vecinos/a_tfidf/representacion.json",
+   "origen": "03_ANN/temp/a_tfidf/web/representacion.json",
+   "filas": 2
+  },
+  {
+   "archivo": "06_vecinos/a_tfidf/num_features.json",
+   "origen": "03_ANN/temp/a_tfidf/web/num_features.json",
+   "filas": 3
+  },
+  {
+   "archivo": "06_vecinos/a_tfidf/resumen.json",
+   "origen": "03_ANN/temp/a_tfidf/web/resumen.json",
+   "filas": 1
+  },
+  {
+   "archivo": "06_vecinos/b_ind_ivf/tamano_listas.json",
+   "origen": "03_ANN/temp/b_ind_ivf/web/tamano_listas.json",
+   "filas": 300
+  },
+  {
+   "archivo": "06_vecinos/b_ind_ivf/resumen.json",
+   "origen": "03_ANN/temp/b_ind_ivf/web/resumen.json",
+   "filas": 1
+  },
+  {
+   "archivo": "06_vecinos/c_bus_ivf/nprobe.json",
+   "origen": "03_ANN/temp/c_bus_ivf/web/nprobe.json",
+   "filas": 3
+  },
+  {
+   "archivo": "06_vecinos/c_bus_ivf/nlist.json",
+   "origen": "03_ANN/temp/c_bus_ivf/web/nlist.json",
+   "filas": 3
+  },
+  {
+   "archivo": "06_vecinos/c_bus_ivf/resumen.json",
+   "origen": "03_ANN/temp/c_bus_ivf/web/resumen.json",
+   "filas": 1
+  },
+  {
+   "archivo": "06_vecinos/d_faiss/comparacion.json",
+   "origen": "03_ANN/temp/d_faiss/web/comparacion.json",
+   "filas": 12
+  },
+  {
+   "archivo": "06_vecinos/d_faiss/ivf_nprobe.json",
+   "origen": "03_ANN/temp/d_faiss/web/ivf_nprobe.json",
+   "filas": 6
+  },
+  {
+   "archivo": "06_vecinos/d_faiss/hnsw_efsearch.json",
+   "origen": "03_ANN/temp/d_faiss/web/hnsw_efsearch.json",
+   "filas": 5
+  },
+  {
+   "archivo": "06_vecinos/e_analisis/umbral_sim.json",
+   "origen": "03_ANN/temp/e_analisis/web/umbral_sim.json",
+   "filas": 3
+  },
+  {
+   "archivo": "06_vecinos/e_analisis/variacion_p3.json",
+   "origen": "03_ANN/temp/e_analisis/web/variacion_p3.json",
+   "filas": 5
+  },
+  {
+   "archivo": "06_vecinos/e_analisis/otra_region.json",
+   "origen": "03_ANN/temp/e_analisis/web/otra_region.json",
+   "filas": 9
+  },
+  {
+   "archivo": "06_vecinos/e_analisis/regiones.json",
+   "origen": "03_ANN/temp/e_analisis/web/regiones.json",
+   "filas": 83
+  },
+  {
+   "archivo": "06_vecinos/e_analisis/entidades.json",
+   "origen": "03_ANN/temp/e_analisis/web/entidades.json",
+   "filas": 68
+  },
+  {
+   "archivo": "06_vecinos/e_analisis/tecnicas.json",
+   "origen": "03_ANN/temp/e_analisis/web/tecnicas.json",
+   "filas": 3
+  },
+  {
+   "archivo": "06_vecinos/e_analisis/ratio_hist.json",
+   "origen": "03_ANN/temp/e_analisis/web/variacion_monto.json (histograma)",
+   "filas": 48
+  },
+  {
+   "archivo": "06_vecinos/e_analisis/ratio_resumen.json",
+   "origen": "03_ANN/temp/e_analisis/web/variacion_monto.json (resumen)",
+   "filas": 1
+  }
+ ],
+ "07_flujos": [
+  {
+   "archivo": "07_flujos/a_dgim/llegadas_mes.json",
+   "origen": "04_Flujos/temp/a_dgim/web/llegadas_mes.json",
+   "filas": 36
+  },
+  {
+   "archivo": "07_flujos/a_dgim/serie.json",
+   "origen": "04_Flujos/temp/a_dgim/web/serie.json",
+   "filas": 860
+  },
+  {
+   "archivo": "07_flujos/a_dgim/serie_ventanas.json",
+   "origen": "04_Flujos/temp/a_dgim/web/serie_ventanas.json",
+   "filas": 2388
+  },
+  {
+   "archivo": "07_flujos/a_dgim/tradeoff.json",
+   "origen": "04_Flujos/temp/a_dgim/web/tradeoff.json",
+   "filas": 12
+  },
+  {
+   "archivo": "07_flujos/a_dgim/variacion.json",
+   "origen": "04_Flujos/temp/a_dgim/web/variacion.json",
+   "filas": 3
+  },
+  {
+   "archivo": "07_flujos/a_dgim/resumen.json",
+   "origen": "04_Flujos/temp/a_dgim/web/resumen.json",
+   "filas": 1
+  },
+  {
+   "archivo": "07_flujos/b_bloom/reincidencia_mes.json",
+   "origen": "04_Flujos/temp/b_bloom/web/reincidencia_mes.json",
+   "filas": 36
+  },
+  {
+   "archivo": "07_flujos/b_bloom/postor_reincidencia.json",
+   "origen": "04_Flujos/temp/b_bloom/web/postor_reincidencia.json",
+   "filas": 2
+  },
+  {
+   "archivo": "07_flujos/b_bloom/fpr_evolucion.json",
+   "origen": "04_Flujos/temp/b_bloom/web/fpr_evolucion.json",
+   "filas": 502
+  },
+  {
+   "archivo": "07_flujos/b_bloom/tradeoff.json",
+   "origen": "04_Flujos/temp/b_bloom/web/tradeoff.json",
+   "filas": 30
+  },
+  {
+   "archivo": "07_flujos/b_bloom/variacion.json",
+   "origen": "04_Flujos/temp/b_bloom/web/variacion.json",
+   "filas": 30
+  },
+  {
+   "archivo": "07_flujos/b_bloom/resumen.json",
+   "origen": "04_Flujos/temp/b_bloom/web/resumen.json",
+   "filas": 1
+  },
+  {
+   "archivo": "07_flujos/c_sketch/heavy_hitters.json",
+   "origen": "04_Flujos/temp/c_sketch/web/heavy_hitters.json",
+   "filas": 20
+  },
+  {
+   "archivo": "07_flujos/c_sketch/error_dist.json",
+   "origen": "04_Flujos/temp/c_sketch/web/error_dist.json",
+   "filas": 10
+  },
+  {
+   "archivo": "07_flujos/c_sketch/tradeoff.json",
+   "origen": "04_Flujos/temp/c_sketch/web/tradeoff.json",
+   "filas": 30
+  },
+  {
+   "archivo": "07_flujos/c_sketch/variacion.json",
+   "origen": "04_Flujos/temp/c_sketch/web/variacion.json",
+   "filas": 30
+  },
+  {
+   "archivo": "07_flujos/c_sketch/resumen.json",
+   "origen": "04_Flujos/temp/c_sketch/web/resumen.json",
+   "filas": 1
+  },
+  {
+   "archivo": "07_flujos/d_analisis/comparativa.json",
+   "origen": "04_Flujos/temp/d_analisis/web/comparativa.json",
+   "filas": 3
+  }
+ ],
+ "08_reglas": [
+  {
+   "archivo": "08_reglas/d_analisis/seleccion.json",
+   "origen": "05_Asociacion/temp/d_analisis/web/seleccion.json",
+   "filas": 14
+  },
+  {
+   "archivo": "08_reglas/d_analisis/supervivencia.json",
+   "origen": "05_Asociacion/temp/d_analisis/web/supervivencia.json",
+   "filas": 25
+  },
+  {
+   "archivo": "08_reglas/c_reglas/reglas_completo.json",
+   "origen": "05_Asociacion/temp/c_reglas/fpg_full",
+   "filas": 496
+  },
+  {
+   "archivo": "08_reglas/c_reglas/reglas_q4_2025.json",
+   "origen": "05_Asociacion/temp/c_reglas/apriori_q4",
+   "filas": 583
+  },
+  {
+   "archivo": "08_reglas/b_itemsets/itemsets_completo.json",
+   "origen": "05_Asociacion/temp/b_itemsets/fpg_full",
+   "filas": 316
+  }
+ ],
+ "09_resumen": [
+  {
+   "archivo": "09_resumen/a_recuento/tecnicas_resumen.json",
+   "origen": "06_Analisis/temp/a_recuento/web/tecnicas_resumen.json",
+   "filas": 8
+  },
+  {
+   "archivo": "09_resumen/b_hallazgos/respuestas.json",
+   "origen": "06_Analisis/temp/b_hallazgos/web/respuestas.json",
+   "filas": 3
+  },
+  {
+   "archivo": "09_resumen/b_hallazgos/reglas_p1.json",
+   "origen": "06_Analisis/temp/b_hallazgos/web/reglas_p1.json",
+   "filas": 7
+  },
+  {
+   "archivo": "09_resumen/c_insights/valor_tecnicas.json",
+   "origen": "06_Analisis/temp/c_insights/web/valor_tecnicas.json",
+   "filas": 5
+  },
+  {
+   "archivo": "09_resumen/c_insights/donde_corre.json",
+   "origen": "06_Analisis/temp/c_insights/web/donde_corre.json",
+   "filas": 7
+  },
+  {
+   "archivo": "09_resumen/c_insights/escalamiento.json",
+   "origen": "06_Analisis/temp/c_insights/web/escalamiento.json",
+   "filas": 7
+  }
+ ]
+}

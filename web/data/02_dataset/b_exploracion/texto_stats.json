@@ -1,0 +1,15 @@
+[
+ {
+  "desc_p25":18.0,
+  "desc_p50":29.0,
+  "desc_p75":40.0,
+  "desc_p95":50.0,
+  "desc_distintas":190740,
+  "pct_items_vacio":0.0,
+  "items_p25":12.0,
+  "items_p50":24.0,
+  "items_p75":36.0,
+  "items_p95":52.0,
+  "unspsc_distintos":5175
+ }
+]

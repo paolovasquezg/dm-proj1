@@ -1,0 +1,102 @@
+[
+ {
+  "metodo_detalle":"Adjudicación Simplificada",
+  "procesos":103367,
+  "%_postor_unico":1.5
+ },
+ {
+  "metodo_detalle":"Subasta Inversa Electrónica",
+  "procesos":27042,
+  "%_postor_unico":2.1
+ },
+ {
+  "metodo_detalle":"Licitación Pública Abreviada",
+  "procesos":15719,
+  "%_postor_unico":1.5
+ },
+ {
+  "metodo_detalle":"Comparación de Precios",
+  "procesos":14778,
+  "%_postor_unico":1.0
+ },
+ {
+  "metodo_detalle":"Licitación Pública",
+  "procesos":14671,
+  "%_postor_unico":0.4
+ },
+ {
+  "metodo_detalle":"Contratación Directa",
+  "procesos":14005,
+  "%_postor_unico":86.5
+ },
+ {
+  "metodo_detalle":"Concurso Público Abreviado",
+  "procesos":13648,
+  "%_postor_unico":1.5
+ },
+ {
+  "metodo_detalle":"Concurso Público",
+  "procesos":9478,
+  "%_postor_unico":0.5
+ },
+ {
+  "metodo_detalle":"Regímen Especial",
+  "procesos":5562,
+  "%_postor_unico":80.0
+ },
+ {
+  "metodo_detalle":"Convenio",
+  "procesos":4956,
+  "%_postor_unico":54.6
+ },
+ {
+  "metodo_detalle":"Contratación Internacional",
+  "procesos":3162,
+  "%_postor_unico":96.3
+ },
+ {
+  "metodo_detalle":"Concurso Público de Servicios",
+  "procesos":2413,
+  "%_postor_unico":0.5
+ },
+ {
+  "metodo_detalle":"Adjudicación Selectiva",
+  "procesos":1653,
+  "%_postor_unico":18.1
+ },
+ {
+  "metodo_detalle":"Adjudicación Abreviada",
+  "procesos":1170,
+  "%_postor_unico":89.7
+ },
+ {
+  "metodo_detalle":"Concurso Público para Consultoría",
+  "procesos":941,
+  "%_postor_unico":0.0
+ },
+ {
+  "metodo_detalle":"Adjudicación Simplificada - Ley N° 31728",
+  "procesos":919,
+  "%_postor_unico":0.0
+ },
+ {
+  "metodo_detalle":"Adjudicación Simplificada-Homologación",
+  "procesos":901,
+  "%_postor_unico":4.7
+ },
+ {
+  "metodo_detalle":"Procedimiento Especial de Contratación",
+  "procesos":631,
+  "%_postor_unico":0.2
+ },
+ {
+  "metodo_detalle":"Adjudicación Simplificada - Decreto Urgencia 032-2023",
+  "procesos":583,
+  "%_postor_unico":0.7
+ },
+ {
+  "metodo_detalle":"Procedimiento Especial de Contratación-Nueva Convocatoria por Desierto",
+  "procesos":167,
+  "%_postor_unico":0.0
+ }
+]

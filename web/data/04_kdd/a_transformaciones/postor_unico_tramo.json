@@ -1,0 +1,32 @@
+[
+ {
+  "tramo_monto":"0_sin_monto",
+  "procesos":10837,
+  "%_postor_unico":19.3
+ },
+ {
+  "tramo_monto":"1_<50k",
+  "procesos":15440,
+  "%_postor_unico":43.8
+ },
+ {
+  "tramo_monto":"2_50k-200k",
+  "procesos":104222,
+  "%_postor_unico":10.2
+ },
+ {
+  "tramo_monto":"3_200k-1M",
+  "procesos":70887,
+  "%_postor_unico":9.3
+ },
+ {
+  "tramo_monto":"4_1M-5M",
+  "procesos":24361,
+  "%_postor_unico":10.0
+ },
+ {
+  "tramo_monto":"5_>5M",
+  "procesos":10207,
+  "%_postor_unico":9.6
+ }
+]

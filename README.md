@@ -36,6 +36,8 @@ sh pipeline.sh
 
 ### 0. Levantar el entorno
 
+Levanta el cluster de Spark y Jupyter con Docker
+
 - docker.ipynb
 - Kernel picker → "Existing Jupyter Server..." → `http://localhost:8888`
 
@@ -43,16 +45,22 @@ sh pipeline.sh
 
 #### 1.1 EDA
 
+Entiende la data, revisa su calidad y explora variables y relaciones
+
 - 01_EDA_KDD/EDA/a_entendimiento.ipynb
 - 01_EDA_KDD/EDA/b_exploracion.ipynb
 - 01_EDA_KDD/EDA/c_justificacion.ipynb
 
 #### 1.2 KDD
 
+Limpia y transforma la data, y crea las columnas usadas en `data/final`
+
 - 01_EDA_KDD/KDD/a_transformaciones.ipynb
 - 01_EDA_KDD/KDD/b_recuento.ipynb
 
 ### 2. Similitud
+
+Procesos casi idénticos con MinHash y LSH
 
 - 02_Similitud/a_minhash.ipynb
 - 02_Similitud/b_lsh.ipynb
@@ -62,6 +70,8 @@ sh pipeline.sh
 
 ### 3. Vecinos aproximados (ANN)
 
+Compras parecidas con TF-IDF, IVF y HNSW para comparar montos
+
 - 03_ANN/a_tfidf.ipynb
 - 03_ANN/b_ind_ivf.ipynb
 - 03_ANN/c_bus_ivf.ipynb
@@ -70,12 +80,16 @@ sh pipeline.sh
 
 ### 4. Minería de flujos
 
+Procesos como un flujo con DGIM, Bloom Filter y Count-Min Sketch
+
 - 04_Flujos/a_dgim.ipynb
 - 04_Flujos/b_bloom.ipynb
 - 04_Flujos/c_sketch.ipynb
 - 04_Flujos/d_analisis.ipynb
 
 ### 5. Reglas de asociación
+
+Combinaciones de método, monto, región y rubro asociadas a un solo postor
 
 - 05_Asociacion/a_canastas.ipynb
 - 05_Asociacion/b_itemsets.ipynb
@@ -84,6 +98,27 @@ sh pipeline.sh
 
 ### 6. Análisis
 
+Pproceso, los hallazgos y los insights
+
 - 06_Analisis/a_recuento.ipynb
 - 06_Analisis/b_hallazgos.ipynb
 - 06_Analisis/c_insights.ipynb
+
+### 7. Datos para la web
+
+Exporta a `web/data/` los JSON que usa la página:
+
+```bash
+python data/exportar.py
+```
+
+## Web interactiva
+
+Presentación por etapas del proceso y los resultados, en `web/`
+
+```bash
+python3 -m http.server -d web 8000
+```
+
+Abrir `http://localhost:8000`
+

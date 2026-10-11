@@ -1,0 +1,26 @@
+[
+ {
+  "NLIST":100,
+  "seg_kmeans":10.0,
+  "recall@K":0.798,
+  "seg_busqueda":29.2,
+  "candidatos":6776391,
+  "frac_indice_revisado":0.0845
+ },
+ {
+  "NLIST":300,
+  "seg_kmeans":40.8,
+  "recall@K":0.75,
+  "seg_busqueda":14.0,
+  "candidatos":2140990,
+  "frac_indice_revisado":0.0267
+ },
+ {
+  "NLIST":600,
+  "seg_kmeans":148.0,
+  "recall@K":0.725,
+  "seg_busqueda":14.6,
+  "candidatos":966255,
+  "frac_indice_revisado":0.012
+ }
+]

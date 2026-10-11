@@ -1,0 +1,66 @@
+[
+ {
+  "tecnica":"MinHash (T=100)",
+  "pregunta":"P2",
+  "ahorro_x":1.0,
+  "tipo_ahorro":"—",
+  "metrica_error":"error medio vs Jaccard",
+  "error":0.0314
+ },
+ {
+  "tecnica":"LSH (10, 10)",
+  "pregunta":"P2",
+  "ahorro_x":20.3,
+  "tipo_ahorro":"comparaciones",
+  "metrica_error":"recall",
+  "error":0.9999
+ },
+ {
+  "tecnica":"IVF propio (Spark)",
+  "pregunta":"P3",
+  "ahorro_x":14.7,
+  "tipo_ahorro":"tiempo",
+  "metrica_error":"recall@10",
+  "error":0.75
+ },
+ {
+  "tecnica":"IVF (faiss)",
+  "pregunta":"P3",
+  "ahorro_x":3.8,
+  "tipo_ahorro":"tiempo",
+  "metrica_error":"recall@10",
+  "error":0.8923
+ },
+ {
+  "tecnica":"HNSW (faiss)",
+  "pregunta":"P3",
+  "ahorro_x":20.9,
+  "tipo_ahorro":"tiempo",
+  "metrica_error":"recall@10",
+  "error":0.9799
+ },
+ {
+  "tecnica":"DGIM",
+  "pregunta":"P1",
+  "ahorro_x":20.4,
+  "tipo_ahorro":"memoria",
+  "metrica_error":"error relativo medio",
+  "error":0.1089
+ },
+ {
+  "tecnica":"Bloom Filter",
+  "pregunta":"P1",
+  "ahorro_x":135.0,
+  "tipo_ahorro":"memoria",
+  "metrica_error":"tasa de falsos positivos (final)",
+  "error":0.0102
+ },
+ {
+  "tecnica":"Count-Min Sketch",
+  "pregunta":"P1",
+  "ahorro_x":34.7,
+  "tipo_ahorro":"memoria",
+  "metrica_error":"sobreestimación media (apariciones)",
+  "error":1.9812
+ }
+]

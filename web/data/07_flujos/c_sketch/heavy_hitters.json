@@ -1,0 +1,162 @@
+[
+ {
+  "par":"COMISION DE PROMOCION DEL PERU PARA LA EXPORTACION Y EL TURISMO - PROMPERU|META PLATFORMS IRELAND LIMITED",
+  "exacto":155,
+  "estimado":157,
+  "estimado_conservador":155,
+  "detectado_en_linea":true,
+  "pct_postor_unico":100.0
+ },
+ {
+  "par":"GOBIERNO REGIONAL DE PUNO SEDE CENTRAL|GRUPO SANTA FE SOCIEDAD ANONIMA CERRADA - GRUPO SANTA FE S.A.C.",
+  "exacto":153,
+  "estimado":154,
+  "estimado_conservador":153,
+  "detectado_en_linea":true,
+  "pct_postor_unico":0.0
+ },
+ {
+  "par":"COMISION DE PROMOCION DEL PERU PARA LA EXPORTACION Y EL TURISMO - PROMPERU|GOOGLE LLC",
+  "exacto":128,
+  "estimado":129,
+  "estimado_conservador":128,
+  "detectado_en_linea":true,
+  "pct_postor_unico":100.0
+ },
+ {
+  "par":"COMISION DE PROMOCION DEL PERU PARA LA EXPORTACION Y EL TURISMO - PROMPERU|TIKTOK INC",
+  "exacto":113,
+  "estimado":113,
+  "estimado_conservador":113,
+  "detectado_en_linea":true,
+  "pct_postor_unico":100.0
+ },
+ {
+  "par":"SEGURO SOCIAL DE  SALUD|CARDIO PERFUSION E.I.R.LTDA",
+  "exacto":73,
+  "estimado":75,
+  "estimado_conservador":73,
+  "detectado_en_linea":true,
+  "pct_postor_unico":30.1
+ },
+ {
+  "par":"SEGURO SOCIAL DE  SALUD|DIAGNOSTICA PERUANA S.A.C.",
+  "exacto":62,
+  "estimado":67,
+  "estimado_conservador":62,
+  "detectado_en_linea":true,
+  "pct_postor_unico":3.2
+ },
+ {
+  "par":"GOBIERNO REGIONAL DE MADRE DE DIOS SEDE CENTRAL|GRUPO SANTA FE SOCIEDAD ANONIMA CERRADA - GRUPO SANTA FE S.A.C.",
+  "exacto":58,
+  "estimado":59,
+  "estimado_conservador":58,
+  "detectado_en_linea":true,
+  "pct_postor_unico":0.0
+ },
+ {
+  "par":"MTC-PROYECTO ESPECIAL DE INFRAESTRUCTURA DE TRANSPORTE NACIONAL (PROVIAS NACIONAL)|GONZALES LACA CARLOS MIGUEL",
+  "exacto":57,
+  "estimado":59,
+  "estimado_conservador":57,
+  "detectado_en_linea":true,
+  "pct_postor_unico":100.0
+ },
+ {
+  "par":"SEGURO SOCIAL DE  SALUD|CYMED MEDICAL SAC",
+  "exacto":57,
+  "estimado":59,
+  "estimado_conservador":57,
+  "detectado_en_linea":true,
+  "pct_postor_unico":47.4
+ },
+ {
+  "par":"CENTRO NACIONAL DE ABASTECIMIENTO DE RECURSOS ESTRATEGICOS EN SALUD|MEDIFARMA S A",
+  "exacto":57,
+  "estimado":59,
+  "estimado_conservador":57,
+  "detectado_en_linea":true,
+  "pct_postor_unico":1.8
+ },
+ {
+  "par":"SEGURO SOCIAL DE  SALUD|W.P. BIOMED SOCIEDAD ANONIMA",
+  "exacto":56,
+  "estimado":61,
+  "estimado_conservador":56,
+  "detectado_en_linea":true,
+  "pct_postor_unico":0.0
+ },
+ {
+  "par":"GOBIERNO REGIONAL DE AREQUIPA SEDE CENTRAL|GRUPO SANTA FE SOCIEDAD ANONIMA CERRADA - GRUPO SANTA FE S.A.C.",
+  "exacto":56,
+  "estimado":57,
+  "estimado_conservador":56,
+  "detectado_en_linea":true,
+  "pct_postor_unico":0.0
+ },
+ {
+  "par":"GOBIERNO REGIONAL DE AYACUCHO SEDE CENTRAL|YAVA S.A.C.",
+  "exacto":53,
+  "estimado":56,
+  "estimado_conservador":53,
+  "detectado_en_linea":true,
+  "pct_postor_unico":5.7
+ },
+ {
+  "par":"GOBIERNO REGIONAL DE CUSCO SEDE CENTRAL|GRUPO SANTA FE SOCIEDAD ANONIMA CERRADA - GRUPO SANTA FE S.A.C.",
+  "exacto":53,
+  "estimado":53,
+  "estimado_conservador":53,
+  "detectado_en_linea":true,
+  "pct_postor_unico":0.0
+ },
+ {
+  "par":"SEGURO SOCIAL DE  SALUD|LINDE PERU S.R.L.",
+  "exacto":51,
+  "estimado":55,
+  "estimado_conservador":51,
+  "detectado_en_linea":true,
+  "pct_postor_unico":7.8
+ },
+ {
+  "par":"MUNICIPALIDAD PROVINCIAL DE ESPINAR|GRUPO SANTA FE SOCIEDAD ANONIMA CERRADA - GRUPO SANTA FE S.A.C.",
+  "exacto":51,
+  "estimado":53,
+  "estimado_conservador":51,
+  "detectado_en_linea":true,
+  "pct_postor_unico":0.0
+ },
+ {
+  "par":"SEGURO SOCIAL DE  SALUD|PRODUCTOS ROCHE Q F S A",
+  "exacto":48,
+  "estimado":51,
+  "estimado_conservador":48,
+  "detectado_en_linea":true,
+  "pct_postor_unico":0.0
+ },
+ {
+  "par":"SEGURO SOCIAL DE  SALUD|SISTEMAS ANALITICOS SRL",
+  "exacto":47,
+  "estimado":50,
+  "estimado_conservador":47,
+  "detectado_en_linea":true,
+  "pct_postor_unico":14.9
+ },
+ {
+  "par":"GOBIERNO REGIONAL DE APURIMAC-CHANKA|TRUYENQUE MALPARTIDA CESAR",
+  "exacto":46,
+  "estimado":48,
+  "estimado_conservador":46,
+  "detectado_en_linea":false,
+  "pct_postor_unico":0.0
+ },
+ {
+  "par":"COMISION DE PROMOCION DEL PERU PARA LA EXPORTACION Y EL TURISMO - PROMPERU|TARGET 2016 S.L.",
+  "exacto":45,
+  "estimado":47,
+  "estimado_conservador":45,
+  "detectado_en_linea":false,
+  "pct_postor_unico":100.0
+ }
+]

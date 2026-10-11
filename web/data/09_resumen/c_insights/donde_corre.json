@@ -1,0 +1,37 @@
+[
+ {
+  "etapa":"EDA y KDD",
+  "motor":"Spark",
+  "por_que":"Aplanar JSON anidados de 36 meses y escribir parquet particionado por anio\/mes"
+ },
+ {
+  "etapa":"Similitud (MinHash, LSH, pares)",
+  "motor":"Spark",
+  "por_que":"Joins por banda y verificación de pares mes a mes; partition pruning por anio\/mes"
+ },
+ {
+  "etapa":"ANN: TF-IDF, IVF, búsqueda",
+  "motor":"Spark",
+  "por_que":"HashingTF\/IDF y KMeans de MLlib sobre 236k vectores; búsqueda como join distribuido"
+ },
+ {
+  "etapa":"ANN: faiss (IVF, HNSW)",
+  "motor":"Python, sin Spark",
+  "por_que":"faiss trabaja en memoria de una máquina; muestra de 20k vectores"
+ },
+ {
+  "etapa":"Flujos (DGIM, Bloom, Count-Min)",
+  "motor":"Python, sin Spark",
+  "por_que":"Un flujo es secuencial: cada llegada depende del estado anterior"
+ },
+ {
+  "etapa":"Reglas: Apriori (Q4 2025)",
+  "motor":"Python, sin Spark",
+  "por_que":"mlxtend en un trimestre; 90x más rápido que FP-Growth en Spark a esa escala"
+ },
+ {
+  "etapa":"Reglas: FP-Growth (completo)",
+  "motor":"Spark",
+  "por_que":"MLlib sobre los 236k procesos sin codificar a matriz one-hot"
+ }
+]

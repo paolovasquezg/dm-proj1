@@ -1,0 +1,52 @@
+[
+ {
+  "nivel":"1. casi idénticos, misma entidad, ≤ 15 días",
+  "pares":131473,
+  "procesos":37094,
+  "entidades":2339,
+  "pct_procesos":15.72,
+  "procesos_oefa":3016,
+  "procesos_sin_oefa":34078,
+  "entidades_sin_oefa":2338
+ },
+ {
+  "nivel":"2. sin casi-duplicados del EDA",
+  "pares":120643,
+  "procesos":31592,
+  "entidades":2233,
+  "pct_procesos":13.39,
+  "procesos_oefa":2966,
+  "procesos_sin_oefa":28626,
+  "entidades_sin_oefa":2232
+ },
+ {
+  "nivel":"3. + montos bajos (< 200k)",
+  "pares":107810,
+  "procesos":10590,
+  "entidades":1256,
+  "pct_procesos":4.49,
+  "procesos_oefa":2962,
+  "procesos_sin_oefa":7628,
+  "entidades_sin_oefa":1255
+ },
+ {
+  "nivel":"4. + la suma salta de tramo",
+  "pares":26524,
+  "procesos":4847,
+  "entidades":860,
+  "pct_procesos":2.05,
+  "procesos_oefa":1398,
+  "procesos_sin_oefa":3449,
+  "entidades_sin_oefa":859
+ },
+ {
+  "nivel":"5. + método poco usado en el tramo de la suma",
+  "pares":24624,
+  "procesos":1549,
+  "entidades":33,
+  "pct_procesos":0.66,
+  "procesos_oefa":1388,
+  "procesos_sin_oefa":161,
+  "entidades_sin_oefa":32
+ }
+]

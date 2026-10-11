@@ -1,0 +1,17 @@
+[
+ {
+  "categoria":"services",
+  "procesos":98222,
+  "monto_mediano":168000.0
+ },
+ {
+  "categoria":"goods",
+  "procesos":95118,
+  "monto_mediano":150920.0
+ },
+ {
+  "categoria":"works",
+  "procesos":26686,
+  "monto_mediano":1417087.0
+ }
+]

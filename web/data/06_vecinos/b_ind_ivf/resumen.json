@@ -1,0 +1,11 @@
+[
+ {
+  "vectores":235954,
+  "nlist":300,
+  "nprobe":2,
+  "seg_kmeans":32.3,
+  "lista_min":1,
+  "lista_mediana":502.0,
+  "lista_max":29676
+ }
+]

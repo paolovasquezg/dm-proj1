@@ -1,0 +1,23 @@
+[
+ {
+  "T":50,
+  "pares":2000,
+  "MAE":0.0341,
+  "error_teorico":0.0707,
+  "seg_firmas":21.9
+ },
+ {
+  "T":100,
+  "pares":2000,
+  "MAE":0.0272,
+  "error_teorico":0.05,
+  "seg_firmas":50.3
+ },
+ {
+  "T":200,
+  "pares":2000,
+  "MAE":0.0163,
+  "error_teorico":0.0354,
+  "seg_firmas":93.1
+ }
+]

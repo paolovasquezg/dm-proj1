@@ -1,0 +1,13 @@
+[
+ {
+  "estructura":"DGIM",
+  "tarea":"postor único en ventana",
+  "parametros":"N=6600, r=2",
+  "metrica_error":"error relativo medio",
+  "error":0.1088621545,
+  "memoria_bytes":40.375,
+  "memoria_exacta_bytes":825.0,
+  "us_por_elemento":1.8919826534,
+  "us_por_elemento_exacto":0.0584895064
+ }
+]

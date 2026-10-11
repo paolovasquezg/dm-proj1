@@ -1,0 +1,20 @@
+[
+ {
+  "agregacion":"procesos_por_entidad",
+  "rdd_s":2.3925526142,
+  "dataframe_s":0.2286205292,
+  "sql_s":0.1896007061
+ },
+ {
+  "agregacion":"monto_por_anio",
+  "rdd_s":1.3089032173,
+  "dataframe_s":0.1309773922,
+  "sql_s":0.0972259045
+ },
+ {
+  "agregacion":"postor_unico_por_region",
+  "rdd_s":1.263282299,
+  "dataframe_s":0.0226280689,
+  "sql_s":0.2441515923
+ }
+]

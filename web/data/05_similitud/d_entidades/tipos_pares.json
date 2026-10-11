@@ -1,0 +1,22 @@
+[
+ {
+  "texto_identico":true,
+  "mismo_dia":false,
+  "count":84366
+ },
+ {
+  "texto_identico":false,
+  "mismo_dia":true,
+  "count":2873
+ },
+ {
+  "texto_identico":true,
+  "mismo_dia":true,
+  "count":42079
+ },
+ {
+  "texto_identico":false,
+  "mismo_dia":false,
+  "count":2155
+ }
+]

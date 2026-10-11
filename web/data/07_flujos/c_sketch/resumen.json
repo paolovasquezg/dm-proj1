@@ -1,0 +1,13 @@
+[
+ {
+  "estructura":"Count-Min Sketch",
+  "tarea":"frecuencia de pares entidad-proveedor",
+  "parametros":"w=33390, d=5",
+  "metrica_error":"sobreestimación media (apariciones)",
+  "error":1.9812062549,
+  "memoria_bytes":667800.0,
+  "memoria_exacta_bytes":23156583.0,
+  "us_por_elemento":2.9590361958,
+  "us_por_elemento_exacto":0.2024045037
+ }
+]

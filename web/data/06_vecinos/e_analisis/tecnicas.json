@@ -1,0 +1,23 @@
+[
+ {
+  "metodo":"IVF propio (Spark)",
+  "config":"nlist=300, nprobe=2",
+  "datos":"20,062 consultas sobre 236k vectores",
+  "recall_at_k":0.75,
+  "aceleracion_vs_exacto":14.7
+ },
+ {
+  "metodo":"IVF (faiss)",
+  "config":"nprobe=32",
+  "datos":"1,000 consultas sobre 20k vectores",
+  "recall_at_k":0.8923,
+  "aceleracion_vs_exacto":3.8
+ },
+ {
+  "metodo":"HNSW (faiss)",
+  "config":"efSearch=16",
+  "datos":"1,000 consultas sobre 20k vectores",
+  "recall_at_k":0.9799,
+  "aceleracion_vs_exacto":20.9
+ }
+]

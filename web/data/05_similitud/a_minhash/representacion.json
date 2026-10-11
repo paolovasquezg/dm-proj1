@@ -1,0 +1,34 @@
+[
+ {
+  "representacion":"k=3",
+  "tamano_mediano":153,
+  "azar_promedio":0.1519,
+  "azar_p99":0.3301,
+  "ventana_pares_ge_umbral":134956,
+  "ventana_no_identicos_ge_umbral":8511
+ },
+ {
+  "representacion":"k=5",
+  "tamano_mediano":183,
+  "azar_promedio":0.0674,
+  "azar_p99":0.22,
+  "ventana_pares_ge_umbral":131482,
+  "ventana_no_identicos_ge_umbral":5037
+ },
+ {
+  "representacion":"k=7",
+  "tamano_mediano":192,
+  "azar_promedio":0.0381,
+  "azar_p99":0.1674,
+  "ventana_pares_ge_umbral":130015,
+  "ventana_no_identicos_ge_umbral":3570
+ },
+ {
+  "representacion":"palabras",
+  "tamano_mediano":16,
+  "azar_promedio":0.0409,
+  "azar_p99":0.2162,
+  "ventana_pares_ge_umbral":133816,
+  "ventana_no_identicos_ge_umbral":7371
+ }
+]

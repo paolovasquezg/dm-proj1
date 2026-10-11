@@ -1,0 +1,58 @@
+[
+ {
+  "recurso":"fuerza bruta de pares (P2)",
+  "unidad":"pares",
+  "actual":3312072.0,
+  "x10":331207200.0,
+  "x100":33120720000.0,
+  "crece":"cuadrático"
+ },
+ {
+  "recurso":"candidatos LSH (P2)",
+  "unidad":"pares",
+  "actual":163482.0,
+  "x10":1634820.0,
+  "x100":16348200.0,
+  "crece":"lineal"
+ },
+ {
+  "recurso":"comparaciones IVF por consulta (P3)",
+  "unidad":"vectores",
+  "actual":6346.0326986342,
+  "x10":63460.3269863423,
+  "x100":634603.2698634234,
+  "crece":"lineal"
+ },
+ {
+  "recurso":"memoria HNSW, todos los procesos (P3)",
+  "unidad":"MB",
+  "actual":3680.8824,
+  "x10":36808.824,
+  "x100":368088.24,
+  "crece":"lineal"
+ },
+ {
+  "recurso":"memoria Bloom (P1)",
+  "unidad":"KB",
+  "actual":144.935546875,
+  "x10":1449.35546875,
+  "x100":14493.5546875,
+  "crece":"lineal"
+ },
+ {
+  "recurso":"memoria Count-Min (P1)",
+  "unidad":"KB",
+  "actual":652.1484375,
+  "x10":652.1484375,
+  "x100":652.1484375,
+  "crece":"fijo \/ log"
+ },
+ {
+  "recurso":"memoria DGIM (P1)",
+  "unidad":"bytes",
+  "actual":40.4,
+  "x10":40.4,
+  "x100":40.4,
+  "crece":"fijo \/ log"
+ }
+]

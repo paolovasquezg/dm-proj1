@@ -1,0 +1,26 @@
+[
+ {
+  "anio":2023,
+  "procesos":76390,
+  "entidades":2633,
+  "proveedores":28804,
+  "monto_mediano":159656.0,
+  "%_postor_unico":12.3
+ },
+ {
+  "anio":2024,
+  "procesos":80263,
+  "entidades":2749,
+  "proveedores":31293,
+  "monto_mediano":166058.0,
+  "%_postor_unico":10.3
+ },
+ {
+  "anio":2025,
+  "procesos":79301,
+  "entidades":2822,
+  "proveedores":31187,
+  "monto_mediano":185624.0,
+  "%_postor_unico":10.9
+ }
+]

@@ -1,0 +1,16 @@
+[
+ {
+  "alcance":"todas",
+  "procesos":235954,
+  "rate":0.1572,
+  "rate_estricto":0.1339,
+  "rate_exclusivo":0.0066
+ },
+ {
+  "alcance":"sin_oefa",
+  "procesos":232453,
+  "rate":0.1466,
+  "rate_estricto":0.1231,
+  "rate_exclusivo":0.0007
+ }
+]

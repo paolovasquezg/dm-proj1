@@ -1,0 +1,410 @@
+[
+ {
+  "entidad_q":"EMPRESA REGIONAL DE SERVICIOS PUBLICOS DE ELECTRICIDAD DEL SUR ESTE S.A.",
+  "consultas":23,
+  "log2_ratio_mediana":0.238,
+  "frac_paga_2x":0.217
+ },
+ {
+  "entidad_q":"INSTITUTO NACIONAL DE ENFERMEDADES NEOPLASICAS",
+  "consultas":33,
+  "log2_ratio_mediana":0.21,
+  "frac_paga_2x":0.273
+ },
+ {
+  "entidad_q":"MINISTERIO DE RELACIONES EXTERIORES",
+  "consultas":25,
+  "log2_ratio_mediana":0.202,
+  "frac_paga_2x":0.12
+ },
+ {
+  "entidad_q":"INSTITUTO NACIONAL DE SALUD DEL NIÑO",
+  "consultas":20,
+  "log2_ratio_mediana":0.135,
+  "frac_paga_2x":0.4
+ },
+ {
+  "entidad_q":"SUPERINTENDENCIA NACIONAL DE ADUANAS Y DE ADMINISTRACION TRIBUTARIA - SUNAT",
+  "consultas":54,
+  "log2_ratio_mediana":0.13,
+  "frac_paga_2x":0.185
+ },
+ {
+  "entidad_q":"MUNICIPALIDAD DISTRITAL DE SAN SEBASTIAN",
+  "consultas":27,
+  "log2_ratio_mediana":0.1,
+  "frac_paga_2x":0.222
+ },
+ {
+  "entidad_q":"MUNICIPALIDAD PROVINCIAL DEL CUSCO",
+  "consultas":28,
+  "log2_ratio_mediana":0.083,
+  "frac_paga_2x":0.25
+ },
+ {
+  "entidad_q":"EMPRESA DE SERVICIO PUBLICO DE ELECTRICIDAD DEL NOR OESTE DEL PERU S.A. ELECTRO NOR OESTE SA",
+  "consultas":31,
+  "log2_ratio_mediana":0.081,
+  "frac_paga_2x":0.129
+ },
+ {
+  "entidad_q":"COMISION DE PROMOCION DEL PERU PARA LA EXPORTACION Y EL TURISMO - PROMPERU",
+  "consultas":95,
+  "log2_ratio_mediana":0.075,
+  "frac_paga_2x":0.242
+ },
+ {
+  "entidad_q":"MINISTERIO DE VIVIENDA, CONSTRUCCIÓN Y SANEAMIENTO - ADMINISTRACIÓN GENERAL",
+  "consultas":23,
+  "log2_ratio_mediana":0.068,
+  "frac_paga_2x":0.304
+ },
+ {
+  "entidad_q":"MUNICIPALIDAD PROVINCIAL DE MARISCAL NIETO - MOQUEGUA",
+  "consultas":35,
+  "log2_ratio_mediana":0.06,
+  "frac_paga_2x":0.114
+ },
+ {
+  "entidad_q":"PROGRAMA EDUCACION BASICA PARA TODOS UE 026",
+  "consultas":20,
+  "log2_ratio_mediana":0.057,
+  "frac_paga_2x":0.15
+ },
+ {
+  "entidad_q":"MUNICIPALIDAD DISTRITAL DE KIMBIRI",
+  "consultas":25,
+  "log2_ratio_mediana":0.053,
+  "frac_paga_2x":0.2
+ },
+ {
+  "entidad_q":"FUERZA AEREA DEL PERU",
+  "consultas":40,
+  "log2_ratio_mediana":0.048,
+  "frac_paga_2x":0.175
+ },
+ {
+  "entidad_q":"PROGRAMA DE DESARROLLO PRODUCTIVO AGRARIO RURAL - AGRO RURAL",
+  "consultas":76,
+  "log2_ratio_mediana":0.047,
+  "frac_paga_2x":0.158
+ },
+ {
+  "entidad_q":"GOBIERNO REGIONAL DE MOQUEGUA SEDE CENTRAL",
+  "consultas":23,
+  "log2_ratio_mediana":0.044,
+  "frac_paga_2x":0.217
+ },
+ {
+  "entidad_q":"SERVICIO DE AGUA POTABLE Y ALCANTARILLADO DE LIMA - SEDAPAL",
+  "consultas":28,
+  "log2_ratio_mediana":0.027,
+  "frac_paga_2x":0.143
+ },
+ {
+  "entidad_q":"MUNICIPALIDAD DISTRITAL DE MEGANTONI",
+  "consultas":52,
+  "log2_ratio_mediana":0.025,
+  "frac_paga_2x":0.058
+ },
+ {
+  "entidad_q":"GOBIERNO REGIONAL DE UCAYALI SEDE CENTRAL",
+  "consultas":45,
+  "log2_ratio_mediana":0.024,
+  "frac_paga_2x":0.044
+ },
+ {
+  "entidad_q":"GOBIERNO REGIONAL DE AYACUCHO - HOSPITAL HUAMANGA",
+  "consultas":27,
+  "log2_ratio_mediana":0.016,
+  "frac_paga_2x":0.222
+ },
+ {
+  "entidad_q":"GOBIERNO REGIONAL DE CUSCO SEDE CENTRAL",
+  "consultas":52,
+  "log2_ratio_mediana":0.016,
+  "frac_paga_2x":0.154
+ },
+ {
+  "entidad_q":"MTC-PROYECTO ESPECIAL DE INFRAESTRUCTURA DE TRANSPORTE NACIONAL (PROVIAS NACIONAL)",
+  "consultas":57,
+  "log2_ratio_mediana":0.012,
+  "frac_paga_2x":0.053
+ },
+ {
+  "entidad_q":"SEGURO SOCIAL DE  SALUD",
+  "consultas":208,
+  "log2_ratio_mediana":0.008,
+  "frac_paga_2x":0.154
+ },
+ {
+  "entidad_q":"MUNICIPALIDAD DISTRITAL DE SANTIAGO - CUSCO",
+  "consultas":20,
+  "log2_ratio_mediana":0.003,
+  "frac_paga_2x":0.1
+ },
+ {
+  "entidad_q":"GOBIERNO REGIONAL DE AYACUCHO SEDE CENTRAL",
+  "consultas":148,
+  "log2_ratio_mediana":0.002,
+  "frac_paga_2x":0.142
+ },
+ {
+  "entidad_q":"SOCIEDAD ELECTRICA DEL SUR OESTE S.A.",
+  "consultas":28,
+  "log2_ratio_mediana":0.001,
+  "frac_paga_2x":0.036
+ },
+ {
+  "entidad_q":"BANCO CENTRAL DE RESERVA DEL PERÚ",
+  "consultas":28,
+  "log2_ratio_mediana":0.0,
+  "frac_paga_2x":0.0
+ },
+ {
+  "entidad_q":"CENTRO NACIONAL DE ABASTECIMIENTO DE RECURSOS ESTRATEGICOS EN SALUD",
+  "consultas":56,
+  "log2_ratio_mediana":0.0,
+  "frac_paga_2x":0.214
+ },
+ {
+  "entidad_q":"EJERCITO PERUANO",
+  "consultas":122,
+  "log2_ratio_mediana":0.0,
+  "frac_paga_2x":0.123
+ },
+ {
+  "entidad_q":"EMPRESA REGIONAL DE SERVICIO PUBLICO DE ELECTRICIDAD ELECTRO NOR MEDIO SA HIDRANDINA",
+  "consultas":24,
+  "log2_ratio_mediana":0.0,
+  "frac_paga_2x":0.042
+ },
+ {
+  "entidad_q":"GOBIERNO REGIONAL DE AREQUIPA SEDE CENTRAL",
+  "consultas":81,
+  "log2_ratio_mediana":0.0,
+  "frac_paga_2x":0.148
+ },
+ {
+  "entidad_q":"GOBIERNO REGIONAL DE AYACUCHO - PROGRAMA REGIONAL DE IRRIGACION Y DESARROLLO RURAL INTEGRADO",
+  "consultas":30,
+  "log2_ratio_mediana":0.0,
+  "frac_paga_2x":0.1
+ },
+ {
+  "entidad_q":"GOBIERNO REGIONAL DE CUSCO - DIRECCION REGIONAL DE TRANSPORTES Y COMUNICACIONES CUSCO",
+  "consultas":22,
+  "log2_ratio_mediana":0.0,
+  "frac_paga_2x":0.091
+ },
+ {
+  "entidad_q":"GOBIERNO REGIONAL DE CUSCO-INSTITUTO DE MANEJO DE AGUA Y MEDIO AMBIENTE( IMA)",
+  "consultas":20,
+  "log2_ratio_mediana":0.0,
+  "frac_paga_2x":0.2
+ },
+ {
+  "entidad_q":"GOBIERNO REGIONAL DE HUANUCO SEDE CENTRAL",
+  "consultas":62,
+  "log2_ratio_mediana":0.0,
+  "frac_paga_2x":0.145
+ },
+ {
+  "entidad_q":"GOBIERNO REGIONAL DE JUNIN SEDE CENTRAL",
+  "consultas":61,
+  "log2_ratio_mediana":0.0,
+  "frac_paga_2x":0.033
+ },
+ {
+  "entidad_q":"GOBIERNO REGIONAL DE LA LIBERTAD SEDE CENTRAL",
+  "consultas":25,
+  "log2_ratio_mediana":0.0,
+  "frac_paga_2x":0.0
+ },
+ {
+  "entidad_q":"GOBIERNO REGIONAL DE LAMBAYEQUE SEDE CENTRAL",
+  "consultas":33,
+  "log2_ratio_mediana":0.0,
+  "frac_paga_2x":0.121
+ },
+ {
+  "entidad_q":"GOBIERNO REGIONAL DE LORETO SEDE CENTRAL",
+  "consultas":24,
+  "log2_ratio_mediana":0.0,
+  "frac_paga_2x":0.0
+ },
+ {
+  "entidad_q":"GOBIERNO REGIONAL DE MADRE DE DIOS SEDE CENTRAL",
+  "consultas":43,
+  "log2_ratio_mediana":0.0,
+  "frac_paga_2x":0.209
+ },
+ {
+  "entidad_q":"GOBIERNO REGIONAL DE PASCO SEDE CENTRAL",
+  "consultas":51,
+  "log2_ratio_mediana":0.0,
+  "frac_paga_2x":0.078
+ },
+ {
+  "entidad_q":"GOBIERNO REGIONAL DE PIURA SEDE CENTRAL",
+  "consultas":21,
+  "log2_ratio_mediana":0.0,
+  "frac_paga_2x":0.19
+ },
+ {
+  "entidad_q":"GOBIERNO REGIONAL DE PUNO SEDE CENTRAL",
+  "consultas":185,
+  "log2_ratio_mediana":0.0,
+  "frac_paga_2x":0.195
+ },
+ {
+  "entidad_q":"GOBIERNO REGIONAL DE TACNA SEDE CENTRAL",
+  "consultas":27,
+  "log2_ratio_mediana":0.0,
+  "frac_paga_2x":0.222
+ },
+ {
+  "entidad_q":"MARINA DE GUERRA DEL PERU",
+  "consultas":68,
+  "log2_ratio_mediana":0.0,
+  "frac_paga_2x":0.044
+ },
+ {
+  "entidad_q":"MTC-PROYECTO ESPECIAL DE INFRAESTRUCTURA DE TRANSPORTE DESCENTRALIZADO - PROVIAS DESCENTRALIZADO",
+  "consultas":25,
+  "log2_ratio_mediana":0.0,
+  "frac_paga_2x":0.16
+ },
+ {
+  "entidad_q":"MUNICIPALIDAD DISTRITAL DE CORONEL GREGORIO ALBARRACIN LANCHIPA",
+  "consultas":20,
+  "log2_ratio_mediana":0.0,
+  "frac_paga_2x":0.1
+ },
+ {
+  "entidad_q":"MUNICIPALIDAD DISTRITAL DE NUEVO CHIMBOTE",
+  "consultas":23,
+  "log2_ratio_mediana":0.0,
+  "frac_paga_2x":0.13
+ },
+ {
+  "entidad_q":"MUNICIPALIDAD DISTRITAL DE PICHARI",
+  "consultas":69,
+  "log2_ratio_mediana":0.0,
+  "frac_paga_2x":0.174
+ },
+ {
+  "entidad_q":"MUNICIPALIDAD DISTRITAL DE SAN ANTONIO",
+  "consultas":38,
+  "log2_ratio_mediana":0.0,
+  "frac_paga_2x":0.105
+ },
+ {
+  "entidad_q":"MUNICIPALIDAD DISTRITAL DE SAN MARCOS",
+  "consultas":77,
+  "log2_ratio_mediana":0.0,
+  "frac_paga_2x":0.052
+ },
+ {
+  "entidad_q":"MUNICIPALIDAD DISTRITAL DE TORATA",
+  "consultas":37,
+  "log2_ratio_mediana":0.0,
+  "frac_paga_2x":0.054
+ },
+ {
+  "entidad_q":"MUNICIPALIDAD PROVINCIAL DE ESPINAR",
+  "consultas":40,
+  "log2_ratio_mediana":0.0,
+  "frac_paga_2x":0.175
+ },
+ {
+  "entidad_q":"MUNICIPALIDAD PROVINCIAL DE SANTA - CHIMBOTE",
+  "consultas":38,
+  "log2_ratio_mediana":0.0,
+  "frac_paga_2x":0.079
+ },
+ {
+  "entidad_q":"ORGANISMO DE EVALUACION Y FISCALIZACION AMBIENTAL",
+  "consultas":262,
+  "log2_ratio_mediana":0.0,
+  "frac_paga_2x":0.095
+ },
+ {
+  "entidad_q":"ORGANISMO SUPERVISOR DE LA INVERSION EN ENERGIA Y MINERIA",
+  "consultas":20,
+  "log2_ratio_mediana":0.0,
+  "frac_paga_2x":0.15
+ },
+ {
+  "entidad_q":"ORGANISMO SUPERVISOR DE LAS CONTRATACIONES DEL ESTADO",
+  "consultas":32,
+  "log2_ratio_mediana":0.0,
+  "frac_paga_2x":0.219
+ },
+ {
+  "entidad_q":"PETROLEOS DEL PERU S.A.",
+  "consultas":89,
+  "log2_ratio_mediana":0.0,
+  "frac_paga_2x":0.202
+ },
+ {
+  "entidad_q":"UNIDAD EJECUTORA DEL PLIEGO 011 MINISTERIO DE SALUD-DIRECCION DE REDES INTEGRADAS DE SALUD LIMA SUR",
+  "consultas":20,
+  "log2_ratio_mediana":0.0,
+  "frac_paga_2x":0.15
+ },
+ {
+  "entidad_q":"UNIVERSIDAD NACIONAL DE INGENIERIA",
+  "consultas":27,
+  "log2_ratio_mediana":0.0,
+  "frac_paga_2x":0.148
+ },
+ {
+  "entidad_q":"EMPRESA REGIONAL DE SERVICIOS PUBLICOS DE ELECTRICIDAD DEL ORIENTE",
+  "consultas":27,
+  "log2_ratio_mediana":-0.001,
+  "frac_paga_2x":0.111
+ },
+ {
+  "entidad_q":"GOBIERNO REGIONAL DE APURIMAC SEDE CENTRAL",
+  "consultas":50,
+  "log2_ratio_mediana":-0.011,
+  "frac_paga_2x":0.16
+ },
+ {
+  "entidad_q":"MUNICIPALIDAD PROVINCIAL DE CAJAMARCA",
+  "consultas":20,
+  "log2_ratio_mediana":-0.015,
+  "frac_paga_2x":0.1
+ },
+ {
+  "entidad_q":"PROGRAMA NACIONAL DE SANEAMIENTO URBANO",
+  "consultas":31,
+  "log2_ratio_mediana":-0.03,
+  "frac_paga_2x":0.065
+ },
+ {
+  "entidad_q":"GOBIERNO REGIONAL DE LIMA SEDE CENTRAL",
+  "consultas":39,
+  "log2_ratio_mediana":-0.036,
+  "frac_paga_2x":0.103
+ },
+ {
+  "entidad_q":"GOBIERNO REGIONAL DE HUANCAVELICA SEDE CENTRAL",
+  "consultas":22,
+  "log2_ratio_mediana":-0.062,
+  "frac_paga_2x":0.045
+ },
+ {
+  "entidad_q":"EMPRESA REGIONAL DE SERVICIO PUBLICO DE ELECTRICIDAD DEL CENTRO SA ELECTROCENTRO S.A.",
+  "consultas":20,
+  "log2_ratio_mediana":-0.07,
+  "frac_paga_2x":0.0
+ },
+ {
+  "entidad_q":"ENTIDAD PRESTADORA  DE SERVICIO DE SANEAMIENTO DE CUSCO S.A.",
+  "consultas":21,
+  "log2_ratio_mediana":-0.072,
+  "frac_paga_2x":0.048
+ }
+]

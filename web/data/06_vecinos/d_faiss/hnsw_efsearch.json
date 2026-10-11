@@ -1,0 +1,27 @@
+[
+ {
+  "efSearch":16,
+  "recall_at_k":0.9799,
+  "ms_por_consulta":0.315
+ },
+ {
+  "efSearch":32,
+  "recall_at_k":0.982,
+  "ms_por_consulta":0.523
+ },
+ {
+  "efSearch":64,
+  "recall_at_k":0.9846,
+  "ms_por_consulta":0.918
+ },
+ {
+  "efSearch":128,
+  "recall_at_k":0.9856,
+  "ms_por_consulta":1.722
+ },
+ {
+  "efSearch":256,
+  "recall_at_k":0.9865,
+  "ms_por_consulta":3.046
+ }
+]

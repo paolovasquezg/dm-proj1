@@ -1,0 +1,10 @@
+[
+ {
+  "periodo":"2023-01 a 2025-12",
+  "pares_fuerza_bruta":3312072,
+  "pares_reales":131482,
+  "pares_lsh":131473,
+  "B":10,
+  "R":10
+ }
+]

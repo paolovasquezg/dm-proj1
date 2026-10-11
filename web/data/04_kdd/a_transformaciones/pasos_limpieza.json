@@ -1,0 +1,27 @@
+[
+ {
+  "paso":"staging",
+  "filas":236229,
+  "perdidas":null
+ },
+ {
+  "paso":"sin duplicados",
+  "filas":236229,
+  "perdidas":0.0
+ },
+ {
+  "paso":"fecha en 2023-2025",
+  "filas":235954,
+  "perdidas":275.0
+ },
+ {
+  "paso":"montos en soles",
+  "filas":235954,
+  "perdidas":0.0
+ },
+ {
+  "paso":"con descripción",
+  "filas":235954,
+  "perdidas":0.0
+ }
+]

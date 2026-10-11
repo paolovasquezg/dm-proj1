@@ -1,0 +1,13 @@
+[
+ {
+  "estructura":"Bloom Filter",
+  "tarea":"reincidencia entidad-proveedor",
+  "parametros":"m=1187311, k=7",
+  "metrica_error":"tasa de falsos positivos (final)",
+  "error":0.01024,
+  "memoria_bytes":148414.0,
+  "memoria_exacta_bytes":20037851.0,
+  "us_por_elemento":2.8748188583,
+  "us_por_elemento_exacto":0.3364351309
+ }
+]

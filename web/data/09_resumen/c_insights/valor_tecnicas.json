@@ -1,0 +1,37 @@
+[
+ {
+  "tecnica":"MinHash + LSH",
+  "pregunta":"P2",
+  "valor":"alto",
+  "aporte":"Encontró 131k pares casi idénticos entre 3.3M posibles y el patrón OEFA (90% de los procesos exclusivos)",
+  "limitacion":"Similar no prueba fraccionamiento; depende de filtros de negocio posteriores"
+ },
+ {
+  "tecnica":"Reglas (Apriori \/ FP-Growth)",
+  "pregunta":"P1",
+  "valor":"alto",
+  "aporte":"Formalizó combinaciones: método + monto llega a 93.6% de postor único (vs 86.6% el método solo)",
+  "limitacion":"Muchas reglas obvias o normativas (rubro 72 → obras, > 5M → Licitación Pública)"
+ },
+ {
+  "tecnica":"Bloom \/ Count-Min",
+  "pregunta":"P1",
+  "valor":"medio",
+  "aporte":"Reincidencia 19% → 41% y su relación con postor único (16.3% vs 11.9%); 16 heavy hitters",
+  "limitacion":"Con 184k llegadas un set\/dict exacto cabe en memoria; su valor real es a mayor escala"
+ },
+ {
+  "tecnica":"DGIM",
+  "pregunta":"P1",
+  "valor":"medio",
+  "aporte":"Estacionalidad: picos en enero\/diciembre y valles en abril\/noviembre",
+  "limitacion":"La ventana elegida cambia qué picos se ven; el EDA mensual ya lo insinuaba"
+ },
+ {
+  "tecnica":"TF-IDF + IVF \/ HNSW",
+  "pregunta":"P3",
+  "valor":"medio",
+  "aporte":"Mostró que la variación es por entidad (escala de compra) y no por región",
+  "limitacion":"Sin cantidad ni precio unitario no da precios de referencia directos"
+ }
+]

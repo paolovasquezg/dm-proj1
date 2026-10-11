@@ -1,0 +1,26 @@
+[
+ {
+  "NUM_FEATURES":1024,
+  "tokens_por_dim":11.32,
+  "MAE_coseno":0.0279,
+  "error_max":0.39,
+  "frac_err>0.05":0.213,
+  "seg":0.9
+ },
+ {
+  "NUM_FEATURES":4096,
+  "tokens_por_dim":2.83,
+  "MAE_coseno":0.0136,
+  "error_max":0.3656,
+  "frac_err>0.05":0.075,
+  "seg":0.7
+ },
+ {
+  "NUM_FEATURES":16384,
+  "tokens_por_dim":0.71,
+  "MAE_coseno":0.0108,
+  "error_max":0.2846,
+  "frac_err>0.05":0.062,
+  "seg":0.8
+ }
+]
