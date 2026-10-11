@@ -5,11 +5,12 @@ cd "$(dirname "$0")"
 TIMEOUT=7200
 
 echo "== Activar ambiente =="
-python3 -m venv venv
-. venv/bin/activate
+PYTHON=$(command -v python3 || command -v python) || { echo "No se encontró python3 ni python"; exit 1; }
+"$PYTHON" -m venv venv
+if [ -f venv/bin/activate ]; then . venv/bin/activate; else . venv/Scripts/activate; fi
 
 echo "== Instalar dependencias =="
-pip3 install -r "requirements.txt"
+python -m pip install -r "requirements.txt"
 
 echo "== 0. Levantar contenedores =="
 jupyter nbconvert --to notebook --execute --inplace docker.ipynb
