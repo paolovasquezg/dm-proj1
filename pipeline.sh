@@ -6,7 +6,7 @@ TIMEOUT=7200
 
 echo "== Activar ambiente =="
 python3 -m venv venv
-source venv/bin/activate
+. venv/bin/activate
 
 echo "== Instalar dependencias =="
 pip3 install -r "requirements.txt"
