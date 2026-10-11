@@ -81,3 +81,9 @@ sh pipeline.sh
 - 05_Asociacion/b_itemsets.ipynb
 - 05_Asociacion/c_reglas.ipynb
 - 05_Asociacion/d_analisis.ipynb
+
+### 6. Análisis
+
+- 06_Analisis/a_recuento.ipynb
+- 06_Analisis/b_hallazgos.ipynb
+- 06_Analisis/c_insights.ipynb
