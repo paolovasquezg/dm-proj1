@@ -1,4 +1,4 @@
-import { datos, encabezado, puntos, caja, graficar, barraH, tabla, num, pct, C } from "../comun.js";
+import { datos, encabezado, puntos, caja, graficar, barraH, num, pct, C } from "../comun.js";
 
 const D = "09_resumen";
 const CORTO = { "error relativo medio": "error", "tasa de falsos positivos (final)": "falsos positivos", "sobreestimación media (apariciones)": "sobreestimación" };
@@ -33,25 +33,6 @@ export const diapos = [
         marker: { color: t.map(r => col[r.tipo_ahorro]) }, text: t.map(r => `${num(r.ahorro_x)}x · ${CORTO[r.metrica_error] || r.metrica_error}: ${r.metrica_error.includes("falsos") ? pct(r.error * 100, 2) : num(r.error, r.error > 0.99 && r.error < 1 ? 4 : 3)}`),
         textposition: "outside", hovertemplate: "%{y}: %{x:.1f}x<extra></extra>" })],
         { xaxis: { type: "log", range: [0.4, 2.9], tickvals: [3, 10, 30, 100], ticktext: ["3x", "10x", "30x", "100x"] }, margin: { l: 140 } });
-    },
-  },
-  {
-    etapa: "9 · Resumen",
-    async render(el) {
-      el.innerHTML = encabezado("Insights: lo que aparece al juntar las técnicas", "")
-        + `<div class="fila">
-          <div>${puntos([
-            "<b>El método de contratación es el hilo conductor:</b> Régimen Especial (OEFA en P2), Convenio, Contratación Internacional (heavy hitters) y Contratación Directa (reglas)",
-            "<b>Los mismos actores aparecen en varias técnicas:</b> OEFA lidera P2 y la similitud de P3; PROMPERÚ es el par más frecuente con 100% de postor único",
-            "<b>Lo aproximado no cambia las respuestas:</b> variar parámetros mueve el error, no la conclusión; lo que sí la mueve son decisiones de análisis (ventana, soporte, umbral)",
-            "<b>Indicio no es prueba:</b> similar ≠ irregular, y mucho de lo “sospechoso” es normativo; las señales deben validarse con Contraloría u OECE",
-            "<b>Siguiente paso:</b> precio unitario por ítem para convertir los vecinos en precios de referencia directos",
-          ])}</div>
-          <div class="tarjeta"><h3>Dónde valió la pena Spark</h3><div id="t-spark"></div></div>
-        </div>`;
-      const d = await datos(`${D}/c_insights/donde_corre`);
-      document.getElementById("t-spark").innerHTML = tabla(d, [["etapa", "Etapa"], ["motor", "Motor"], ["por_que", "Por qué"]],
-        { destacar: r => r.motor === "Spark" });
     },
   },
 ];

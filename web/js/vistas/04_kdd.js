@@ -1,4 +1,4 @@
-import { datos, encabezado, puntos, proceso, tabla, num } from "../comun.js";
+import { datos, encabezado, puntos, proceso, tabla, num, caja, graficar, barra, C } from "../comun.js";
 
 export const diapos = [{
   etapa: "4 · KDD",
@@ -23,10 +23,28 @@ export const diapos = [{
       </div>`
       + puntos([
         "<b>Se pierde muy poco:</b> solo 275 procesos (0.1%), con fecha de 2026 mal registrada",
-        "<b>Partición por año y mes:</b> filtrar un mes lee 1 de 36 carpetas; clave para procesar la similitud mes a mes",
       ]);
     const pasos = await datos("04_kdd/a_transformaciones/pasos_limpieza");
     document.getElementById("t-pasos").innerHTML = tabla(pasos,
       [["paso", "Paso"], ["filas", "Filas", v => num(v)], ["perdidas", "Perdidas", v => v ? num(v) : "—"]]);
+  },
+}, {
+  etapa: "4 · KDD",
+  async render(el) {
+    el.innerHTML = encabezado("Spark: la misma consulta en RDD, DataFrame y SQL",
+      "Tres agregaciones del EDA se escribieron con las tres APIs de Spark para comparar tiempo y esfuerzo")
+      + `<div class="fila">${caja("g-spark", "Segundos por agregación", "mismo resultado exacto en las tres")}<div>`
+      + puntos([
+        "<b>DataFrame y SQL son 5–56x más rápidos que RDD:</b> pasan por el optimizador de Spark y leen el parquet en formato columnar",
+        "<b>RDD serializa cada fila como objeto Python</b> y no se optimiza; además el map/reduce se escribe a mano (4 pasos frente a una sola cadena <code>groupBy().agg()</code>)",
+        "<b>DataFrame y SQL rinden parecido:</b> por eso todo el proyecto usa la API de DataFrame",
+        "<b>Partición por año y mes:</b> filtrar un mes hace que Spark lea 1 de 36 carpetas (<i>partition pruning</i>)",
+      ]) + "</div></div>";
+    const t = await datos("03_eda/b_exploracion/tiempos_rdd_df_sql");
+    const nombres = { procesos_por_entidad: "procesos por entidad", monto_por_anio: "monto por año", postor_unico_por_region: "postor único por región" };
+    const x = t.map(r => nombres[r.agregacion] || r.agregacion);
+    graficar("g-spark", [["rdd_s", "RDD", C.naranja], ["dataframe_s", "DataFrame", C.azul], ["sql_s", "SQL", C.aqua]].map(([k, n, c]) =>
+      barra(x, t.map(r => r[k]), { name: n, marker: { color: c }, hovertemplate: `${n}: %{y:.2f} s<extra></extra>` })),
+      { barmode: "group", yaxis: { title: "segundos" } });
   },
 }];
