@@ -122,3 +122,8 @@ python3 -m http.server -d web 8000
 
 Abrir `http://localhost:8000`
 
+
+## Acceso publico
+
+Acceder a la web con los resultados en [paolovasquezg.github.io/dm-proj1](https://paolovasquezg.github.io/dm-proj1/)
+
