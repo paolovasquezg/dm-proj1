@@ -5,7 +5,11 @@ cd "$(dirname "$0")"
 TIMEOUT=7200
 
 echo "== Activar ambiente =="
-PYTHON=$(command -v python3 || command -v python) || { echo "No se encontró python3 ni python"; exit 1; }
+PYTHON=""
+for c in python3 python py; do
+    if "$c" --version >/dev/null 2>&1; then PYTHON="$c"; break; fi
+done
+[ -n "$PYTHON" ] || { echo "No se encontró python3, python ni py"; exit 1; }
 "$PYTHON" -m venv venv
 if [ -f venv/bin/activate ]; then . venv/bin/activate; else . venv/Scripts/activate; fi
 
@@ -15,55 +19,57 @@ python -m pip install -r "requirements.txt"
 echo "== 0. Levantar contenedores =="
 jupyter nbconvert --to notebook --execute --inplace docker.ipynb
 
+docker compose exec -T jupyter sh -c 'chmod -R a+rwX /home/jovyan/work/data /home/jovyan/work/0*'
+
 echo "== 1.EDA Y KDD =="
 
 # 1. EDA y KDD
-docker compose exec -T jupyter jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=$TIMEOUT 01_EDA_KDD/EDA/a_entendimiento.ipynb
-docker compose exec -T jupyter jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=$TIMEOUT 01_EDA_KDD/EDA/b_exploracion.ipynb
-docker compose exec -T jupyter jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=$TIMEOUT 01_EDA_KDD/EDA/c_justificacion.ipynb
-docker compose exec -T jupyter jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=$TIMEOUT 01_EDA_KDD/KDD/a_transformaciones.ipynb
-docker compose exec -T jupyter jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=$TIMEOUT 01_EDA_KDD/KDD/b_recuento.ipynb
+docker compose exec -T -u jovyan jupyter jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=$TIMEOUT 01_EDA_KDD/EDA/a_entendimiento.ipynb
+docker compose exec -T -u jovyan jupyter jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=$TIMEOUT 01_EDA_KDD/EDA/b_exploracion.ipynb
+docker compose exec -T -u jovyan jupyter jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=$TIMEOUT 01_EDA_KDD/EDA/c_justificacion.ipynb
+docker compose exec -T -u jovyan jupyter jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=$TIMEOUT 01_EDA_KDD/KDD/a_transformaciones.ipynb
+docker compose exec -T -u jovyan jupyter jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=$TIMEOUT 01_EDA_KDD/KDD/b_recuento.ipynb
 
 echo "== 2. Similitud =="
 
 # 2. Similitud
-docker compose exec -T jupyter jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=$TIMEOUT 02_Similitud/a_minhash.ipynb
-docker compose exec -T jupyter jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=$TIMEOUT 02_Similitud/b_lsh.ipynb
-docker compose exec -T jupyter jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=$TIMEOUT 02_Similitud/c_pares.ipynb
-docker compose exec -T jupyter jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=$TIMEOUT 02_Similitud/d_entidades.ipynb
-docker compose exec -T jupyter jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=$TIMEOUT 02_Similitud/e_analisis.ipynb
+docker compose exec -T -u jovyan jupyter jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=$TIMEOUT 02_Similitud/a_minhash.ipynb
+docker compose exec -T -u jovyan jupyter jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=$TIMEOUT 02_Similitud/b_lsh.ipynb
+docker compose exec -T -u jovyan jupyter jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=$TIMEOUT 02_Similitud/c_pares.ipynb
+docker compose exec -T -u jovyan jupyter jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=$TIMEOUT 02_Similitud/d_entidades.ipynb
+docker compose exec -T -u jovyan jupyter jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=$TIMEOUT 02_Similitud/e_analisis.ipynb
 
 echo "== 3. Vecinos aproximados =="
 
 # 3. Vecinos aproximados (ANN)
-docker compose exec -T jupyter jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=$TIMEOUT 03_ANN/a_tfidf.ipynb
-docker compose exec -T jupyter jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=$TIMEOUT 03_ANN/b_ind_ivf.ipynb
-docker compose exec -T jupyter jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=$TIMEOUT 03_ANN/c_bus_ivf.ipynb
-docker compose exec -T jupyter jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=$TIMEOUT 03_ANN/d_faiss.ipynb
-docker compose exec -T jupyter jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=$TIMEOUT 03_ANN/e_analisis.ipynb
+docker compose exec -T -u jovyan jupyter jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=$TIMEOUT 03_ANN/a_tfidf.ipynb
+docker compose exec -T -u jovyan jupyter jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=$TIMEOUT 03_ANN/b_ind_ivf.ipynb
+docker compose exec -T -u jovyan jupyter jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=$TIMEOUT 03_ANN/c_bus_ivf.ipynb
+docker compose exec -T -u jovyan jupyter jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=$TIMEOUT 03_ANN/d_faiss.ipynb
+docker compose exec -T -u jovyan jupyter jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=$TIMEOUT 03_ANN/e_analisis.ipynb
 
 echo "== 4. Minería de flujos =="
 
 # 4. Minería de flujos
-docker compose exec -T jupyter jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=$TIMEOUT 04_Flujos/a_dgim.ipynb
-docker compose exec -T jupyter jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=$TIMEOUT 04_Flujos/b_bloom.ipynb
-docker compose exec -T jupyter jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=$TIMEOUT 04_Flujos/c_sketch.ipynb
-docker compose exec -T jupyter jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=$TIMEOUT 04_Flujos/d_analisis.ipynb
+docker compose exec -T -u jovyan jupyter jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=$TIMEOUT 04_Flujos/a_dgim.ipynb
+docker compose exec -T -u jovyan jupyter jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=$TIMEOUT 04_Flujos/b_bloom.ipynb
+docker compose exec -T -u jovyan jupyter jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=$TIMEOUT 04_Flujos/c_sketch.ipynb
+docker compose exec -T -u jovyan jupyter jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=$TIMEOUT 04_Flujos/d_analisis.ipynb
 
 echo "== 5. Reglas de asociación =="
 
 # 5. Reglas de asociación
-docker compose exec -T jupyter jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=$TIMEOUT 05_Asociacion/a_canastas.ipynb
-docker compose exec -T jupyter jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=$TIMEOUT 05_Asociacion/b_itemsets.ipynb
-docker compose exec -T jupyter jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=$TIMEOUT 05_Asociacion/c_reglas.ipynb
-docker compose exec -T jupyter jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=$TIMEOUT 05_Asociacion/d_analisis.ipynb
+docker compose exec -T -u jovyan jupyter jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=$TIMEOUT 05_Asociacion/a_canastas.ipynb
+docker compose exec -T -u jovyan jupyter jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=$TIMEOUT 05_Asociacion/b_itemsets.ipynb
+docker compose exec -T -u jovyan jupyter jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=$TIMEOUT 05_Asociacion/c_reglas.ipynb
+docker compose exec -T -u jovyan jupyter jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=$TIMEOUT 05_Asociacion/d_analisis.ipynb
 
 echo "== 6. Análisis =="
 
 # 6. Análisis
-docker compose exec -T jupyter jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=$TIMEOUT 06_Analisis/a_recuento.ipynb
-docker compose exec -T jupyter jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=$TIMEOUT 06_Analisis/b_hallazgos.ipynb
-docker compose exec -T jupyter jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=$TIMEOUT 06_Analisis/c_insights.ipynb
+docker compose exec -T -u jovyan jupyter jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=$TIMEOUT 06_Analisis/a_recuento.ipynb
+docker compose exec -T -u jovyan jupyter jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=$TIMEOUT 06_Analisis/b_hallazgos.ipynb
+docker compose exec -T -u jovyan jupyter jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=$TIMEOUT 06_Analisis/c_insights.ipynb
 
 echo "== 7. Datos para la web =="
 
