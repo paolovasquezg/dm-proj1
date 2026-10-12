@@ -6,14 +6,14 @@ export const diapos = [
   {
     etapa: "3 · EDA",
     async render(el) {
-      el.innerHTML = encabezado("Exploración: volumen y calidad de los datos",
+      el.innerHTML = encabezado("Calidad y Volumen del Dataset",
         "Antes de minar, se mide cuánto hay y qué tan confiable es")
         + cifras([["236,229", "procesos en bruto"], ["8.8%", "casi-duplicados (9,276 grupos)"], ["16,203", "montos ≤ 0 (no informados)"], ["4,797", "procesos en otra moneda"]])
         + `<div class="fila">${caja("g-serie", "Procesos por mes")}${caja("g-nulos", "% de valores faltantes por columna")}</div>`
         + puntos([
-          "<b>Flujo continuo:</b> ~6,500 procesos al mes, sin huecos; enero siempre es el mes más bajo",
-          "<b>Faltantes:</b> <code>estado</code> nunca viene (se descarta); proveedor y monto adjudicado faltan en ~22% (procesos no adjudicados)",
-          "<b>Casi-duplicados:</b> misma entidad, fecha, monto y texto bajo otro <code>ocid</code>; se conservan y se separan en la similitud",
+          "<b>Flujo estable:</b> ~6,500 procesos mensuales; enero registra el menor volumen.",
+          "<b>Faltantes:</b> Proveedor y monto faltan en ~22% de procesos no adjudicados.",
+          "<b>Casi-duplicados:</b> 8.8% repite entidad, fecha, monto y texto.",
         ]);
       const [serie, nulos] = await Promise.all([datos(`${D}/b_exploracion/serie_mensual`), datos(`${D}/a_entendimiento/nulos`)]);
       graficar("g-serie", [linea(serie.map(r => `${r.anio}-${String(r.mes).padStart(2, "0")}`), serie.map(r => r.count),
@@ -27,12 +27,12 @@ export const diapos = [
   {
     etapa: "3 · EDA",
     async render(el) {
-      el.innerHTML = encabezado("Exploración: los montos están muy concentrados",
+      el.innerHTML = encabezado("Concentración del Gasto Público",
         "La mediana es S/ 186 mil, pero unas pocas obras superan los S/ 1,000 millones")
         + `<div class="fila">${caja("g-hist", "Distribución del monto (escala logarítmica)")}${caja("g-cat", "Monto mediano por categoría (S/ miles)")}</div>`
         + puntos([
-          "<b>Sesgo extremo:</b> en escala normal la media no sirve; en log₁₀ la distribución se ve simétrica, por eso se trabaja con <b>tramos de monto</b>",
-          "<b>Obras ≈ 9x</b> el monto mediano de bienes y servicios, con muchos menos procesos: las comparaciones de precio deben hacerse <b>dentro de la misma categoría</b>",
+          "<b>Sesgo extremo:</b> La media no representa los montos; se usan tramos.",
+          "<b>Obras ≈ 9×:</b> Los precios deben compararse dentro de cada categoría.",
         ]);
       const [hist, cat] = await Promise.all([datos(`${D}/b_exploracion/montos_hist_log10`), datos(`${D}/b_exploracion/monto_categoria`)]);
       const h = hist.filter(r => r.log10 >= 2);
@@ -48,18 +48,18 @@ export const diapos = [
   {
     etapa: "3 · EDA",
     async render(el) {
-      el.innerHTML = encabezado("Exploración: la baja competencia tiene un patrón",
+      el.innerHTML = encabezado("Patrones de Baja Competencia",
         "~11% de los procesos tiene un solo postor. No se reparte al azar: depende del método, del monto y de la región")
         + `<div class="fila" style="--cols:3">${caja("g-met", "% postor único por método", "", "alto")}${caja("g-tramo", "% postor único por tramo de monto", "monto referencial", "alto")}${caja("g-reg", "% postor único por región", "regiones con ≥ 500 procesos", "alto")}</div>`
         + puntos([
-          "<b>El método lo explica casi todo:</b> Contratación Directa (86.5%), Régimen Especial (80%) y Convenio (54.6%) frente a 0.4–2.1% en métodos competitivos",
-          "<b>Montos chicos:</b> bajo S/ 50 mil, más de la mitad de procesos tiene un solo postor",
-          "<b>Región:</b> Tumbes (30.7%) y Lima (26.3%, con 68 mil procesos) duplican el promedio nacional",
+          "<b>Método dominante:</b> Directa 86.5% y Régimen Especial 80% concentran postor único.",
+          "<b>Montos bajos:</b> Bajo S/ 50 mil, más de la mitad tiene un postor.",
+          "<b>Regiones críticas:</b> Tumbes 30.7% y Lima 26.3% duplican el promedio.",
         ]);
       const [met, tramo, reg] = await Promise.all([datos(`${D}/b_exploracion/competencia_metodo`),
         datos(`${D}/b_exploracion/competencia_tramo`), datos(`${D}/b_exploracion/competencia_region`)]);
       const m = met.slice(0, 11).reverse();
-      graficar("g-met", [barraH(m.map(r => r.metodo_detalle.slice(0, 26)), m.map(r => r["%_postor_unico"]),
+      graficar("g-met", [barraH(m.map(r => r.metodo_detalle), m.map(r => r["%_postor_unico"]),
         { marker: { color: m.map(r => r["%_postor_unico"] > 50 ? C.naranja : C.azul) }, hovertemplate: "%{y}: %{x:.1f}%<extra></extra>" })],
         { xaxis: { ticksuffix: "%" }, margin: { l: 170 }, yaxis: { tickfont: { size: 10 } } });
       graficar("g-tramo", [barra(tramo.map(r => r.tramo.replace(/^\d_/, "")), tramo.map(r => r["%_postor_unico"]),

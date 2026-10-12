@@ -15,27 +15,27 @@ export const diapos = [
   {
     etapa: "1 · Situación",
     async render(el) {
-      el.innerHTML = encabezado("Las compras públicas mueven ~S/ 80 mil millones al año",
+      el.innerHTML = encabezado("Escala de las Compras Públicas",
         "Cada proceso de contratación es público. Revisarlos uno por uno es imposible; la minería de datos permite vigilarlos a escala")
         + `<div class="fila">
           <div>${puntos([
-            "<b>Qué son:</b> procesos con los que entidades del Estado (ministerios, gobiernos regionales, municipios) compran bienes, servicios y obras",
-            "<b>Dónde se publican:</b> portal de Contrataciones Abiertas del OECE, en formato OCDS, un archivo por mes",
-            "<b>El reto:</b> ~80 mil procesos por año con texto libre, montos muy dispares y datos incompletos",
-            "<b>Qué buscamos:</b> señales de riesgo — poca competencia, compras divididas y precios fuera de rango",
+            "<b>Escala pública:</b> El Estado contrata bienes, servicios y obras.",
+            "<b>Fuente oficial:</b> OECE publica un archivo OCDS mensual.",
+            "<b>Volumen:</b> ~80 mil procesos anuales impiden la revisión manual.",
+            "<b>Objetivo:</b> Detectar baja competencia, compras divididas y precios atípicos.",
           ])}</div>
           ${caja("g-monto", "Monto adjudicado por año (S/ millones)")}
         </div>`;
       const m = (await datos("02_dataset/b_exploracion/monto_adjudicado_anio")).filter(r => r.anio <= 2025);
       graficar("g-monto", [barra(m.map(r => String(r.anio)), m.map(r => r.monto_adjudicado / 1e6),
-        { hovertemplate: "%{x}: S/ %{y:,.0f} M<extra></extra>", text: m.map(r => `S/ ${num(r.monto_adjudicado / 1e9, 1)} mil M`), textposition: "outside" })],
+        { hovertemplate: "%{x}: S/ %{y:,.0f} millones<extra></extra>", text: m.map(r => `S/ ${num(r.monto_adjudicado / 1e9, 1)} mil millones`), textposition: "outside" })],
         { xaxis: { type: "category" }, yaxis: { title: "S/ millones", range: [0, 100000] }, margin: { t: 24 } });
     },
   },
   {
     etapa: "2 · Dataset y preguntas",
     async render(el) {
-      el.innerHTML = encabezado("El dataset y las tres preguntas",
+      el.innerHTML = encabezado("Dataset y Preguntas de Riesgo",
         "Un proceso = una fila. De los datos OCDS se extraen las columnas que describen quién compra, qué, cuánto y con cuánta competencia")
         + `<div class="fila">
           <div class="tarjeta"><h3>Columnas principales</h3>${tabla(COLUMNAS.map(([c, d]) => ({ c: `<code>${c}</code>`, d })), [["c", "Columna"], ["d", "Significado"]])}</div>

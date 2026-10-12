@@ -1,0 +1,554 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Informe ejecutivo sobre minería de datos masivos aplicada a contrataciones públicas peruanas, 2023–2025.">
+  <title>Minería de Datos Masivos en Contrataciones Públicas del Perú</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <style>
+    :root {
+      --paper: #f8fafc;
+      --surface: #ffffff;
+      --ink: #0f172a;
+      --text: #334155;
+      --muted: #64748b;
+      --rule: #e2e8f0;
+      --blue: #2563eb;
+      --amber: #d97706;
+      --red: #dc2626;
+      --slate: #94a3b8;
+      --teal: #0f766e;
+      --shadow: 0 1px 3px rgba(15, 23, 42, .05), 0 14px 30px -24px rgba(15, 23, 42, .28);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 78px; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--text);
+      font: 16px/1.62 Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+      font-variant-numeric: tabular-nums lining-nums;
+    }
+    .topbar {
+      position: sticky;
+      z-index: 20;
+      top: 0;
+      border-bottom: 1px solid rgba(226, 232, 240, .9);
+      background: rgba(248, 250, 252, .94);
+      backdrop-filter: blur(12px);
+    }
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 900px;
+      min-height: 58px;
+      margin: 0 auto;
+      padding: 0 24px;
+      gap: 20px;
+    }
+    .brand { color: var(--ink); font-size: 13px; font-weight: 750; letter-spacing: -.01em; }
+    .period { color: var(--muted); font-size: 11px; font-weight: 650; letter-spacing: .06em; text-transform: uppercase; }
+    .progress-track { height: 2px; background: #e5eaf0; }
+    .progress-bar { width: 0; height: 100%; background: var(--blue); transition: width .08s linear; }
+    article { width: 100%; max-width: 900px; margin: 0 auto; padding: 40px 24px 88px; }
+    header { padding: 24px 0 34px; border-bottom: 1px solid var(--rule); }
+    h1, h2, h3 {
+      color: var(--ink);
+      font-family: "Plus Jakarta Sans", Inter, ui-sans-serif, system-ui, sans-serif;
+      letter-spacing: -.035em;
+      line-height: 1.16;
+    }
+    h1 { max-width: 820px; margin: 0 0 18px; font-size: clamp(2.15rem, 6vw, 3.75rem); }
+    h2 { margin: 62px 0 18px; padding-top: 4px; font-size: clamp(1.55rem, 3vw, 2rem); }
+    h3 { margin: 30px 0 10px; font-size: 1.05rem; letter-spacing: -.015em; }
+    p { max-width: 76ch; margin: 0 0 15px; }
+    a { color: #1e40af; }
+    code {
+      border-radius: 4px;
+      background: #eef2f7;
+      padding: .1em .32em;
+      color: var(--ink);
+      font: .88em "JetBrains Mono", Consolas, monospace;
+    }
+    .subtitle { max-width: 750px; color: var(--muted); font-size: 1.08rem; }
+    .authors { margin-top: 24px; color: var(--ink); font-weight: 700; }
+    .affiliation { color: var(--muted); font-size: .9rem; }
+    .eyebrow { margin-bottom: 13px; color: var(--blue); font-size: 11px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+    .abstract {
+      margin-top: 28px;
+      border-left: 3px solid var(--blue);
+      padding: 2px 0 2px 18px;
+      color: #475569;
+    }
+    .kpis {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin: 30px 0 8px;
+    }
+    .kpi {
+      border: 1px solid var(--rule);
+      border-radius: 12px;
+      background: var(--surface);
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+    .kpi b { display: block; color: var(--ink); font-size: clamp(1.5rem, 4vw, 2rem); line-height: 1.1; letter-spacing: -.04em; }
+    .kpi span { display: block; margin-top: 7px; color: var(--muted); font-size: 10px; font-weight: 750; letter-spacing: .07em; text-transform: uppercase; }
+    .executive {
+      margin: 16px 0 22px;
+      padding-left: 20px;
+    }
+    .executive li { margin: 8px 0; padding-left: 3px; }
+    .executive strong { color: var(--ink); }
+    .pipeline {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 8px;
+      margin: 22px 0;
+    }
+    .pipeline div {
+      border: 1px solid var(--rule);
+      border-radius: 9px;
+      background: var(--surface);
+      padding: 13px 10px;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.4;
+    }
+    .pipeline b { display: block; margin-bottom: 5px; color: var(--ink); font-size: 12px; }
+    .chart-card {
+      margin: 24px 0 30px;
+      overflow: hidden;
+      border: 1px solid var(--rule);
+      border-radius: 14px;
+      background: var(--surface);
+      padding: 18px 18px 14px;
+      box-shadow: var(--shadow);
+    }
+    .chart-card h3 { margin: 0 0 3px; }
+    .chart-note { margin: 0 0 14px; color: var(--muted); font-size: 12px; }
+    .chart-frame { position: relative; width: 100%; height: 290px; min-width: 0; }
+    .chart-frame canvas { width: 100% !important; height: 100% !important; }
+    .chart-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin: 24px 0 30px; }
+    .chart-grid .chart-card { margin: 0; }
+    .table-wrap { margin: 22px 0; overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink); font-size: 13px; }
+    th, td { padding: 9px 10px; border-bottom: 1px solid var(--rule); text-align: left; vertical-align: top; }
+    th { color: var(--ink); font-size: 10px; letter-spacing: .06em; text-transform: uppercase; }
+    .num { text-align: right; white-space: nowrap; }
+    .callout {
+      margin: 26px 0;
+      border: 1px solid #fed7aa;
+      border-left: 4px solid var(--amber);
+      border-radius: 10px;
+      background: #fffbeb;
+      padding: 16px 18px;
+    }
+    .callout strong { color: #92400e; }
+    .methods { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin: 18px 0; }
+    .method { border: 1px solid var(--rule); border-radius: 9px; background: white; padding: 13px 14px; font-size: 13px; }
+    .method b { color: var(--ink); }
+    .refs { padding-left: 20px; color: var(--muted); font-size: 13px; }
+    .refs li { margin: 7px 0; }
+    footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--rule); color: var(--muted); font-size: 12px; }
+    @media (max-width: 720px) {
+      article { padding: 28px 18px 64px; }
+      .topbar-inner { padding: 0 18px; }
+      .period { display: none; }
+      .kpis, .chart-grid, .methods { grid-template-columns: 1fr; }
+      .pipeline { grid-template-columns: 1fr; }
+      .chart-frame { height: 280px; }
+    }
+    @media print {
+      .topbar { position: static; }
+      .progress-track { display: none; }
+      article { max-width: none; padding: 20px; }
+      .chart-card, .kpi, table { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="topbar" aria-label="Progreso del informe">
+    <div class="topbar-inner">
+      <span class="brand">Contrataciones públicas · Minería de datos masivos</span>
+      <span class="period">OECE / SEACE v3 · 2023–2025</span>
+    </div>
+    <div class="progress-track"><div class="progress-bar" id="reading-progress"></div></div>
+  </nav>
+
+  <article>
+    <header>
+      <p class="eyebrow">Informe técnico ejecutivo</p>
+      <h1>Minería de Datos Masivos en Contrataciones Abiertas del Estado Peruano</h1>
+      <p class="subtitle">Spark, MinHash/LSH, búsqueda ANN, estructuras de flujo y reglas de asociación sobre procesos OCDS de 2023–2025.</p>
+      <p class="authors">Chu Lao Orrego Oscar · Vasquez Grahammer Paolo · Velo Poma Josue Nehemias</p>
+      <p class="affiliation">Curso de Minería de Datos Masivos y Flujos de Datos · Profesor: Heider Sanchez</p>
+      <div class="abstract">
+        El estudio transforma 235,954 procesos públicos en señales auditables. Spark organiza el corpus; LSH detecta repetición; ANN compara precios; los sketches monitorean flujos y FP-Growth identifica patrones de baja competencia. Los resultados son alertas de riesgo, no evidencia jurídica.
+      </div>
+    </header>
+
+    <main>
+      <section id="ficha">
+        <h2>1. Ficha técnica y resultados</h2>
+        <div class="kpis">
+          <div class="kpi"><b>235,954</b><span>Procesos válidos</span></div>
+          <div class="kpi"><b>S/ 240 mil M</b><span>Monto analizado</span></div>
+          <div class="kpi"><b>36 meses</b><span>Enero 2023–diciembre 2025</span></div>
+        </div>
+        <ul class="executive">
+          <li><strong>P1 · Competencia:</strong> La contratación directa concentra la señal de postor único.</li>
+          <li><strong>P2 · Fraccionamiento:</strong> Solo 1,549 procesos cumplen el patrón completo; OEFA reúne 1,388.</li>
+          <li><strong>P3 · Precios:</strong> La dispersión se vincula más con la entidad que con la región.</li>
+        </ul>
+      </section>
+
+      <section id="kdd">
+        <h2>2. KDD y procesamiento en Spark</h2>
+        <p>El pipeline integra 36 meses OCDS, valida <code>ocid</code>, normaliza texto y convierte monedas a PEN con la serie oficial del BCRP. El corpus final conserva 235,954 procesos del período oficial.</p>
+        <div class="pipeline" aria-label="Etapas del proceso KDD">
+          <div><b>1 · Selección</b>JSON OCDS de 36 meses.</div>
+          <div><b>2 · Limpieza</b>OCID, fechas y montos.</div>
+          <div><b>3 · Transformación</b>PEN, texto y tramos.</div>
+          <div><b>4 · Minería</b>LSH, ANN y sketches.</div>
+          <div><b>5 · Interpretación</b>Alertas P1–P3.</div>
+        </div>
+        <ul class="executive">
+          <li><strong>Partición física:</strong> <code>anio/mes</code> permite leer una carpeta y podar las otras 35.</li>
+          <li><strong>Motor relacional:</strong> DataFrame y SQL reducen el tiempo frente a RDD.</li>
+          <li><strong>Criterio técnico:</strong> Spark se reserva para operaciones que movilizan el corpus completo.</li>
+        </ul>
+        <div class="chart-card">
+          <h3>Tiempo de agregación por interfaz</h3>
+          <p class="chart-note">Segundos; comparación representativa de RDD frente a Catalyst.</p>
+          <div class="chart-frame"><canvas id="spark-chart" role="img" aria-label="RDD 2.5 segundos, DataFrame y Spark SQL 0.2 segundos"></canvas></div>
+        </div>
+      </section>
+
+      <section id="similitud">
+        <h2>3. Similitud y fraccionamiento (P2)</h2>
+        <p>Las descripciones se convierten en conjuntos de 5-shingles. MinHash con $T=100$ logra MAE productivo de 0.031; LSH 10×10 conserva 99.99% de recall con solo nueve falsos negativos.</p>
+        <p>La probabilidad de candidateo es $P=1-(1-s^r)^b$. Con $b=r=10$, el umbral efectivo es $s^*\approx0.79$; los candidatos se verifican después con Jaccard exacto.</p>
+        <div class="chart-grid">
+          <div class="chart-card">
+            <h3>Curva S de LSH</h3>
+            <p class="chart-note">La línea ámbar marca el umbral efectivo.</p>
+            <div class="chart-frame"><canvas id="lsh-chart" role="img" aria-label="Curva S de probabilidad LSH con umbral 0.79"></canvas></div>
+          </div>
+          <div class="chart-card">
+            <h3>Embudo de fraccionamiento</h3>
+            <p class="chart-note">Escala logarítmica; el volumen cae al aplicar cada condición.</p>
+            <div class="chart-frame"><canvas id="funnel-chart" role="img" aria-label="37094 compras repetidas, 1549 sospechosas y 1388 de OEFA"></canvas></div>
+          </div>
+        </div>
+        <ul class="executive">
+          <li><strong>Repetición textual:</strong> 37,094 procesos tienen un gemelo cercano dentro de 15 días.</li>
+          <li><strong>Patrón completo:</strong> 1,549 procesos, equivalentes al 0.66%, superan todos los filtros.</li>
+          <li><strong>Concentración OEFA:</strong> 1,388 casos representan 89.6% de las alertas finales.</li>
+        </ul>
+      </section>
+
+      <section id="ann">
+        <h2>4. Vecinos cercanos y precios (P3)</h2>
+        <p>TF-IDF representa 235,954 descripciones en 4,096 dimensiones. IVF divide el espacio en celdas de Voronoi; HNSW navega un grafo multicapa para reducir comparaciones.</p>
+        <div class="chart-card">
+          <h3>Precisión y aceleración ANN</h3>
+          <p class="chart-note">IVF propio usa el corpus completo; HNSW corresponde a una muestra de 20,000 vectores.</p>
+          <div class="chart-frame"><canvas id="ann-chart" role="img" aria-label="IVF propio 75 por ciento recall y 14.7 veces; HNSW 98 por ciento y 21 veces"></canvas></div>
+        </div>
+        <ul class="executive">
+          <li><strong>IVF propio:</strong> Recall 75% y aceleración 14.7× sobre 235,954 vectores.</li>
+          <li><strong>Faiss HNSW:</strong> Recall 97.99% y aceleración 20.9× en la muestra controlada.</li>
+          <li><strong>Dispersión:</strong> La variación entre entidades supera la observada dentro de una entidad.</li>
+        </ul>
+      </section>
+
+      <section id="flujos">
+        <h2>5. Minería de flujos</h2>
+        <p>Los procesos se consumen cronológicamente en una sola pasada. Bloom detecta reincidencia; CMS estima frecuencias y DGIM resume ventanas de postor único.</p>
+        <div class="chart-card">
+          <h3>Ahorro de memoria frente al cálculo exacto</h3>
+          <p class="chart-note">Factor de reducción; valores instrumentados redondeados.</p>
+          <div class="chart-frame"><canvas id="memory-chart" role="img" aria-label="Bloom 135 veces, Count-Min 35 veces y DGIM 20 veces menos memoria"></canvas></div>
+        </div>
+        <ul class="executive">
+          <li><strong>Bloom Filter:</strong> FPR final cercano a 1% y cero falsos negativos.</li>
+          <li><strong>Count-Min Sketch:</strong> Conservative Update reduce la sobreestimación media de 1.981 a 0.783.</li>
+          <li><strong>DGIM:</strong> Error medio 10.9% con un ahorro de memoria superior a 20×.</li>
+        </ul>
+      </section>
+
+      <section id="reglas">
+        <h2>6. Reglas de asociación (P1)</h2>
+        <p>Cada <code>ocid</code> forma una canasta con categoría, método, región, tramo, competencia y rubro. FP-Growth procesa las 235,954 canastas sin construir una matriz local dispersa.</p>
+        <div class="chart-card">
+          <h3>Principales reglas por lift</h3>
+          <p class="chart-note">La barra ámbar destaca contratación directa y postor único: 93.6% de confianza.</p>
+          <div class="chart-frame"><canvas id="rules-chart" role="img" aria-label="Reglas principales ordenadas por lift"></canvas></div>
+        </div>
+        <ul class="executive">
+          <li><strong>Contratación directa:</strong> Con S/ 50–200 mil predice postor único con 93.6% de confianza.</li>
+          <li><strong>Lift 8.37:</strong> La asociación supera ampliamente la tasa base de postor único.</li>
+          <li><strong>Estacionalidad:</strong> Enero y diciembre concentran picos de baja competencia.</li>
+        </ul>
+      </section>
+
+      <section id="discusion">
+        <h2>7. Discusión crítica y ética</h2>
+        <div class="methods">
+          <div class="method"><b>Exactitud vs. latencia.</b> LSH y ANN sacrifican una fracción medible de precisión para evitar comparaciones exhaustivas.</div>
+          <div class="method"><b>Spark vs. local.</b> Spark aporta escala en joins, TF-IDF y FP-Growth; en muestras pequeñas domina su overhead.</div>
+          <div class="method"><b>Escala 100×.</b> Milvus o Qdrant sostendrían índices vectoriales; Structured Streaming actualizaría sketches.</div>
+          <div class="method"><b>Supervisión humana.</b> Toda alerta debe contrastarse con expediente, mercado, método y contexto institucional.</div>
+        </div>
+        <div class="callout"><strong>Principio ético:</strong> una <em>red flag</em> prioriza auditoría; no prueba colusión, fraccionamiento deliberado ni sobreprecio.</div>
+        <p>PROMPERÚ con Meta, Google y TikTok ilustra el riesgo de interpretación: la recurrencia puede responder al dominio legítimo de plataformas globales. El algoritmo detecta concentración; una persona determina su contexto.</p>
+      </section>
+
+      <section id="reproducibilidad">
+        <h2>8. Reproducibilidad</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Módulo</th><th>Motor</th><th>Decisión</th></tr></thead>
+            <tbody>
+              <tr><td>KDD, MinHash/LSH, TF-IDF</td><td>Spark 3.5</td><td>Procesamiento distribuido del corpus.</td></tr>
+              <tr><td>FP-Growth completo</td><td>Spark MLlib</td><td>235,954 canastas sin matriz local.</td></tr>
+              <tr><td>Faiss, Bloom, CMS y DGIM</td><td>Python local</td><td>Índices especializados y estado secuencial.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <ul class="executive">
+          <li><strong>Dependencias:</strong> PySpark 3.5, pandas, NumPy, PyArrow, mlxtend y Faiss CPU.</li>
+          <li><strong>Ejecución:</strong> <code>docker compose up -d</code>, <code>sh pipeline.sh</code> y <code>python data/exportar.py</code>.</li>
+        </ul>
+      </section>
+
+      <section id="referencias">
+        <h2>Referencias esenciales</h2>
+        <ol class="refs">
+          <li>Leskovec, Rajaraman y Ullman. <em>Mining of Massive Datasets</em>. Cambridge University Press, 2020.</li>
+          <li>Malkov y Yashunin. “Efficient and Robust Approximate Nearest Neighbor Search Using HNSW”, 2020.</li>
+          <li>Cormode y Muthukrishnan. “An Improved Data Stream Summary: The Count-Min Sketch”, 2005.</li>
+          <li>Open Contracting Partnership. <a href="https://standard.open-contracting.org/">Open Contracting Data Standard</a>.</li>
+          <li>OECE. Portal de Contrataciones Abiertas SEACE v3, 2023–2025.</li>
+        </ol>
+      </section>
+    </main>
+
+    <footer>Informe técnico ejecutivo · Minería de Datos Masivos y Flujos de Datos · 2023–2025</footer>
+  </article>
+
+  <script>
+    const css = getComputedStyle(document.documentElement);
+    const color = name => css.getPropertyValue(name).trim();
+    const BLUE = color("--blue");
+    const AMBER = color("--amber");
+    const SLATE = color("--slate");
+    const TEAL = color("--teal");
+    const GRID = "rgba(15,23,42,.07)";
+
+    const tooltip = {
+      backgroundColor: "rgba(15,23,42,.96)",
+      titleFont: { family: "Inter", size: 12 },
+      bodyFont: { family: "Inter", size: 12 },
+      padding: 11,
+      cornerRadius: 7,
+      displayColors: true
+    };
+    Chart.defaults.color = "#64748b";
+    Chart.defaults.font.family = "Inter, system-ui, sans-serif";
+    Chart.defaults.font.size = 11;
+    Chart.defaults.animation.duration = 650;
+
+    const baseOptions = {
+      responsive: true,
+      maintainAspectRatio: false,
+      interaction: { intersect: false, mode: "nearest" },
+      plugins: {
+        legend: { position: "top", align: "end", labels: { usePointStyle: true, boxWidth: 8, padding: 14 } },
+        tooltip
+      },
+      scales: {
+        x: { grid: { display: false }, border: { color: "#cbd5e1" } },
+        y: { grid: { color: GRID }, border: { display: false }, beginAtZero: true }
+      }
+    };
+    const clone = value => structuredClone(value);
+
+    new Chart(document.getElementById("spark-chart"), {
+      type: "bar",
+      data: {
+        labels: ["RDD", "DataFrame", "Spark SQL"],
+        datasets: [{ label: "Tiempo (s)", data: [2.5, .2, .2], backgroundColor: [SLATE, BLUE, TEAL], borderRadius: 5, maxBarThickness: 72 }]
+      },
+      options: {
+        ...clone(baseOptions),
+        plugins: { ...clone(baseOptions.plugins), legend: { display: false }, tooltip: { ...tooltip, callbacks: { label: c => `${c.raw.toFixed(1)} s` } } },
+        scales: { x: clone(baseOptions.scales.x), y: { ...clone(baseOptions.scales.y), title: { display: true, text: "segundos" } } }
+      }
+    });
+
+    const thresholdPlugin = {
+      id: "thresholdLine",
+      afterDraw(chart, args, opts) {
+        if (!opts?.value) return;
+        const { ctx, chartArea, scales } = chart;
+        const x = scales.x.getPixelForValue(opts.value);
+        ctx.save();
+        ctx.strokeStyle = AMBER;
+        ctx.setLineDash([5, 4]);
+        ctx.lineWidth = 1.5;
+        ctx.beginPath();
+        ctx.moveTo(x, chartArea.top);
+        ctx.lineTo(x, chartArea.bottom);
+        ctx.stroke();
+        ctx.setLineDash([]);
+        ctx.fillStyle = AMBER;
+        ctx.font = "600 11px Inter";
+        ctx.textAlign = "right";
+        ctx.fillText("s* ≈ 0.79", x - 6, chartArea.top + 13);
+        ctx.restore();
+      }
+    };
+    const similarities = Array.from({ length: 101 }, (_, i) => i / 100);
+    new Chart(document.getElementById("lsh-chart"), {
+      type: "line",
+      plugins: [thresholdPlugin],
+      data: {
+        datasets: [{
+          label: "P(candidato)",
+          data: similarities.map(s => ({ x: s, y: 1 - Math.pow(1 - Math.pow(s, 10), 10) })),
+          borderColor: BLUE,
+          backgroundColor: "rgba(37,99,235,.08)",
+          fill: true,
+          pointRadius: 0,
+          borderWidth: 2,
+          tension: .18
+        }]
+      },
+      options: {
+        ...clone(baseOptions),
+        plugins: { ...clone(baseOptions.plugins), thresholdLine: { value: .79 } },
+        scales: {
+          x: { ...clone(baseOptions.scales.x), type: "linear", min: 0, max: 1, title: { display: true, text: "similitud" } },
+          y: { ...clone(baseOptions.scales.y), max: 1, ticks: { callback: v => `${Math.round(v * 100)}%` } }
+        }
+      }
+    });
+
+    new Chart(document.getElementById("funnel-chart"), {
+      type: "bar",
+      data: {
+        labels: ["Compras repetidas", "Patrón sospechoso", "Concentración OEFA"],
+        datasets: [{ label: "Procesos", data: [37094, 1549, 1388], backgroundColor: [SLATE, AMBER, "#b45309"], borderRadius: 5 }]
+      },
+      options: {
+        ...clone(baseOptions),
+        indexAxis: "y",
+        plugins: {
+          ...clone(baseOptions.plugins),
+          legend: { display: false },
+          tooltip: { ...tooltip, callbacks: { label: c => `${c.raw.toLocaleString("es-PE")} procesos` } }
+        },
+        scales: {
+          x: { type: "logarithmic", grid: { color: GRID }, ticks: { callback: v => Number(v).toLocaleString("es-PE") } },
+          y: { grid: { display: false }, border: { display: false } }
+        }
+      }
+    });
+
+    new Chart(document.getElementById("ann-chart"), {
+      type: "bar",
+      data: {
+        labels: ["IVF propio", "Faiss HNSW"],
+        datasets: [
+          { label: "Recall (%)", data: [75, 97.99], backgroundColor: BLUE, borderRadius: 5, yAxisID: "recall" },
+          { label: "Aceleración (×)", data: [14.7, 20.9], backgroundColor: TEAL, borderRadius: 5, yAxisID: "speed" }
+        ]
+      },
+      options: {
+        ...clone(baseOptions),
+        scales: {
+          x: clone(baseOptions.scales.x),
+          recall: { ...clone(baseOptions.scales.y), position: "left", max: 100, title: { display: true, text: "recall (%)" } },
+          speed: { ...clone(baseOptions.scales.y), position: "right", max: 25, grid: { display: false }, title: { display: true, text: "aceleración (×)" } }
+        }
+      }
+    });
+
+    new Chart(document.getElementById("memory-chart"), {
+      type: "bar",
+      data: {
+        labels: ["Bloom Filter", "Count-Min Sketch", "DGIM"],
+        datasets: [{ label: "Ahorro (×)", data: [135, 35, 20], backgroundColor: [BLUE, TEAL, AMBER], borderRadius: 5, maxBarThickness: 72 }]
+      },
+      options: {
+        ...clone(baseOptions),
+        plugins: { ...clone(baseOptions.plugins), legend: { display: false }, tooltip: { ...tooltip, callbacks: { label: c => `${c.raw}× menos memoria` } } },
+        scales: { x: clone(baseOptions.scales.x), y: { ...clone(baseOptions.scales.y), title: { display: true, text: "factor de ahorro" } } }
+      }
+    });
+
+    new Chart(document.getElementById("rules-chart"), {
+      type: "bar",
+      data: {
+        labels: [
+          "LPA + rubro 72 → Obras + varios",
+          "Postor único + S/ 50–200k → Directa",
+          "Lima + rubro 80 → Servicios + único",
+          "< S/ 50k + Lima → Servicios + único",
+          "Directa + S/ 50–200k → Postor único"
+        ],
+        datasets: [{
+          label: "Lift",
+          data: [9.9005, 9.1211, 8.8148, 8.7551, 8.3710],
+          backgroundColor: [SLATE, SLATE, SLATE, SLATE, AMBER],
+          borderRadius: 5
+        }]
+      },
+      options: {
+        ...clone(baseOptions),
+        indexAxis: "y",
+        plugins: {
+          ...clone(baseOptions.plugins),
+          legend: { display: false },
+          tooltip: { ...tooltip, callbacks: { label: c => c.dataIndex === 4 ? `Lift ${c.raw.toFixed(2)} · confianza 93.6%` : `Lift ${c.raw.toFixed(2)}` } }
+        },
+        scales: {
+          x: { ...clone(baseOptions.scales.x), min: 0, suggestedMax: 11, title: { display: true, text: "lift" } },
+          y: { grid: { display: false }, border: { display: false }, ticks: { autoSkip: false } }
+        }
+      }
+    });
+
+    const updateProgress = () => {
+      const root = document.documentElement;
+      const scrollable = root.scrollHeight - root.clientHeight;
+      const progress = scrollable > 0 ? (root.scrollTop / scrollable) * 100 : 0;
+      document.getElementById("reading-progress").style.width = `${Math.min(100, progress)}%`;
+    };
+    addEventListener("scroll", updateProgress, { passive: true });
+    addEventListener("resize", updateProgress);
+    updateProgress();
+
+    addEventListener("DOMContentLoaded", () => {
+      if (window.renderMathInElement) {
+        renderMathInElement(document.body, {
+          delimiters: [
+            { left: "$$", right: "$$", display: true },
+            { left: "$", right: "$", display: false }
+          ],
+          throwOnError: false
+        });
+      }
+    });
+  </script>
+</body>
+</html>

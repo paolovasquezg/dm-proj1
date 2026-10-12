@@ -3,7 +3,7 @@ import { datos, encabezado, puntos, proceso, tabla, num, caja, graficar, barra, 
 export const diapos = [{
   etapa: "4 · KDD",
   async render(el) {
-    el.innerHTML = encabezado("KDD: de datos crudos a columnas listas para cada técnica",
+    el.innerHTML = encabezado("Pipeline KDD de Contrataciones",
       "Selección, limpieza y transformación. El resultado se guarda en parquet particionado por año y mes")
       + proceso([
         ["1. Selección", "Se descartan <code>estado</code> (100% nulo), <code>metodo</code> y <code>codigo_proceso</code>"],
@@ -22,7 +22,7 @@ export const diapos = [{
         ], [["c", "Columna"], ["d", "Qué es"], ["t", "Técnica"]])}</div>
       </div>`
       + puntos([
-        "<b>Se pierde muy poco:</b> solo 275 procesos (0.1%), con fecha de 2026 mal registrada",
+        "<b>Pérdida mínima:</b> Solo 275 procesos (0.1%) tenían fechas 2026 erróneas.",
       ]);
     const pasos = await datos("04_kdd/a_transformaciones/pasos_limpieza");
     document.getElementById("t-pasos").innerHTML = tabla(pasos,
@@ -31,14 +31,14 @@ export const diapos = [{
 }, {
   etapa: "4 · KDD",
   async render(el) {
-    el.innerHTML = encabezado("Spark: la misma consulta en RDD, DataFrame y SQL",
+    el.innerHTML = encabezado("Rendimiento Comparativo de Spark",
       "Tres agregaciones del EDA se escribieron con las tres APIs de Spark para comparar tiempo y esfuerzo")
       + `<div class="fila">${caja("g-spark", "Segundos por agregación", "mismo resultado exacto en las tres")}<div>`
       + puntos([
-        "<b>DataFrame y SQL son 5–56x más rápidos que RDD:</b> pasan por el optimizador de Spark y leen el parquet en formato columnar",
-        "<b>RDD serializa cada fila como objeto Python</b> y no se optimiza; además el map/reduce se escribe a mano (4 pasos frente a una sola cadena <code>groupBy().agg()</code>)",
-        "<b>DataFrame y SQL rinden parecido:</b> por eso todo el proyecto usa la API de DataFrame",
-        "<b>Partición por año y mes:</b> filtrar un mes hace que Spark lea 1 de 36 carpetas (<i>partition pruning</i>)",
+        "<b>Rendimiento:</b> DataFrame y SQL superan RDD entre 5× y 56×.",
+        "<b>Costo RDD:</b> Serializa filas y exige cuatro pasos manuales.",
+        "<b>Decisión:</b> DataFrame iguala SQL y sostiene todo el proyecto.",
+        "<b>Particionado:</b> Un filtro mensual lee 1 de 36 carpetas.",
       ]) + "</div></div>";
     const t = await datos("03_eda/b_exploracion/tiempos_rdd_df_sql");
     const nombres = { procesos_por_entidad: "procesos por entidad", monto_por_anio: "monto por año", postor_unico_por_region: "postor único por región" };

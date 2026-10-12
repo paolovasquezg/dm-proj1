@@ -7,23 +7,23 @@ export const diapos = [
   {
     etapa: "9 · Resumen",
     async render(el) {
-      el.innerHTML = encabezado("Principales hallazgos", "Qué responde cada pregunta")
+      el.innerHTML = encabezado("Hallazgos Principales por Pregunta", "Qué responde cada pregunta")
         + `<div class="fila" style="--cols:3">
           <div class="tarjeta"><span class="etiqueta">P1 · Competencia</span>${puntos([
-            "<b>~11%</b> de los procesos tiene un solo postor, cada año",
-            "Lo explica el <b>método</b>: Contratación Directa 86.5%, Régimen Especial 80%",
-            "Se concentra en <b>montos bajos</b>, Lima y Tumbes, enero y diciembre",
-            "Los pares que <b>se repiten</b> tienen más postor único (16.3% vs 11.9%)",
+            "<b>Incidencia:</b> ~11% registra un solo postor cada año.",
+            "<b>Método:</b> Directa 86.5% y Régimen Especial 80%.",
+            "<b>Concentración:</b> Montos bajos, Lima, Tumbes, enero y diciembre.",
+            "<b>Reincidencia:</b> 16.3% de postor único vs 11.9% inicial.",
           ])}</div>
           <div class="tarjeta"><span class="etiqueta">P2 · Fraccionamiento</span>${puntos([
-            "<b>1 de cada 6</b> procesos tiene un gemelo casi idéntico en 15 días",
-            "Solo <b>0.66%</b> cumple el patrón completo de compra dividida",
-            "<b>OEFA aporta el 90%</b>; sin OEFA quedan 161 procesos en 32 entidades",
+            "<b>Repetición:</b> 1 de cada 6 tiene un gemelo en 15 días.",
+            "<b>Alerta estricta:</b> Solo 0.66% cumple el patrón completo.",
+            "<b>OEFA:</b> Concentra 90%; el resto suma 161 procesos.",
           ])}</div>
           <div class="tarjeta"><span class="etiqueta">P3 · Precios</span>${puntos([
-            "La mayoría paga <b>lo mismo</b> que compras parecidas (0.90x–1.25x)",
-            "<b>12%</b> paga el doble o más — la lista para revisar",
-            "La diferencia es de <b>entidad</b> (escala de compra), no de región",
+            "<b>Rango central:</b> La mayoría paga 0.90×–1.25×.",
+            "<b>Cola crítica:</b> 12% paga ≥2×.",
+            "<b>Origen:</b> La brecha proviene de entidad y escala, no región.",
           ])}</div>
         </div>`
         + caja("g-tec", "Cuánto ahorra cada técnica frente al cálculo exacto (veces, log)", "comparaciones, tiempo o memoria según la técnica");

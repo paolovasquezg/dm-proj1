@@ -3,7 +3,7 @@ import { cifras, encabezado, puntos } from "../comun.js";
 export const diapos = [{
   etapa: "Fuentes",
   render(el) {
-    el.innerHTML = encabezado("Fuentes y referencias", "Datos, métodos y herramientas usados en el proyecto")
+    el.innerHTML = encabezado("Fuentes y Referencias Técnicas", "Datos, métodos y herramientas usados en el proyecto")
       + `<div class="fila">
         <div class="tarjeta"><h3>Datos</h3>${puntos([
           'OECE — Contrataciones Abiertas, descargas OCDS 2023–2025: <a href="https://contratacionesabiertas.oece.gob.pe/descargas">contratacionesabiertas.oece.gob.pe</a>',
@@ -23,7 +23,7 @@ export const diapos = [{
   render(el) {
     el.innerHTML = `<section class="portada">
       <span class="etiqueta">Gracias</span>
-      <h1>Las señales de riesgo existen, son pocas y tienen nombre</h1>
+      <h1>Señales de Riesgo Priorizadas</h1>
       <p class="bajada">La minería de datos convierte 236 mil procesos en una lista corta para revisar: los métodos sin competencia, las compras divididas de unas pocas entidades y el 12% que paga el doble que compras parecidas</p>
       ${cifras([["11%", "procesos con un solo postor"], ["0.66%", "procesos con patrón de fraccionamiento"], ["12%", "paga ≥ 2x frente a compras parecidas"]])}
       <p class="pie">Código y notebooks: <a href="https://github.com/paolovasquezg/dm-proj1">github.com/paolovasquezg/dm-proj1</a> · Datos: Contrataciones Abiertas — OECE</p>

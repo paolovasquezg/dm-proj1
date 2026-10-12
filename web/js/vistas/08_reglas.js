@@ -10,7 +10,7 @@ export const diapos = [
   {
     etapa: "8 · Reglas de asociación (P1)",
     async render(el) {
-      el.innerHTML = encabezado("Reglas de asociación: qué combinaciones llevan a un solo postor",
+      el.innerHTML = encabezado("Reglas de Asociación y Competencia",
         "Cada proceso es una “canasta” de características. Se buscan combinaciones frecuentes y las reglas del tipo {A, B} → {C}")
         + proceso([
           ["Canasta", "<code>met=CONTRATACIÓN DIRECTA</code>, <code>monto=2_50k-200k</code>, <code>reg=LIMA</code>, <code>comp=postor_unico</code>…"],
@@ -21,9 +21,9 @@ export const diapos = [
         + cifras([["304", "ítems distintos"], ["316", "itemsets frecuentes"], ["496", "reglas (FP-Growth, 3 años)"], ["36", "reglas con postor único"]])
         + `<div class="fila">${caja("g-tam", "Itemsets frecuentes por tamaño")}<div>`
         + puntos([
-          "<b>Apriori</b> (mlxtend) en el último trimestre y <b>FP-Growth</b> (Spark) en los 3 años: mismos 304 itemsets en Q4 2025",
-          "<b>Soporte 2%:</b> la caída de itemsets es suave entre 1% y 10%; 2% conserva combinaciones de volumen medio",
-          "<b>Confianza 50%:</b> deja 496 reglas sin aceptar reglas débiles; 23–29% se marcan como redundantes",
+          "<b>Consistencia:</b> Apriori y FP-Growth coinciden en 304 itemsets trimestrales.",
+          "<b>Soporte 2%:</b> Conserva combinaciones de volumen medio.",
+          "<b>Confianza 50%:</b> Produce 496 reglas; 23–29% son redundantes.",
         ]) + "</div></div>";
       const its = await datos(`${D}/b_itemsets/itemsets_completo`);
       const tam = [1, 2, 3, 4, 5].map(n => its.filter(r => r.items.length === n).length);
@@ -34,7 +34,7 @@ export const diapos = [
   {
     etapa: "8 · Reglas de asociación (P1)",
     async render(el) {
-      el.innerHTML = encabezado("Explora las reglas: mueve los umbrales",
+      el.innerHTML = encabezado("Explorador de Reglas de Asociación",
         "Filtra las reglas por soporte, confianza y lift. Cada punto es una regla; el color indica si involucra postor único")
         + `<div class="controles">
             <label>Datos <select id="c-datos"><option value="completo">2023–2025 (FP-Growth)</option><option value="q4">Q4 2025 (Apriori)</option></select></label>
@@ -68,17 +68,17 @@ export const diapos = [
   {
     etapa: "8 · Reglas de asociación (P1)",
     async render(el) {
-      el.innerHTML = encabezado("Resultado: el método, combinado con monto o región, predice el postor único",
+      el.innerHTML = encabezado("Predicción de Postor Único",
         "Las 14 reglas más fuertes: 7 sobre postor único y 7 de otras dimensiones para contrastar")
         + caja("g-sel", "Reglas seleccionadas por lift", "naranja: postor único · gris: otras dimensiones", "alto")
         + puntos([
-          "<b>Método + monto:</b> Contratación Directa entre S/ 50–200 mil → postor único con <b>93.6%</b> de confianza (el método solo: 86.6%)",
-          "<b>Método + región / categoría:</b> Contratación Directa en Lima (89%) o en servicios (89%); las únicas estables también en Q4 2025",
-          "<b>Contraste:</b> un método competitivo en obras predice <b>varios postores</b> (93.5%): cuando el método exige competencia, la hay",
-          "<b>Sensibilidad:</b> las reglas tienen soporte de 2–3%; con soporte mínimo de 3% sobrevive solo 1 de las 14",
+          "<b>Regla principal:</b> Directa S/ 50–200 mil predice postor único con 93.6%.",
+          "<b>Contexto:</b> Directa en Lima o servicios alcanza 89%.",
+          "<b>Contraste:</b> Métodos competitivos en obras predicen varios postores con 93.5%.",
+          "<b>Sensibilidad:</b> Con soporte 3% sobrevive solo 1 de 14 reglas.",
         ]);
       const sel = (await datos(`${D}/d_analisis/seleccion`)).sort((a, b) => a.lift - b.lift);
-      graficar("g-sel", [barraH(sel.map(r => regla(r).slice(0, 80)), sel.map(r => r.lift), {
+      graficar("g-sel", [barraH(sel.map(r => regla(r)), sel.map(r => r.lift), {
         marker: { color: sel.map(r => (r.grupo === "p1" ? C.naranja : C.gris)) }, text: sel.map(r => `conf ${pct(r.confianza * 100, 0)}`),
         textposition: "outside", hovertemplate: "%{y}<br>lift %{x:.1f}<extra></extra>" })],
         { margin: { l: 430 }, yaxis: { tickfont: { size: 10 } }, xaxis: { title: "lift", range: [0, 11.5] } });

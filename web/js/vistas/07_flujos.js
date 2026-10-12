@@ -8,7 +8,7 @@ export const diapos = [
   {
     etapa: "7 · Minería de flujos (P1)",
     async render(el) {
-      el.innerHTML = encabezado("Minería de flujos: vigilar los procesos a medida que llegan",
+      el.innerHTML = encabezado("Minería de Flujos en Tiempo Real",
         "Los 236 mil procesos se tratan como un flujo ordenado por fecha. Tres estructuras responden preguntas en línea con memoria fija")
         + proceso([
           ["Flujo", "procesos ordenados por fecha, uno por uno"],
@@ -18,9 +18,9 @@ export const diapos = [
         ])
         + `<div class="fila"><div id="t-comp" class="tarjeta"></div><div>`
         + puntos([
-          "<b>Memoria fija:</b> no crece con el número de pares distintos (Bloom, Count-Min) o crece apenas con la ventana (DGIM)",
-          "<b>El precio:</b> un error acotado y conocido — DGIM sub/sobreestima, Bloom solo da falsos positivos, Count-Min solo sobreestima",
-          "En tiempo son 8–32x más lentas que el cálculo exacto (Python puro vs estructuras en C); su ventaja es la memoria",
+          "<b>Memoria acotada:</b> Bloom y Count-Min permanecen fijos; DGIM crece lentamente.",
+          "<b>Error controlado:</b> Bloom da falsos positivos; Count-Min sobreestima.",
+          "<b>Trade-off:</b> Son 8–32× más lentas, pero consumen menos memoria.",
         ]) + "</div></div>";
       const comp = await datos(`${D}/d_analisis/comparativa`);
       const kb = (b) => (b < 1024 ? `${num(b)} B` : b < 1024 ** 2 ? `${num(b / 1024)} KB` : `${num(b / 1024 ** 2, 1)} MB`);
@@ -34,7 +34,7 @@ export const diapos = [
   {
     etapa: "7 · Minería de flujos (P1)",
     async render(el) {
-      el.innerHTML = encabezado("DGIM: postor único en la última ventana",
+      el.innerHTML = encabezado("Postor Único con DGIM",
         "Cuenta los 1 de un flujo de bits en una ventana deslizante guardando solo ~20 cubetas. Elige la ventana y la precisión")
         + `<div class="controles">
             <label>Ventana <select id="c-ven">${opciones(["semana", "mes", "trimestre"], "mes")}</select></label>
@@ -51,12 +51,17 @@ export const diapos = [
         $("k-exacto").textContent = `${num(t.bits_exacto)} bits`; $("k-alerta").textContent = num(va.dias_alerta_exacto);
         graficar("g-dgim", [
           linea(s.map(x => x.fecha), s.map(x => x.pct_exacto), { name: "exacto", line: { color: C.gris, width: 2 } }),
-          linea(s.map(x => x.fecha), s.map(x => x.pct_dgim), { name: "DGIM (r=2)", line: { color: C.azul, width: 1.5 } }),
-          linea([s[0].fecha, s[s.length - 1].fecha], [15, 15], { name: "alerta 15%", line: { color: C.naranja, dash: "dot", width: 2 }, hoverinfo: "skip" }),
-        ], { yaxis: { ticksuffix: "%" }, hovermode: "x unified" });
-        $("lectura").innerHTML = `Ventana de ${num(va.N)} procesos: promedio ${pct(va.pct_medio)}, pico ${pct(va.pct_max)}. `
-          + `Con r=${r} el error medio es ${pct(t.error_medio * 100)} usando ${num(t.bits_dgim)} bits en vez de ${num(t.bits_exacto)}. `
-          + (v === "semana" ? "La ventana corta muestra picos de hasta 30%." : v === "trimestre" ? "La ventana larga suaviza todo: ningún día pasa la alerta." : "El pico de enero 2024 es el más claro.");
+          linea(s.map(x => x.fecha), s.map(x => x.pct_dgim), { name: `DGIM (r=${r})`, line: { color: C.azul, width: 1.8 } }),
+          linea([s[0].fecha, s[s.length - 1].fecha], [15, 15], { name: "Umbral de alerta 15%", line: { color: C.naranja, dash: "dot", width: 2 }, hoverinfo: "skip" }),
+        ], {
+          yaxis: { ticksuffix: "%" }, hovermode: "x unified",
+          annotations: [{
+            x: s[s.length - 1].fecha, y: 15, text: "Umbral de alerta 15%", showarrow: false,
+            xanchor: "right", yshift: 10, font: { size: 9, color: C.naranja },
+          }],
+        });
+        $("lectura").innerHTML = `<b>Resultado:</b> ${num(va.N)} procesos · error ${pct(t.error_medio * 100)} · ${num(t.bits_dgim)} bits. `
+          + (v === "semana" ? "<b>Pico semanal: 30%.</b>" : v === "trimestre" ? "<b>Trimestre: ningún día supera 15%.</b>" : "<b>Pico: enero 2024.</b>");
       };
       ["c-ven", "c-r"].forEach(id => $(id).addEventListener("change", dibujar));
       dibujar();
@@ -65,7 +70,7 @@ export const diapos = [
   {
     etapa: "7 · Minería de flujos (P1)",
     async render(el) {
-      el.innerHTML = encabezado("Bloom Filter: ¿el par entidad–proveedor ya se vio?",
+      el.innerHTML = encabezado("Reincidencia con Bloom Filter",
         "Un vector de bits responde “sí, probablemente” o “no, seguro”. Más bits por par = menos falsos positivos")
         + `<div class="controles">
             <label>Bits por par <select id="c-bits">${opciones([2, 4, 8, 9.6, 16], 9.6)}</select></label>
@@ -83,14 +88,18 @@ export const diapos = [
         graficar("g-fpr", [
           ...ks.map((kk, i) => { const f = trade.filter(x => x.k === kk); return puntosXY(f.map(x => x.bits_por_par), f.map(x => x.fpr_final),
             { name: `k=${kk}`, line: { color: [C.gris, C.aqua, C.azul][i], width: 2 }, marker: { size: 6 } }); }),
-          { type: "scatter", mode: "markers", x: [bits], y: [t.fpr_final], name: "elegido", marker: { color: C.naranja, size: 13 }, hovertemplate: "FPR %{y:.2%}<extra></extra>" },
+          { type: "scatter", mode: "markers", x: [bits], y: [t.fpr_final], name: "elegido", marker: { color: C.naranja, size: 13 },
+            textposition: "top center", textfont: { size: 10, color: C.naranja, weight: 700 }, hovertemplate: "FPR %{y:.2%}<extra></extra>" },
         ], { xaxis: { title: "bits por par" }, yaxis: { tickformat: ".0%", title: "falsos positivos" } });
         const anios = ["2023", "2024", "2025"];
-        graficar("g-rei", [barra(anios, anios.map(a => v[`reincidencia_${a}`]), { name: "Bloom", marker: { color: C.azul } }),
-          barra(anios, [19.0, 35.2, 41.2], { name: "real", marker: { color: C.gris } })], { barmode: "group", yaxis: { ticksuffix: "%", range: [0, 100] } });
+        graficar("g-rei", [barra(anios, anios.map(a => v[`reincidencia_${a}`]), {
+          name: "Bloom", marker: { color: C.azul }, text: anios.map(a => `${num(v[`reincidencia_${a}`], 1)}%`), textposition: "outside",
+        }), barra(anios, [19.0, 35.2, 41.2], {
+          name: "real", marker: { color: C.gris }, text: ["19,0%", "35,2%", "41,2%"], textposition: "outside",
+        })], { barmode: "group", yaxis: { ticksuffix: "%", range: [0, 100] } });
         $("lectura").innerHTML = bits <= 4
-          ? `Con ${bits} bits por par el filtro se satura: confunde pares nuevos con repetidos e infla la reincidencia a ${pct(v.reincidencia)} (real 32.8%)`
-          : `Con ${bits} bits por par la estimación coincide con la real usando ${num(t.memoria_kb)} KB en vez de ~19 MB del conjunto exacto`;
+          ? `<b>Saturación:</b> ${bits} bits inflan la reincidencia a ${pct(v.reincidencia)}.`
+          : `<b>Eficiencia:</b> ${bits} bits reproducen 32.8% usando ${num(t.memoria_kb)} KB.`;
       };
       ["c-bits", "c-k"].forEach(id => $(id).addEventListener("change", dibujar));
       dibujar();
@@ -99,7 +108,7 @@ export const diapos = [
   {
     etapa: "7 · Minería de flujos (P1)",
     async render(el) {
-      el.innerHTML = encabezado("Count-Min Sketch: ¿cuántas veces aparece cada par?",
+      el.innerHTML = encabezado("Frecuencias con Count-Min Sketch",
         "Una tabla de contadores de ancho w y profundidad d; nunca subestima. Los pares con ≥ 50 apariciones son heavy hitters")
         + `<div class="controles">
             <label>Ancho <code>w</code> <select id="c-w">${opciones([1024, 4096, 16384, 33390, 65536], 33390, v => num(v))}</select></label>
@@ -124,8 +133,8 @@ export const diapos = [
         graficar("g-hh", [barra(["reportados", "reales"], [v.hh_reportados, 16], { marker: { color: [C.azul, C.gris] }, text: [num(v.hh_reportados), "16"], textposition: "outside" })],
           { yaxis: { range: [0, Math.max(v.hh_reportados, 16) * 1.2] }, margin: { t: 24 } });
         $("lectura").innerHTML = v.hh_falsos > 100
-          ? `Con w=${num(w)} los contadores se mezclan: ${num(v.hh_falsos)} pares parecen heavy hitters sin serlo`
-          : `Con w=${num(w)} y d=${d} se detectan los 16 pares reales${v.hh_falsos ? ` con ${v.hh_falsos} falsos` : " sin falsos"}, usando ${num(t.memoria_kb)} KB en vez de ~22 MB`;
+          ? `<b>Colisiones:</b> w=${num(w)} genera ${num(v.hh_falsos)} falsos heavy hitters.`
+          : `<b>Resultado:</b> Detecta 16 pares reales${v.hh_falsos ? ` con ${v.hh_falsos} falsos` : " sin falsos"}.`;
       };
       ["c-w", "c-d", "c-cons"].forEach(id => $(id).addEventListener("change", dibujar));
       dibujar();
@@ -134,19 +143,28 @@ export const diapos = [
   {
     etapa: "7 · Minería de flujos (P1)",
     async render(el) {
-      el.innerHTML = encabezado("Resultado: la baja competencia tiene calendario y se repite",
+      el.innerHTML = encabezado("Estacionalidad del Postor Único",
         "Lo que las tres estructuras revelan sobre P1")
         + `<div class="fila">${caja("g-mes", "% postor único por mes", "enero y diciembre resaltados")}<div class="tarjeta"><h3>Pares más frecuentes (Count-Min)</h3><div class="scroll" id="t-hh"></div></div></div>`
         + puntos([
-          "<b>Calendario:</b> el postor único sube en enero y diciembre (apertura y cierre del año fiscal)",
-          "<b>Reincidencia:</b> un tercio de las llegadas repite un par entidad–proveedor, y sube cada año (19% → 35% → 41%)",
-          "<b>Repetir va con menos competencia:</b> los pares reincidentes tienen 16.3% de postor único vs 11.9% la primera vez",
-          "<b>Heavy hitters:</b> PROMPERÚ con Meta, Google y TikTok (100% postor único, publicidad digital); otros, como GORE Puno–Grupo Santa Fe, ganan en procesos competitivos",
+          "<b>Calendario:</b> El postor único aumenta en enero y diciembre.",
+          "<b>Reincidencia:</b> Los pares repetidos suben 19% → 35% → 41%.",
+          "<b>Competencia:</b> Reincidentes registran 16.3% vs 11.9% inicial.",
+          "<b>Heavy hitters:</b> PROMPERÚ–plataformas alcanza 100% por estructura de mercado.",
         ]);
       const [mes, hh] = await Promise.all([datos(`${D}/a_dgim/llegadas_mes`), datos(`${D}/c_sketch/heavy_hitters`)]);
-      graficar("g-mes", [barra(mes.map(r => `${r.anio}-${String(r.mes).padStart(2, "0")}`), mes.map(r => r.pct_postor_unico),
-        { marker: { color: mes.map(r => (r.mes === 1 || r.mes === 12 ? C.naranja : C.azul)) }, hovertemplate: "%{x}: %{y:.1f}%<extra></extra>" })],
-        { yaxis: { ticksuffix: "%" }, xaxis: { type: "category", nticks: 9 } });
+      const meses = mes.map(r => `${r.anio}-${String(r.mes).padStart(2, "0")}`);
+      const esFiscal = r => r.mes === 1 || r.mes === 12;
+      graficar("g-mes", [
+        barra(meses, mes.map(r => esFiscal(r) ? null : r.pct_postor_unico), {
+          name: "Mes regular", marker: { color: C.azul }, hovertemplate: "%{x}: %{y:.1f}%<extra></extra>",
+        }),
+        barra(meses, mes.map(r => esFiscal(r) ? r.pct_postor_unico : null), {
+          name: "Apertura / cierre fiscal", marker: { color: C.naranja },
+          text: mes.map(r => esFiscal(r) ? pct(r.pct_postor_unico, 0) : ""), etiquetasDensas: true,
+          hovertemplate: "%{x}: %{y:.1f}%<extra></extra>",
+        }),
+      ], { barmode: "overlay", yaxis: { ticksuffix: "%" }, xaxis: { type: "category", nticks: 9 } });
       $("t-hh").innerHTML = tabla(hh.slice(0, 12).map(r => { const [e, p] = r.par.split("|"); return { ...r, e: e.slice(0, 32), p: p.slice(0, 28) }; }),
         [["e", "Entidad"], ["p", "Proveedor"], ["exacto", "Veces", v => num(v)], ["pct_postor_unico", "Postor único", v => pct(v, 0)]],
         { destacar: r => r.pct_postor_unico === 100 });
