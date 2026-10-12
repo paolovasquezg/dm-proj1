@@ -100,7 +100,7 @@
       box-shadow: var(--shadow);
     }
     .kpi b { display: block; color: var(--ink); font-size: clamp(1.5rem, 4vw, 2rem); line-height: 1.1; letter-spacing: -.04em; }
-    .kpi span { display: block; margin-top: 7px; color: var(--muted); font-size: 10px; font-weight: 750; letter-spacing: .07em; text-transform: uppercase; }
+    .kpi > span { display: block; margin-top: 7px; color: var(--muted); font-size: 10px; font-weight: 750; letter-spacing: .07em; text-transform: uppercase; }
     .executive {
       margin: 16px 0 22px;
       padding-left: 20px;
@@ -191,7 +191,7 @@
       <p class="authors">Chu Lao Orrego Oscar · Vasquez Grahammer Paolo · Velo Poma Josue Nehemias</p>
       <p class="affiliation">Curso de Minería de Datos Masivos y Flujos de Datos · Profesor: Heider Sanchez</p>
       <div class="abstract">
-        El estudio transforma 235,954 procesos públicos en señales auditables. Spark organiza el corpus; LSH detecta repetición; ANN compara precios; los sketches monitorean flujos y FP-Growth identifica patrones de baja competencia. Los resultados son alertas de riesgo, no evidencia jurídica.
+        El estudio transforma <span data-v="procesos">235,954</span> procesos públicos en señales auditables. Spark organiza el corpus; LSH detecta repetición; ANN compara precios; los sketches monitorean flujos y FP-Growth identifica patrones de baja competencia. Los resultados son alertas de riesgo, no evidencia jurídica.
       </div>
     </header>
 
@@ -199,20 +199,20 @@
       <section id="ficha">
         <h2>1. Ficha técnica y resultados</h2>
         <div class="kpis">
-          <div class="kpi"><b>235,954</b><span>Procesos válidos</span></div>
-          <div class="kpi"><b>S/ 240 mil M</b><span>Monto analizado</span></div>
+          <div class="kpi"><b><span data-v="procesos">235,954</span></b><span>Procesos válidos</span></div>
+          <div class="kpi"><b>S/ <span data-v="monto">240</span> mil M</b><span>Monto analizado</span></div>
           <div class="kpi"><b>36 meses</b><span>Enero 2023–diciembre 2025</span></div>
         </div>
         <ul class="executive">
           <li><strong>P1 · Competencia:</strong> La contratación directa concentra la señal de postor único.</li>
-          <li><strong>P2 · Fraccionamiento:</strong> Solo 1,549 procesos cumplen el patrón completo; OEFA reúne 1,388.</li>
+          <li><strong>P2 · Fraccionamiento:</strong> Solo <span data-v="patron">1,549</span> procesos cumplen el patrón completo; OEFA reúne <span data-v="oefa">1,388</span>.</li>
           <li><strong>P3 · Precios:</strong> La dispersión se vincula más con la entidad que con la región.</li>
         </ul>
       </section>
 
       <section id="kdd">
         <h2>2. KDD y procesamiento en Spark</h2>
-        <p>El pipeline integra 36 meses OCDS, valida <code>ocid</code>, normaliza texto y convierte monedas a PEN con la serie oficial del BCRP. El corpus final conserva 235,954 procesos del período oficial.</p>
+        <p>El pipeline integra 36 meses OCDS, valida <code>ocid</code>, normaliza texto y convierte monedas a PEN con la serie oficial del BCRP. El corpus final conserva <span data-v="procesos">235,954</span> procesos del período oficial.</p>
         <div class="pipeline" aria-label="Etapas del proceso KDD">
           <div><b>1 · Selección</b>JSON OCDS de 36 meses.</div>
           <div><b>2 · Limpieza</b>OCID, fechas y montos.</div>
@@ -234,38 +234,38 @@
 
       <section id="similitud">
         <h2>3. Similitud y fraccionamiento (P2)</h2>
-        <p>Las descripciones se convierten en conjuntos de 5-shingles. MinHash con $T=100$ logra MAE productivo de 0.031; LSH 10×10 conserva 99.99% de recall con solo nueve falsos negativos.</p>
-        <p>La probabilidad de candidateo es $P=1-(1-s^r)^b$. Con $b=r=10$, el umbral efectivo es $s^*\approx0.79$; los candidatos se verifican después con Jaccard exacto.</p>
+        <p>Las descripciones se convierten en conjuntos de 5-shingles. MinHash con $T$ = <span data-v="minhash_T">100</span> logra MAE productivo de <span data-v="minhash_mae">0.031</span>; LSH <span data-v="lsh_br">10×10</span> conserva <span data-v="lsh_recall">99.99</span>% de recall con solo <span data-v="lsh_fn">nueve</span> falsos negativos.</p>
+        <p>La probabilidad de candidateo es $P=1-(1-s^r)^b$. Con $b=r=10$, el umbral efectivo es $s^*\approx$<span data-v="lsh_umbral">0.79</span>; los candidatos se verifican después con Jaccard exacto.</p>
         <div class="chart-grid">
           <div class="chart-card">
             <h3>Curva S de LSH</h3>
             <p class="chart-note">La línea ámbar marca el umbral efectivo.</p>
-            <div class="chart-frame"><canvas id="lsh-chart" role="img" aria-label="Curva S de probabilidad LSH con umbral 0.79"></canvas></div>
+            <div class="chart-frame"><canvas id="lsh-chart" role="img" aria-label="Curva S de probabilidad LSH con umbral efectivo"></canvas></div>
           </div>
           <div class="chart-card">
             <h3>Embudo de fraccionamiento</h3>
             <p class="chart-note">Escala logarítmica; el volumen cae al aplicar cada condición.</p>
-            <div class="chart-frame"><canvas id="funnel-chart" role="img" aria-label="37094 compras repetidas, 1549 sospechosas y 1388 de OEFA"></canvas></div>
+            <div class="chart-frame"><canvas id="funnel-chart" role="img" aria-label="Embudo: compras repetidas, patrón sospechoso y concentración OEFA"></canvas></div>
           </div>
         </div>
         <ul class="executive">
-          <li><strong>Repetición textual:</strong> 37,094 procesos tienen un gemelo cercano dentro de 15 días.</li>
-          <li><strong>Patrón completo:</strong> 1,549 procesos, equivalentes al 0.66%, superan todos los filtros.</li>
-          <li><strong>Concentración OEFA:</strong> 1,388 casos representan 89.6% de las alertas finales.</li>
+          <li><strong>Repetición textual:</strong> <span data-v="repetidos">37,094</span> procesos tienen un gemelo cercano dentro de 15 días.</li>
+          <li><strong>Patrón completo:</strong> <span data-v="patron">1,549</span> procesos, equivalentes al <span data-v="patron_pct">0.66</span>%, superan todos los filtros.</li>
+          <li><strong>Concentración OEFA:</strong> <span data-v="oefa">1,388</span> casos representan <span data-v="oefa_pct">89.6</span>% de las alertas finales.</li>
         </ul>
       </section>
 
       <section id="ann">
         <h2>4. Vecinos cercanos y precios (P3)</h2>
-        <p>TF-IDF representa 235,954 descripciones en 4,096 dimensiones. IVF divide el espacio en celdas de Voronoi; HNSW navega un grafo multicapa para reducir comparaciones.</p>
+        <p>TF-IDF representa <span data-v="procesos">235,954</span> descripciones en <span data-v="tfidf_dims">4,096</span> dimensiones. IVF divide el espacio en celdas de Voronoi; HNSW navega un grafo multicapa para reducir comparaciones.</p>
         <div class="chart-card">
           <h3>Precisión y aceleración ANN</h3>
           <p class="chart-note">IVF propio usa el corpus completo; HNSW corresponde a una muestra de 20,000 vectores.</p>
-          <div class="chart-frame"><canvas id="ann-chart" role="img" aria-label="IVF propio 75 por ciento recall y 14.7 veces; HNSW 98 por ciento y 21 veces"></canvas></div>
+          <div class="chart-frame"><canvas id="ann-chart" role="img" aria-label="Recall y aceleración de IVF propio frente a Faiss HNSW"></canvas></div>
         </div>
         <ul class="executive">
-          <li><strong>IVF propio:</strong> Recall 75% y aceleración 14.7× sobre 235,954 vectores.</li>
-          <li><strong>Faiss HNSW:</strong> Recall 97.99% y aceleración 20.9× en la muestra controlada.</li>
+          <li><strong>IVF propio:</strong> Recall <span data-v="ivf_recall">75</span>% y aceleración <span data-v="ivf_acel">14.7</span>× sobre <span data-v="procesos">235,954</span> vectores.</li>
+          <li><strong>Faiss HNSW:</strong> Recall <span data-v="hnsw_recall">97.99</span>% y aceleración <span data-v="hnsw_acel">20.9</span>× en la muestra controlada.</li>
           <li><strong>Dispersión:</strong> La variación entre entidades supera la observada dentro de una entidad.</li>
         </ul>
       </section>
@@ -276,26 +276,26 @@
         <div class="chart-card">
           <h3>Ahorro de memoria frente al cálculo exacto</h3>
           <p class="chart-note">Factor de reducción; valores instrumentados redondeados.</p>
-          <div class="chart-frame"><canvas id="memory-chart" role="img" aria-label="Bloom 135 veces, Count-Min 35 veces y DGIM 20 veces menos memoria"></canvas></div>
+          <div class="chart-frame"><canvas id="memory-chart" role="img" aria-label="Factor de ahorro de memoria de Bloom Filter, Count-Min Sketch y DGIM"></canvas></div>
         </div>
         <ul class="executive">
-          <li><strong>Bloom Filter:</strong> FPR final cercano a 1% y cero falsos negativos.</li>
-          <li><strong>Count-Min Sketch:</strong> Conservative Update reduce la sobreestimación media de 1.981 a 0.783.</li>
-          <li><strong>DGIM:</strong> Error medio 10.9% con un ahorro de memoria superior a 20×.</li>
+          <li><strong>Bloom Filter:</strong> FPR final de <span data-v="bloom_fpr">1</span>% y cero falsos negativos.</li>
+          <li><strong>Count-Min Sketch:</strong> Conservative Update reduce la sobreestimación media de <span data-v="cms_err">1.981</span> a <span data-v="cms_err_cu">0.783</span>.</li>
+          <li><strong>DGIM:</strong> Error medio <span data-v="dgim_err">10.9</span>% con un ahorro de memoria de <span data-v="dgim_ahorro">20</span>×.</li>
         </ul>
       </section>
 
       <section id="reglas">
         <h2>6. Reglas de asociación (P1)</h2>
-        <p>Cada <code>ocid</code> forma una canasta con categoría, método, región, tramo, competencia y rubro. FP-Growth procesa las 235,954 canastas sin construir una matriz local dispersa.</p>
+        <p>Cada <code>ocid</code> forma una canasta con categoría, método, región, tramo, competencia y rubro. FP-Growth procesa las <span data-v="procesos">235,954</span> canastas sin construir una matriz local dispersa.</p>
         <div class="chart-card">
           <h3>Principales reglas por lift</h3>
-          <p class="chart-note">La barra ámbar destaca contratación directa y postor único: 93.6% de confianza.</p>
+          <p class="chart-note">La barra ámbar destaca contratación directa y postor único: <span data-v="regla_conf">93.6</span>% de confianza.</p>
           <div class="chart-frame"><canvas id="rules-chart" role="img" aria-label="Reglas principales ordenadas por lift"></canvas></div>
         </div>
         <ul class="executive">
-          <li><strong>Contratación directa:</strong> Con S/ 50–200 mil predice postor único con 93.6% de confianza.</li>
-          <li><strong>Lift 8.37:</strong> La asociación supera ampliamente la tasa base de postor único.</li>
+          <li><strong>Contratación directa:</strong> Con S/ 50–200 mil predice postor único con <span data-v="regla_conf">93.6</span>% de confianza.</li>
+          <li><strong>Lift <span data-v="regla_lift">8.37</span>:</strong> La asociación supera ampliamente la tasa base de postor único.</li>
           <li><strong>Estacionalidad:</strong> Enero y diciembre concentran picos de baja competencia.</li>
         </ul>
       </section>
@@ -319,7 +319,7 @@
             <thead><tr><th>Módulo</th><th>Motor</th><th>Decisión</th></tr></thead>
             <tbody>
               <tr><td>KDD, MinHash/LSH, TF-IDF</td><td>Spark 3.5</td><td>Procesamiento distribuido del corpus.</td></tr>
-              <tr><td>FP-Growth completo</td><td>Spark MLlib</td><td>235,954 canastas sin matriz local.</td></tr>
+              <tr><td>FP-Growth completo</td><td>Spark MLlib</td><td><span data-v="procesos">235,954</span> canastas sin matriz local.</td></tr>
               <tr><td>Faiss, Bloom, CMS y DGIM</td><td>Python local</td><td>Índices especializados y estado secuencial.</td></tr>
             </tbody>
           </table>
@@ -382,18 +382,15 @@
     };
     const clone = value => structuredClone(value);
 
-    new Chart(document.getElementById("spark-chart"), {
-      type: "bar",
-      data: {
-        labels: ["RDD", "DataFrame", "Spark SQL"],
-        datasets: [{ label: "Tiempo (s)", data: [2.5, .2, .2], backgroundColor: [SLATE, BLUE, TEAL], borderRadius: 5, maxBarThickness: 72 }]
-      },
-      options: {
-        ...clone(baseOptions),
-        plugins: { ...clone(baseOptions.plugins), legend: { display: false }, tooltip: { ...tooltip, callbacks: { label: c => `${c.raw.toFixed(1)} s` } } },
-        scales: { x: clone(baseOptions.scales.x), y: { ...clone(baseOptions.scales.y), title: { display: true, text: "segundos" } } }
-      }
+    // Todas las cifras salen de web/data (generada por data/exportar.py); el texto del HTML queda como respaldo
+    const DATA = "web/data";
+    const datos = ruta => fetch(`${DATA}/${ruta}.json`).then(r => {
+      if (!r.ok) throw new Error(`No se pudo leer ${DATA}/${ruta}.json`);
+      return r.json();
     });
+    const fmt = (v, d = 0) => new Intl.NumberFormat("en-US", { minimumFractionDigits: d, maximumFractionDigits: d }).format(v);
+    const poner = valores => Object.entries(valores).forEach(([k, v]) =>
+      document.querySelectorAll(`[data-v="${k}"]`).forEach(el => { el.textContent = v; }));
 
     const thresholdPlugin = {
       id: "thresholdLine",
@@ -413,119 +410,195 @@
         ctx.fillStyle = AMBER;
         ctx.font = "600 11px Inter";
         ctx.textAlign = "right";
-        ctx.fillText("s* ≈ 0.79", x - 6, chartArea.top + 13);
+        ctx.fillText(`s* ≈ ${opts.value.toFixed(2)}`, x - 6, chartArea.top + 13);
         ctx.restore();
       }
     };
-    const similarities = Array.from({ length: 101 }, (_, i) => i / 100);
-    new Chart(document.getElementById("lsh-chart"), {
-      type: "line",
-      plugins: [thresholdPlugin],
-      data: {
-        datasets: [{
-          label: "P(candidato)",
-          data: similarities.map(s => ({ x: s, y: 1 - Math.pow(1 - Math.pow(s, 10), 10) })),
-          borderColor: BLUE,
-          backgroundColor: "rgba(37,99,235,.08)",
-          fill: true,
-          pointRadius: 0,
-          borderWidth: 2,
-          tension: .18
-        }]
-      },
-      options: {
-        ...clone(baseOptions),
-        plugins: { ...clone(baseOptions.plugins), thresholdLine: { value: .79 } },
-        scales: {
-          x: { ...clone(baseOptions.scales.x), type: "linear", min: 0, max: 1, title: { display: true, text: "similitud" } },
-          y: { ...clone(baseOptions.scales.y), max: 1, ticks: { callback: v => `${Math.round(v * 100)}%` } }
-        }
-      }
-    });
 
-    new Chart(document.getElementById("funnel-chart"), {
-      type: "bar",
-      data: {
-        labels: ["Compras repetidas", "Patrón sospechoso", "Concentración OEFA"],
-        datasets: [{ label: "Procesos", data: [37094, 1549, 1388], backgroundColor: [SLATE, AMBER, "#b45309"], borderRadius: 5 }]
-      },
-      options: {
-        ...clone(baseOptions),
-        indexAxis: "y",
-        plugins: {
-          ...clone(baseOptions.plugins),
-          legend: { display: false },
-          tooltip: { ...tooltip, callbacks: { label: c => `${c.raw.toLocaleString("es-PE")} procesos` } }
+    // Etiquetas legibles para los ítems de las canastas (prefijo=valor)
+    const ITEMS = {
+      "met=CONTRATACIÓN DIRECTA": "Directa", "met=LICITACIÓN PÚBLICA ABREVIADA": "LPA", "met=LICITACIÓN PÚBLICA": "LP",
+      "met=ADJUDICACIÓN SIMPLIFICADA": "AS", "cat=WORKS": "Obras", "cat=SERVICES": "Servicios", "cat=GOODS": "Bienes",
+      "comp=postor_unico": "postor único", "comp=varios_postores": "varios postores",
+      "monto=1_<50k": "< S/ 50k", "monto=2_50k-200k": "S/ 50–200k", "monto=3_200k-1M": "S/ 200k–1M",
+      "monto=4_1M-5M": "S/ 1–5M", "monto=5_>5M": "> S/ 5M"
+    };
+    const item = i => ITEMS[i] ?? (i.startsWith("rubro=") ? `rubro ${i.slice(6)}`
+      : i.startsWith("reg=") ? i.slice(4).charAt(0) + i.slice(5).toLowerCase() : i.split("=")[1]);
+    const etiqueta = r => {
+      const t = `${r.antecedente.map(item).join(" + ")} → ${r.consecuente.map(item).join(" + ")}`;
+      return t.charAt(0).toUpperCase() + t.slice(1);
+    };
+    const mismos = (a, b) => a.length === b.length && a.every(x => b.includes(x));
+
+    async function construir() {
+      const [limpieza, montoAnio, tiempos, minhash, lsh, embudo, tfidf, ivf, faiss, comparativa, cmsTrade, reglas] = await Promise.all([
+        "04_kdd/a_transformaciones/pasos_limpieza", "02_dataset/b_exploracion/monto_adjudicado_anio",
+        "03_eda/b_exploracion/tiempos_rdd_df_sql", "05_similitud/a_minhash/resumen", "05_similitud/b_lsh/resumen",
+        "05_similitud/e_analisis/embudo_exclusivo_oefa", "06_vecinos/a_tfidf/resumen", "06_vecinos/c_bus_ivf/resumen",
+        "06_vecinos/d_faiss/comparacion", "07_flujos/d_analisis/comparativa", "07_flujos/c_sketch/tradeoff",
+        "08_reglas/d_analisis/seleccion"
+      ].map(datos));
+
+      // ---- cifras ----
+      const procesos = limpieza.at(-1).filas;
+      const monto = montoAnio.filter(r => r.anio >= 2023 && r.anio <= 2025).reduce((a, r) => a + r.monto_adjudicado, 0);
+      const { B, R, pares_reales, pares_lsh } = lsh[0];
+      const umbral = Math.pow(1 / B, 1 / R);
+      const [repetidos, final] = [embudo[0], embudo.at(-1)];
+      const ivfR = ivf[0];
+      const hnsw = faiss.filter(r => r.metodo === "HNSW").sort((a, b) => b.aceleracion_vs_exacto - a.aceleracion_vs_exacto)[0];
+      const est = Object.fromEntries(comparativa.map(r => [r.estructura, r]));
+      const cms = est["Count-Min Sketch"];
+      const [w, d] = cms.parametros.match(/\d+/g).map(Number);
+      const cmsCU = cmsTrade.find(r => r.w === w && r.d === d && r.conservador);
+      const destacada = reglas.find(r => mismos(r.antecedente, ["met=CONTRATACIÓN DIRECTA", "monto=2_50k-200k"]) && mismos(r.consecuente, ["comp=postor_unico"]));
+      const topReglas = reglas.filter(r => r !== destacada).sort((a, b) => b.lift - a.lift).slice(0, 4).concat(destacada ? [destacada] : []);
+
+      poner({
+        procesos: fmt(procesos), monto: fmt(monto / 1e9),
+        minhash_T: minhash[0].T, minhash_mae: fmt(minhash[0].mae_minhash, 3),
+        lsh_br: `${B}×${R}`, lsh_recall: fmt(pares_lsh / pares_reales * 100, 2), lsh_fn: fmt(pares_reales - pares_lsh), lsh_umbral: fmt(umbral, 2),
+        repetidos: fmt(repetidos.procesos), patron: fmt(final.procesos), patron_pct: fmt(final.pct_procesos, 2),
+        oefa: fmt(final.procesos_oefa), oefa_pct: fmt(final.procesos_oefa / final.procesos * 100, 1),
+        tfidf_dims: fmt(tfidf[0].num_features),
+        ivf_recall: fmt(ivfR.recall_at_k * 100, 0), ivf_acel: fmt(ivfR.seg_fuerza_bruta / ivfR.seg_ivf, 1),
+        hnsw_recall: fmt(hnsw.recall_at_k * 100, 2), hnsw_acel: fmt(hnsw.aceleracion_vs_exacto, 1),
+        bloom_fpr: fmt(est["Bloom Filter"].error * 100, 1),
+        cms_err: fmt(cms.error, 3), cms_err_cu: fmt(cmsCU.error_medio, 3),
+        dgim_err: fmt(est.DGIM.error * 100, 1), dgim_ahorro: fmt(est.DGIM.ahorro_memoria, 0),
+        regla_conf: destacada ? fmt(destacada.confianza * 100, 1) : "—", regla_lift: destacada ? fmt(destacada.lift, 2) : "—"
+      });
+
+      // ---- gráficos ----
+      const t = tiempos.find(r => r.agregacion === "procesos_por_entidad") ?? tiempos[0];
+      new Chart(document.getElementById("spark-chart"), {
+        type: "bar",
+        data: {
+          labels: ["RDD", "DataFrame", "Spark SQL"],
+          datasets: [{ label: "Tiempo (s)", data: [t.rdd_s, t.dataframe_s, t.sql_s], backgroundColor: [SLATE, BLUE, TEAL], borderRadius: 5, maxBarThickness: 72 }]
         },
-        scales: {
-          x: { type: "logarithmic", grid: { color: GRID }, ticks: { callback: v => Number(v).toLocaleString("es-PE") } },
-          y: { grid: { display: false }, border: { display: false } }
+        options: {
+          ...clone(baseOptions),
+          plugins: { ...clone(baseOptions.plugins), legend: { display: false }, tooltip: { ...tooltip, callbacks: { label: c => `${c.raw.toFixed(2)} s` } } },
+          scales: { x: clone(baseOptions.scales.x), y: { ...clone(baseOptions.scales.y), title: { display: true, text: "segundos" } } }
         }
-      }
-    });
+      });
 
-    new Chart(document.getElementById("ann-chart"), {
-      type: "bar",
-      data: {
-        labels: ["IVF propio", "Faiss HNSW"],
-        datasets: [
-          { label: "Recall (%)", data: [75, 97.99], backgroundColor: BLUE, borderRadius: 5, yAxisID: "recall" },
-          { label: "Aceleración (×)", data: [14.7, 20.9], backgroundColor: TEAL, borderRadius: 5, yAxisID: "speed" }
-        ]
-      },
-      options: {
-        ...clone(baseOptions),
-        scales: {
-          x: clone(baseOptions.scales.x),
-          recall: { ...clone(baseOptions.scales.y), position: "left", max: 100, title: { display: true, text: "recall (%)" } },
-          speed: { ...clone(baseOptions.scales.y), position: "right", max: 25, grid: { display: false }, title: { display: true, text: "aceleración (×)" } }
-        }
-      }
-    });
-
-    new Chart(document.getElementById("memory-chart"), {
-      type: "bar",
-      data: {
-        labels: ["Bloom Filter", "Count-Min Sketch", "DGIM"],
-        datasets: [{ label: "Ahorro (×)", data: [135, 35, 20], backgroundColor: [BLUE, TEAL, AMBER], borderRadius: 5, maxBarThickness: 72 }]
-      },
-      options: {
-        ...clone(baseOptions),
-        plugins: { ...clone(baseOptions.plugins), legend: { display: false }, tooltip: { ...tooltip, callbacks: { label: c => `${c.raw}× menos memoria` } } },
-        scales: { x: clone(baseOptions.scales.x), y: { ...clone(baseOptions.scales.y), title: { display: true, text: "factor de ahorro" } } }
-      }
-    });
-
-    new Chart(document.getElementById("rules-chart"), {
-      type: "bar",
-      data: {
-        labels: [
-          "LPA + rubro 72 → Obras + varios",
-          "Postor único + S/ 50–200k → Directa",
-          "Lima + rubro 80 → Servicios + único",
-          "< S/ 50k + Lima → Servicios + único",
-          "Directa + S/ 50–200k → Postor único"
-        ],
-        datasets: [{
-          label: "Lift",
-          data: [9.9005, 9.1211, 8.8148, 8.7551, 8.3710],
-          backgroundColor: [SLATE, SLATE, SLATE, SLATE, AMBER],
-          borderRadius: 5
-        }]
-      },
-      options: {
-        ...clone(baseOptions),
-        indexAxis: "y",
-        plugins: {
-          ...clone(baseOptions.plugins),
-          legend: { display: false },
-          tooltip: { ...tooltip, callbacks: { label: c => c.dataIndex === 4 ? `Lift ${c.raw.toFixed(2)} · confianza 93.6%` : `Lift ${c.raw.toFixed(2)}` } }
+      const similarities = Array.from({ length: 101 }, (_, i) => i / 100);
+      new Chart(document.getElementById("lsh-chart"), {
+        type: "line",
+        plugins: [thresholdPlugin],
+        data: {
+          datasets: [{
+            label: "P(candidato)",
+            data: similarities.map(s => ({ x: s, y: 1 - Math.pow(1 - Math.pow(s, R), B) })),
+            borderColor: BLUE,
+            backgroundColor: "rgba(37,99,235,.08)",
+            fill: true,
+            pointRadius: 0,
+            borderWidth: 2,
+            tension: .18
+          }]
         },
-        scales: {
-          x: { ...clone(baseOptions.scales.x), min: 0, suggestedMax: 11, title: { display: true, text: "lift" } },
-          y: { grid: { display: false }, border: { display: false }, ticks: { autoSkip: false } }
+        options: {
+          ...clone(baseOptions),
+          plugins: { ...clone(baseOptions.plugins), thresholdLine: { value: umbral } },
+          scales: {
+            x: { ...clone(baseOptions.scales.x), type: "linear", min: 0, max: 1, title: { display: true, text: "similitud" } },
+            y: { ...clone(baseOptions.scales.y), max: 1, ticks: { callback: v => `${Math.round(v * 100)}%` } }
+          }
         }
-      }
+      });
+
+      new Chart(document.getElementById("funnel-chart"), {
+        type: "bar",
+        data: {
+          labels: ["Compras repetidas", "Patrón sospechoso", "Concentración OEFA"],
+          datasets: [{ label: "Procesos", data: [repetidos.procesos, final.procesos, final.procesos_oefa], backgroundColor: [SLATE, AMBER, "#b45309"], borderRadius: 5 }]
+        },
+        options: {
+          ...clone(baseOptions),
+          indexAxis: "y",
+          plugins: {
+            ...clone(baseOptions.plugins),
+            legend: { display: false },
+            tooltip: { ...tooltip, callbacks: { label: c => `${c.raw.toLocaleString("es-PE")} procesos` } }
+          },
+          scales: {
+            x: { type: "logarithmic", grid: { color: GRID }, ticks: { callback: v => Number(v).toLocaleString("es-PE") } },
+            y: { grid: { display: false }, border: { display: false } }
+          }
+        }
+      });
+
+      const ivfAcel = ivfR.seg_fuerza_bruta / ivfR.seg_ivf;
+      new Chart(document.getElementById("ann-chart"), {
+        type: "bar",
+        data: {
+          labels: ["IVF propio", "Faiss HNSW"],
+          datasets: [
+            { label: "Recall (%)", data: [ivfR.recall_at_k * 100, hnsw.recall_at_k * 100], backgroundColor: BLUE, borderRadius: 5, yAxisID: "recall" },
+            { label: "Aceleración (×)", data: [+ivfAcel.toFixed(1), hnsw.aceleracion_vs_exacto], backgroundColor: TEAL, borderRadius: 5, yAxisID: "speed" }
+          ]
+        },
+        options: {
+          ...clone(baseOptions),
+          scales: {
+            x: clone(baseOptions.scales.x),
+            recall: { ...clone(baseOptions.scales.y), position: "left", max: 100, title: { display: true, text: "recall (%)" } },
+            speed: { ...clone(baseOptions.scales.y), position: "right", suggestedMax: 25, grid: { display: false }, title: { display: true, text: "aceleración (×)" } }
+          }
+        }
+      });
+
+      const memoria = ["Bloom Filter", "Count-Min Sketch", "DGIM"];
+      new Chart(document.getElementById("memory-chart"), {
+        type: "bar",
+        data: {
+          labels: memoria,
+          datasets: [{ label: "Ahorro (×)", data: memoria.map(e => Math.round(est[e].ahorro_memoria)), backgroundColor: [BLUE, TEAL, AMBER], borderRadius: 5, maxBarThickness: 72 }]
+        },
+        options: {
+          ...clone(baseOptions),
+          plugins: { ...clone(baseOptions.plugins), legend: { display: false }, tooltip: { ...tooltip, callbacks: { label: c => `${c.raw}× menos memoria` } } },
+          scales: { x: clone(baseOptions.scales.x), y: { ...clone(baseOptions.scales.y), title: { display: true, text: "factor de ahorro" } } }
+        }
+      });
+
+      new Chart(document.getElementById("rules-chart"), {
+        type: "bar",
+        data: {
+          labels: topReglas.map(etiqueta),
+          datasets: [{
+            label: "Lift",
+            data: topReglas.map(r => r.lift),
+            backgroundColor: topReglas.map(r => r === destacada ? AMBER : SLATE),
+            borderRadius: 5
+          }]
+        },
+        options: {
+          ...clone(baseOptions),
+          indexAxis: "y",
+          plugins: {
+            ...clone(baseOptions.plugins),
+            legend: { display: false },
+            tooltip: { ...tooltip, callbacks: { label: c => `Lift ${c.raw.toFixed(2)} · confianza ${(topReglas[c.dataIndex].confianza * 100).toFixed(1)}%` } }
+          },
+          scales: {
+            x: { ...clone(baseOptions.scales.x), min: 0, suggestedMax: 11, title: { display: true, text: "lift" } },
+            y: { grid: { display: false }, border: { display: false }, ticks: { autoSkip: false } }
+          }
+        }
+      });
+    }
+
+    construir().catch(err => {
+      console.error(err);
+      const aviso = document.createElement("div");
+      aviso.className = "callout";
+      aviso.innerHTML = `<strong>No se pudieron cargar los datos.</strong> Sirve el repositorio desde su raíz (<code>python3 -m http.server</code>) para que el reporte lea <code>${DATA}/</code>. Las cifras del texto pueden estar desactualizadas. <small>(${err.message})</small>`;
+      document.querySelector("main").prepend(aviso);
     });
 
     const updateProgress = () => {
