@@ -127,3 +127,15 @@ Abrir `http://localhost:8000`
 
 Acceder a la web con los resultados en [paolovasquezg.github.io/dm-proj1](https://paolovasquezg.github.io/dm-proj1/)
 
+
+## Reporte técnico
+
+Documento con la metodología, los resultados y las conclusiones del proyecto, en [reporte.html](reporte.html)
+
+
+```bash
+python3 -m http.server 8001
+```
+
+Abrir `http://localhost:8001/reporte.html`
+
